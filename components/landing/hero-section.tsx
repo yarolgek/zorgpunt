@@ -13,7 +13,7 @@ export function HeroSection() {
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               Het vinden van goede zorg kan overweldigend zijn. Daarom helpt
-              Sanne u persoonlijk om de perfecte match te vinden. Geheel
+              Lieke u persoonlijk om de perfecte match te vinden. Geheel
               vrijblijvend en afgestemd op uw situatie.
             </p>
 
@@ -22,14 +22,14 @@ export function HeroSection() {
               <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-primary/20 shadow-md flex-shrink-0">
                 <Image
                   src="/images/sanne-avatar.jpg"
-                  alt="Sanne - Persoonlijke zorgadviseur"
+                  alt="Lieke - Persoonlijke zorgadviseur"
                   fill
                   className="object-cover"
                   priority
                 />
               </div>
               <div className="flex flex-col">
-                <p className="text-sm font-medium text-foreground">Sanne</p>
+                <p className="text-sm font-medium text-foreground">Lieke</p>
                 <p className="text-sm text-muted-foreground italic">
                   &quot;Ik help u persoonlijk om de perfecte match te vinden.&quot;
                 </p>

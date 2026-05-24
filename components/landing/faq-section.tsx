@@ -9,7 +9,7 @@ const faqs = [
   {
     question: "Hoe snel kan ik een zorgverlener verwachten?",
     answer:
-      "Na uw aanvraag neemt Sanne binnen 24 uur telefonisch contact met u op. Afhankelijk van uw specifieke wensen en regio kunnen we vaak binnen een week een geschikte zorgverlener voorstellen.",
+      "Na uw aanvraag neemt Lieke binnen 24 uur telefonisch contact met u op. Afhankelijk van uw specifieke wensen en regio kunnen we vaak binnen een week een geschikte zorgverlener voorstellen.",
   },
   {
     question: "Wat kost het adviesgesprek?",
@@ -30,7 +30,7 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="py-16 lg:py-24 bg-card">
+    <section className="py-16 lg:py-24 bg-card" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-3 text-balance">
@@ -54,7 +54,7 @@ export function FaqSection() {
           ))}
         </Accordion>
 
-        {/* CTA #2 - Scroll to top link */}
+        {/* CTA #2 */}
         <div className="mt-10 text-center">
           <p className="text-muted-foreground">
             Staat uw vraag er niet tussen?{" "}
@@ -62,7 +62,7 @@ export function FaqSection() {
               href="#contact-form"
               className="text-primary hover:underline font-medium"
             >
-              Scroll naar boven en stuur Sanne een bericht
+              Vraag een gratis gesprek aan met Lieke
             </a>
           </p>
         </div>

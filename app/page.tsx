@@ -1,3 +1,4 @@
+import { Header } from "@/components/landing/header"
 import { HeroSection } from "@/components/landing/hero-section"
 import { MetricsSection } from "@/components/landing/metrics-section"
 import { TestimonialsSection } from "@/components/landing/testimonials-section"
@@ -15,9 +16,13 @@ export default function Page() {
         Direct naar contactformulier
       </a>
 
+      <Header />
+
       <main>
         <HeroSection />
-        <MetricsSection />
+        <div id="hoe-het-werkt">
+          <MetricsSection />
+        </div>
         <TestimonialsSection />
         <FaqSection />
       </main>
