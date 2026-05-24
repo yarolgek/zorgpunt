@@ -7,9 +7,17 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'ZorgMatch - Vind de Juiste Zorgverlener bij u in de Buurt',
+  description: 'ZorgMatch helpt u snel en persoonlijk de perfecte zorgverlener te vinden. Gratis adviesgesprek, binnen 24 uur reactie. Ruim 150+ geverifieerde zorgverleners in heel Nederland.',
   generator: 'v0.app',
+  keywords: ['zorgverlener', 'mantelzorg', 'thuiszorg', 'Nederland', 'zorgmatch', 'hulp thuis'],
+  authors: [{ name: 'ZorgMatch' }],
+  openGraph: {
+    title: 'ZorgMatch - Vind de Juiste Zorgverlener bij u in de Buurt',
+    description: 'Gratis adviesgesprek, binnen 24 uur reactie. Ruim 150+ geverifieerde zorgverleners.',
+    locale: 'nl_NL',
+    type: 'website',
+  },
   icons: {
     icon: [
       {
@@ -35,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="nl" className="bg-background scroll-smooth">
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
