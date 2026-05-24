@@ -8,13 +8,13 @@ const metrics = [
   },
   {
     icon: Users,
-    value: "150+ Helpers",
-    label: "Geverifieerde zorgverleners actief in uw regio",
+    value: "150+ Professionals",
+    label: "Geverifieerde zzp'ers actief in heel Nederland",
   },
   {
     icon: Star,
-    value: "9.4 / 10",
-    label: "Gemiddelde waardering door Nederlandse mantelzorgers",
+    value: "9.5 / 10",
+    label: "Gemiddelde waardering door opdrachtgevers en zzp'ers",
   },
 ]
 

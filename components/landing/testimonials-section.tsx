@@ -9,37 +9,37 @@ const testimonials = [
     id: 1,
     name: "Annelies",
     location: "Utrecht",
-    role: "Mantelzorger",
+    role: "Zorgcoördinator Thuiszorg",
     rating: 5,
     quote:
-      "Binnen twee dagen had Lieke de perfecte hulp voor mijn moeder gevonden. De persoonlijke aanpak maakte het verschil. Ik voelde me eindelijk gehoord.",
+      "Binnen twee dagen had ZorgMatch de perfecte freelance verpleegkundige voor ons team gevonden. De screening is grondig en de communicatie verloopt snel.",
   },
   {
     id: 2,
     name: "Henk",
     location: "Eindhoven",
-    role: "Opdrachtgever",
+    role: "Locatiemanager VVT",
     rating: 5,
     quote:
-      "Na maanden zoeken via andere kanalen, loste ZorgMatch het binnen een week op. De zorgverlener die ze vonden past perfect bij onze situatie.",
+      "Bij acute personeelsuitval lost ZorgMatch het altijd snel op. De zzp'ers die ze voorstellen zijn uiterst vakkundig, flexibel en direct inzetbaar.",
   },
   {
     id: 3,
     name: "Maria",
     location: "Amsterdam",
-    role: "Mantelzorger",
+    role: "Freelance Begeleider",
     rating: 5,
     quote:
-      "Heel fijn dat Lieke de tijd nam om echt te luisteren naar wat we nodig hadden. De match met onze huidige hulp is perfect.",
+      "Als zzp'er in de zorg vind ik via ZorgMatch de meest uitdagende opdrachten. Lieke luistert echt naar mijn wensen en matcht me op plekken waar ik pas.",
   },
   {
     id: 4,
     name: "Roos",
     location: "Rotterdam",
-    role: "Freelance verpleegkundige",
+    role: "Freelance Verpleegkundige",
     rating: 5,
     quote:
-      "Als freelancer ben ik blij met ZorgMatch. Binnen een week had ik een nieuwe opdracht via hun netwerk. Professioneel en snel.",
+      "Sinds ik samenwerk met ZorgMatch heb ik een constante stroom aan mooie opdrachten in de regio. De uitbetaling is snel en de begeleiding is persoonlijk.",
   },
 ]
 
@@ -49,13 +49,11 @@ const TRANSITION_MS = 500
 export function TestimonialsSection() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [visible, setVisible] = useState(true)
-  const [progress, setProgress] = useState(0)
 
   const advance = useCallback(() => {
     setVisible(false)
     setTimeout(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-      setProgress(0)
       setVisible(true)
     }, TRANSITION_MS)
   }, [])
@@ -65,14 +63,6 @@ export function TestimonialsSection() {
     const timer = setTimeout(advance, SLIDE_DURATION)
     return () => clearTimeout(timer)
   }, [currentIndex, advance])
-
-  // Progress bar ticker
-  useEffect(() => {
-    const tick = setInterval(() => {
-      setProgress((prev) => Math.min(prev + (100 / (SLIDE_DURATION / 100)), 100))
-    }, 100)
-    return () => clearInterval(tick)
-  }, [currentIndex])
 
   const current = testimonials[currentIndex]
 
@@ -84,17 +74,18 @@ export function TestimonialsSection() {
             Wat anderen over ons zeggen
           </h2>
           <p className="text-muted-foreground">
-            Echte ervaringen van opdrachtgevers en professionals
+            Echte ervaringen van zorginstellingen en freelance zorgprofessionals
           </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
           <Card className="overflow-hidden shadow-md">
-            {/* Progress bar */}
+            {/* Progress bar using smooth, GPU-accelerated CSS keyframe animation */}
             <div className="h-0.5 bg-muted">
               <div
-                className="h-full bg-primary transition-none"
-                style={{ width: `${progress}%` }}
+                key={currentIndex}
+                className="h-full bg-primary animate-progress-bar"
+                style={{ "--animation-duration": `${SLIDE_DURATION}ms` } as React.CSSProperties}
               />
             </div>
 

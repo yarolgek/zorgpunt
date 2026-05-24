@@ -7,24 +7,29 @@ import {
 
 const faqs = [
   {
-    question: "Hoe snel kan ik een zorgverlener verwachten?",
+    question: "Hoe snel kan ik een freelance zorgverlener inzetten?",
     answer:
-      "Na uw aanvraag neemt Lieke binnen 24 uur telefonisch contact met u op. Afhankelijk van uw specifieke wensen en regio kunnen we vaak binnen een week een geschikte zorgverlener voorstellen.",
+      "Na uw aanvraag neemt Lieke binnen 24 uur telefonisch contact met u op om uw wensen te bespreken. Dankzij ons brede netwerk kunnen we vaak al binnen enkele dagen (en bij spoed nog sneller) een gekwalificeerde zzp'er aan u voorstellen.",
   },
   {
-    question: "Wat kost het adviesgesprek?",
+    question: "Hoe worden de freelance zorgverleners gescreend?",
     answer:
-      "Het adviesgesprek is volledig gratis en geheel vrijblijvend. Wij brengen pas kosten in rekening wanneer u daadwerkelijk met een van onze zorgverleners in zee gaat.",
+      "Kwaliteit en veiligheid staan voorop. Alle zzp'ers in ons netwerk worden grondig gescreend. We controleren hun diploma's, eventuele KIWA-keurmerken, VOG, KvK-inschrijving, beroepsaansprakelijkheidsverzekering en we bellen referenties na.",
   },
   {
-    question: "Zijn de zorgverleners gecertificeerd?",
+    question: "Wat kost de bemiddeling voor opdrachtgevers?",
     answer:
-      "Ja, alle zorgverleners in ons netwerk zijn geverifieerd en hebben de juiste diploma's en certificeringen. Wij controleren referenties en zorgen dat iedereen voldoet aan de Nederlandse zorgnormen.",
+      "Het adviesgesprek is volledig gratis en vrijblijvend. Wij hanteren heldere afspraken zonder verrassingen achteraf. U betaalt pas wanneer er een succesvolle match is en de zzp'er daadwerkelijk bij u aan de slag gaat.",
   },
   {
-    question: "Wat als de match niet goed blijkt te zijn?",
+    question: "Hoe kan ik me als zzp'er aanmelden en wat kost het?",
     answer:
-      "Wij staan achter onze matches. Mocht de zorgverlener toch niet goed passen, dan zoeken we kosteloos naar een alternatief. Uw tevredenheid staat voorop.",
+      "Je kunt je eenvoudig aanmelden via ons contactformulier door te kiezen voor de optie 'Freelancer'. Aanmelden en bemiddeld worden naar opdrachten is voor zzp'ers volledig gratis. Wij helpen je met het vinden van passende opdrachten en ontzorgen je administratief.",
+  },
+  {
+    question: "In welke zorgsectoren is ZorgMatch actief?",
+    answer:
+      "Wij zijn actief in heel Nederland en bemiddelen in sectoren zoals Thuiszorg, Verpleging & Verzorging (VVT), Gehandicaptenzorg, Geestelijke Gezondheidszorg (GGZ), Jeugdzorg en Ouderenzorg.",
   },
 ]
 

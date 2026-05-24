@@ -7,14 +7,14 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'ZorgMatch - Vind de Juiste Zorgverlener bij u in de Buurt',
-  description: 'ZorgMatch helpt u snel en persoonlijk de perfecte zorgverlener te vinden. Gratis adviesgesprek, binnen 24 uur reactie. Ruim 150+ geverifieerde zorgverleners in heel Nederland.',
+  title: 'ZorgMatch - Freelance Zorgbemiddeling & Zorgpersoneel',
+  description: 'ZorgMatch brengt gekwalificeerde freelance zorgverleners (zzp\'ers) en zorgorganisaties in heel Nederland samen. Snel, persoonlijk en betrouwbaar.',
   generator: 'v0.app',
-  keywords: ['zorgverlener', 'mantelzorg', 'thuiszorg', 'Nederland', 'zorgmatch', 'hulp thuis'],
+  keywords: ['zzp zorg', 'freelance zorg', 'zorgpersoneel', 'zorgorganisatie', 'zorgmatch', 'Nederland', 'thuiszorg', 'verpleegkundige'],
   authors: [{ name: 'ZorgMatch' }],
   openGraph: {
-    title: 'ZorgMatch - Vind de Juiste Zorgverlener bij u in de Buurt',
-    description: 'Gratis adviesgesprek, binnen 24 uur reactie. Ruim 150+ geverifieerde zorgverleners.',
+    title: 'ZorgMatch - Freelance Zorgbemiddeling & Zorgpersoneel',
+    description: 'Koppel gekwalificeerde zzp\'ers in de zorg aan zorgorganisaties. Snel, persoonlijk en betrouwbaar.',
     locale: 'nl_NL',
     type: 'website',
   },
