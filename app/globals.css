@@ -4,104 +4,103 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* ZorgMatch Design Tokens - 5 Color Palette */
-  
-  /* Background: Off-White (#FAFAFA) */
-  --background: oklch(0.98 0 0);
-  /* Foreground: Charcoal (#2D3748) */
-  --foreground: oklch(0.35 0.02 260);
-  
-  /* Card: Cream (#F7F5F0) */
-  --card: oklch(0.97 0.01 90);
-  --card-foreground: oklch(0.35 0.02 260);
-  
-  /* Popover: Same as card */
-  --popover: oklch(0.97 0.01 90);
-  --popover-foreground: oklch(0.35 0.02 260);
-  
-  /* Primary: Brand Blue (#759940) */
-  --primary: #759940;
-  --primary-foreground: oklch(1 0 0);
-  
-  /* Secondary: Light cream variant */
-  --secondary: oklch(0.95 0.01 90);
-  --secondary-foreground: oklch(0.35 0.02 260);
-  
-  /* Muted: Slate (#64748B) */
-  --muted: oklch(0.95 0.01 90);
-  --muted-foreground: oklch(0.55 0.02 260);
-  
-  /* Accent: Brand Blue */
-  --accent: #759940;
-  --accent-foreground: oklch(1 0 0);
-  
-  /* Destructive */
+  /*
+   * ZorgpuntConnect (ZPC) design tokens — single source of truth
+   * Neutrals: kickstart palette. Brand: #759940 (primary), #006AA5 (secondary).
+   */
+
+  /* Brand */
+  --brand-primary: #759940;
+  --brand-secondary: #006aa5;
+
+  /* Neutrals */
+  --background: #fafafa;
+  --foreground: #2d3748;
+  --card: #f7f5f0;
+  --card-foreground: #2d3748;
+  --popover: #f7f5f0;
+  --popover-foreground: #2d3748;
+
+  /* Primary actions & brand accents (sage green) */
+  --primary: var(--brand-primary);
+  /* Dark green text on #759940 — 4.74:1 (AA). White on green is ~3.3:1. */
+  --primary-foreground: #1f2618;
+
+  /* UI surfaces (cream) — not brand secondary */
+  --secondary: #f3f1ec;
+  --secondary-foreground: #2d3748;
+
+  --muted: #f3f1ec;
+  --muted-foreground: #64748b;
+
+  --accent: var(--brand-primary);
+  --accent-foreground: var(--primary-foreground);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  
-  /* Borders & Inputs */
-  --border: oklch(0.90 0.01 90);
-  --input: oklch(0.92 0.01 90);
-  --ring: #759940;
-  
-  /* Charts */
-  --chart-1: oklch(0.58 0.12 125);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  
+  --destructive-foreground: #ffffff;
+
+  --border: #e8e4dc;
+  --input: #ebe7df;
+  --ring: var(--brand-primary);
+
+  /* Charts — brand colors + reserved extras */
+  --chart-1: var(--brand-primary);
+  --chart-2: var(--brand-secondary);
+  --chart-3: #64748b;
+  --chart-4: #f7f5f0;
+  --chart-5: #2d3748;
+
   --radius: 0.625rem;
-  
-  /* Sidebar */
-  --sidebar: oklch(0.97 0.01 90);
-  --sidebar-foreground: oklch(0.35 0.02 260);
-  --sidebar-primary: oklch(0.58 0.12 125);
-  --sidebar-primary-foreground: oklch(1 0 0);
-  --sidebar-accent: oklch(0.95 0.01 90);
-  --sidebar-accent-foreground: oklch(0.35 0.02 260);
-  --sidebar-border: oklch(0.90 0.01 90);
-  --sidebar-ring: oklch(0.58 0.12 125);
+
+  /* Sidebar (shadcn — reserved, unused on landing) */
+  --sidebar: var(--card);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--brand-primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: var(--secondary);
+  --sidebar-accent-foreground: var(--foreground);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--brand-primary);
 }
 
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
+  --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.985 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: #8fb35a;
+  --primary-foreground: #1f2618;
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
+  --accent: #8fb35a;
+  --accent-foreground: var(--primary-foreground);
   --destructive: oklch(0.396 0.141 25.723);
   --destructive-foreground: oklch(0.637 0.237 25.331);
   --border: oklch(0.269 0 0);
   --input: oklch(0.269 0 0);
-  --ring: oklch(0.439 0 0);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
+  --ring: #8fb35a;
+  --chart-1: #8fb35a;
+  --chart-2: #3d8fc4;
+  --chart-3: oklch(0.708 0 0);
+  --chart-4: oklch(0.269 0 0);
+  --chart-5: oklch(0.985 0 0);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: #8fb35a;
+  --sidebar-primary-foreground: var(--primary-foreground);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --sidebar-ring: #8fb35a;
 }
 
 @theme inline {
-  --font-sans: 'Geist', 'Geist Fallback';
-  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -110,6 +109,8 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-secondary: var(--brand-secondary);
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-muted: var(--muted);
@@ -147,6 +148,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  #contact-form {
+    scroll-margin-top: 5rem;
+  }
 }
 
 @keyframes progress-bar {
@@ -162,3 +166,29 @@
   animation: progress-bar var(--animation-duration, 5000ms) linear forwards;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .animate-progress-bar {
+    animation: none;
+  }
+}
+
+/* Alternating section depth (P3) */
+.section-band {
+  background-image: linear-gradient(
+    180deg,
+    var(--card) 0%,
+    color-mix(in oklab, var(--card) 92%, var(--background)) 100%
+  );
+}
+
+.section-elevated {
+  box-shadow: 0 1px 0 0 var(--border);
+}
+
+.card-elevated {
+  @apply border border-border bg-card shadow-sm;
+}
+
+.card-elevated-hover {
+  @apply border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
+}

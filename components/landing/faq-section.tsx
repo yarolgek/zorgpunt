@@ -27,7 +27,7 @@ const faqs = [
       "Je kunt je eenvoudig aanmelden via ons contactformulier door te kiezen voor de optie 'Freelancer'. Aanmelden en bemiddeld worden naar opdrachten is voor zzp'ers volledig gratis. Wij helpen je met het vinden van passende opdrachten en ontzorgen je administratief.",
   },
   {
-    question: "In welke zorgsectoren is ZorgMatch actief?",
+    question: "In welke zorgsectoren is ZorgpuntConnect actief?",
     answer:
       "Wij zijn actief in heel Nederland en bemiddelen in sectoren zoals Thuiszorg, Verpleging & Verzorging (VVT), Gehandicaptenzorg, Geestelijke Gezondheidszorg (GGZ), Jeugdzorg en Ouderenzorg.",
   },
@@ -35,14 +35,14 @@ const faqs = [
 
 export function FaqSection() {
   return (
-    <section className="py-16 lg:py-24 bg-card" id="faq">
+    <section className="py-16 lg:py-24 bg-card section-band" id="faq">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-3 text-balance">
             Veelgestelde vragen
           </h2>
           <p className="text-muted-foreground">
-            Alles wat u moet weten over onze ondersteuning
+            Antwoorden voor opdrachtgevers en zzp&apos;ers
           </p>
         </div>
 

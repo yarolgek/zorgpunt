@@ -7,6 +7,12 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Check, AlertCircle, Briefcase, User } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {
+  parseRoleFromLocation,
+  scrollToContactForm,
+  syncRoleToUrl,
+} from "@/lib/contact-form-url"
+import { freelancerNiches, opdrachtgeverNiches } from "@/lib/sectors"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -26,36 +32,27 @@ interface FormErrors {
   telefoon?: string
 }
 
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const opdrachtgeverNiches = [
-  { value: "thuiszorg", label: "Thuiszorg" },
-  { value: "verpleging", label: "Verpleging & Verzorging" },
-  { value: "gehandicaptenzorg", label: "Gehandicaptenzorg" },
-  { value: "ggz", label: "GGZ / Psychische zorg" },
-  { value: "jeugdzorg", label: "Jeugdzorg" },
-  { value: "ouderenzorg", label: "Ouderenzorg" },
-  { value: "anders", label: "Anders" },
-]
-
-const freelancerNiches = [
-  { value: "verpleegkundige", label: "Verpleegkundige" },
-  { value: "verzorgende", label: "Verzorgende IG" },
-  { value: "begeleider", label: "Begeleider / SPH" },
-  { value: "psycholoog", label: "Psycholoog / GZ" },
-  { value: "fysiotherapeut", label: "Fysiotherapeut" },
-  { value: "jeugdhulpverlener", label: "Jeugdhulpverlener" },
-  { value: "anders", label: "Anders" },
-]
-
 // ─── Sub-components ────────────────────────────────────────────────────────────
+
+const STEP_LABELS = [
+  "Stap 1 van 3: kies uw rol",
+  "Stap 2 van 3: kies sector of vakgebied",
+  "Stap 3 van 3: vul uw gegevens in",
+] as const
 
 function StepIndicator({ step, total }: { step: number; total: number }) {
   return (
-    <div className="flex items-center gap-2 mb-6">
+    <ol
+      className="flex items-center gap-2 mb-6 list-none p-0 m-0"
+      aria-label="Formulierstappen"
+    >
       {Array.from({ length: total }).map((_, i) => (
-        <div key={i} className="flex items-center gap-2">
-          <div
+        <li
+          key={i}
+          className="flex items-center gap-2"
+          aria-current={i === step ? "step" : undefined}
+        >
+          <span
             className={cn(
               "w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold transition-colors",
               i < step
@@ -65,19 +62,28 @@ function StepIndicator({ step, total }: { step: number; total: number }) {
                   : "bg-muted text-muted-foreground"
             )}
           >
-            {i < step ? <Check className="w-3.5 h-3.5" /> : i + 1}
-          </div>
+            <span className="sr-only">
+              {i < step ? "Voltooid: " : i === step ? "Huidige stap: " : "Stap "}
+              {STEP_LABELS[i]}
+            </span>
+            {i < step ? (
+              <Check className="w-3.5 h-3.5" aria-hidden />
+            ) : (
+              <span aria-hidden>{i + 1}</span>
+            )}
+          </span>
           {i < total - 1 && (
-            <div
+            <span
               className={cn(
-                "h-px flex-1 w-8 transition-colors",
+                "h-px block w-8 transition-colors",
                 i < step ? "bg-primary" : "bg-border"
               )}
+              aria-hidden
             />
           )}
-        </div>
+        </li>
       ))}
-    </div>
+    </ol>
   )
 }
 
@@ -96,36 +102,45 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
+  const [stepAnnouncement, setStepAnnouncement] = useState(STEP_LABELS[0])
 
   const niches = role === "opdrachtgever" ? opdrachtgeverNiches : freelancerNiches
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash
-      if (!hash) return
-      
-      if (hash.includes("role=freelancer") || hash.includes("role=zzp")) {
-        setRole("freelancer")
-        setNiche(null)
-        setStep(1)
-      } else if (hash.includes("role=opdrachtgever") || hash.includes("role=werkgever")) {
-        setRole("opdrachtgever")
-        setNiche(null)
-        setStep(1)
-      }
-    }
+    setStepAnnouncement(STEP_LABELS[step] ?? STEP_LABELS[0])
+  }, [step])
 
-    handleHashChange()
-    window.addEventListener("hashchange", handleHashChange)
-    return () => window.removeEventListener("hashchange", handleHashChange)
+  const applyRoleFromUrl = (shouldScroll: boolean) => {
+    const roleFromUrl = parseRoleFromLocation()
+    if (!roleFromUrl) return
+
+    setRole(roleFromUrl)
+    setNiche(null)
+    setStep(1)
+
+    if (shouldScroll && window.location.hash.includes("contact-form")) {
+      scrollToContactForm(true)
+    }
+  }
+
+  useEffect(() => {
+    applyRoleFromUrl(true)
+
+    const onHashChange = () => applyRoleFromUrl(true)
+    window.addEventListener("hashchange", onHashChange)
+    return () => window.removeEventListener("hashchange", onHashChange)
   }, [])
 
   // ── Validation ──────────────────────────────────────────────────────────────
 
+  const isOpdrachtgever = role === "opdrachtgever"
+
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
     if (!formData.naam || formData.naam.trim().length < 2) {
-      newErrors.naam = "Vul uw naam in (minimaal 2 tekens)"
+      newErrors.naam = isOpdrachtgever
+        ? "Vul uw naam in (minimaal 2 tekens)"
+        : "Vul je naam in (minimaal 2 tekens)"
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!formData.email || !emailRegex.test(formData.email)) {
@@ -137,15 +152,27 @@ export function ContactForm() {
       newErrors.telefoon = "Vul een geldig Nederlands telefoonnummer in"
     }
     setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+    if (Object.keys(newErrors).length > 0) {
+      const order: (keyof FormErrors)[] = ["naam", "email", "telefoon"]
+      const firstInvalid = order.find((key) => newErrors[key])
+      if (firstInvalid) {
+        requestAnimationFrame(() => {
+          document.getElementById(firstInvalid)?.focus()
+        })
+      }
+      return false
+    }
+    return true
   }
 
   // ── Handlers ────────────────────────────────────────────────────────────────
 
   const handleRoleSelect = (selected: Role) => {
+    if (!selected) return
     setRole(selected)
     setNiche(null)
     setStep(1)
+    syncRoleToUrl(selected)
   }
 
   const handleNicheSelect = (selected: Niche) => {
@@ -162,7 +189,9 @@ export function ContactForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!validateForm()) return
+    if (!validateForm()) {
+      return
+    }
     setIsSubmitting(true)
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500))
@@ -181,13 +210,26 @@ export function ContactForm() {
     setFormData({ naam: "", email: "", telefoon: "", bericht: "" })
     setErrors({})
     setIsSuccess(false)
+    window.history.replaceState(null, "", `${window.location.pathname}#contact-form`)
   }
 
   // ── Success ──────────────────────────────────────────────────────────────────
 
   if (isSuccess) {
+    const nextSteps = isOpdrachtgever
+      ? [
+          "Lieke belt u binnen 24 uur telefonisch op.",
+          "Samen bespreken we uw wensen, planning en het type professional.",
+          "U ontvangt passende, gescreende zzp'ers om uit te kiezen.",
+        ]
+      : [
+          "Lieke belt je binnen 24 uur telefonisch op.",
+          "Samen bespreken we je profiel, beschikbaarheid en voorkeuren.",
+          "Je ontvangt passende opdrachten die bij jou passen.",
+        ]
+
     return (
-      <Card className="border-2 border-primary/20 shadow-lg">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
         <CardContent className="pt-8 pb-8">
           <div className="flex flex-col items-center text-center gap-4">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -195,13 +237,32 @@ export function ContactForm() {
             </div>
             <div>
               <h3 className="text-xl font-semibold text-foreground">
-                Bedankt voor uw aanvraag!
+                {isOpdrachtgever
+                  ? "Bedankt voor uw aanvraag!"
+                  : "Bedankt voor je aanvraag!"}
               </h3>
               <p className="text-muted-foreground mt-2">
-                Lieke neemt binnen 24 uur contact met u op.
+                {isOpdrachtgever
+                  ? "Lieke neemt binnen 24 uur contact met u op."
+                  : "Lieke neemt binnen 24 uur contact met je op."}
               </p>
             </div>
-            <Button variant="outline" onClick={handleReset} className="mt-4">
+            <div className="w-full text-left mt-2 rounded-xl border border-border bg-muted/30 p-4">
+              <p className="text-sm font-semibold text-foreground mb-3">
+                Wat gebeurt er nu?
+              </p>
+              <ol className="flex flex-col gap-2.5">
+                {nextSteps.map((text, i) => (
+                  <li key={text} className="flex gap-3 text-sm text-muted-foreground">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-semibold text-primary">
+                      {i + 1}
+                    </span>
+                    <span className="pt-0.5 leading-relaxed">{text}</span>
+                  </li>
+                ))}
+              </ol>
+            </div>
+            <Button type="button" variant="outline" onClick={handleReset} className="mt-2">
               Nog een aanvraag doen
             </Button>
           </div>
@@ -214,7 +275,10 @@ export function ContactForm() {
 
   if (step === 0) {
     return (
-      <Card className="border-2 border-primary/20 shadow-lg" id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+        <p className="sr-only" aria-live="polite">
+          {stepAnnouncement}
+        </p>
         <CardHeader className="pb-2">
           <StepIndicator step={0} total={3} />
           <CardTitle className="text-xl font-semibold text-foreground">
@@ -227,6 +291,7 @@ export function ContactForm() {
         <CardContent className="pt-4">
           <div className="grid grid-cols-2 gap-4">
             <button
+              type="button"
               onClick={() => handleRoleSelect("opdrachtgever")}
               className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
@@ -240,6 +305,7 @@ export function ContactForm() {
             </button>
 
             <button
+              type="button"
               onClick={() => handleRoleSelect("freelancer")}
               className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
@@ -261,20 +327,26 @@ export function ContactForm() {
 
   if (step === 1) {
     return (
-      <Card className="border-2 border-primary/20 shadow-lg" id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+        <p className="sr-only" aria-live="polite">
+          {stepAnnouncement}
+        </p>
         <CardHeader className="pb-2">
           <StepIndicator step={1} total={3} />
           <CardTitle className="text-xl font-semibold text-foreground">
             {role === "opdrachtgever" ? "In welke sector zoekt u?" : "In welk vakgebied werkt u?"}
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-1">
-            Zo brengen wij u in contact met de juiste match.
+            {role === "opdrachtgever"
+              ? "Zo brengen wij u in contact met de juiste match."
+              : "Zo brengen we je in contact met de juiste opdrachten."}
           </p>
         </CardHeader>
         <CardContent className="pt-4 flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-2">
+          <div className="flex flex-col gap-2 md:grid md:grid-cols-2">
             {niches.map((n) => (
               <button
+                type="button"
                 key={n.value}
                 onClick={() => handleNicheSelect(n.value)}
                 className="rounded-lg border-2 border-border bg-background px-4 py-3 text-left text-sm font-medium text-foreground transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
@@ -300,7 +372,10 @@ export function ContactForm() {
   const roleLabel = role === "opdrachtgever" ? "Opdrachtgever" : "Freelancer"
 
   return (
-    <Card className="border-2 border-primary/20 shadow-lg" id="contact-form">
+    <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+      <p className="sr-only" aria-live="polite">
+        {stepAnnouncement}
+      </p>
       <CardHeader className="pb-2">
         <StepIndicator step={2} total={3} />
         {/* Context confirmation chip */}
@@ -311,21 +386,27 @@ export function ContactForm() {
           </span>
         </div>
         <CardTitle className="text-xl font-semibold text-foreground">
-          Vraag een gratis adviesgesprek aan
+          {isOpdrachtgever
+            ? "Vraag een gratis adviesgesprek aan"
+            : "Vraag je gratis adviesgesprek aan"}
         </CardTitle>
         <p className="text-sm text-muted-foreground mt-1">
-          Lieke neemt binnen 24 uur telefonisch contact met u op.
+          {isOpdrachtgever
+            ? "Lieke neemt binnen 24 uur telefonisch contact met u op."
+            : "Lieke neemt binnen 24 uur telefonisch contact met je op."}
         </p>
       </CardHeader>
       <CardContent className="pt-2">
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           {/* Naam */}
           <div className="flex flex-col gap-1.5">
-            <Label htmlFor="naam" className="text-sm font-medium">Uw naam</Label>
+            <Label htmlFor="naam" className="text-sm font-medium">
+              {isOpdrachtgever ? "Uw naam" : "Je naam"}
+            </Label>
             <Input
               id="naam"
               type="text"
-              placeholder="Bijv. Jan de Vries"
+              placeholder={isOpdrachtgever ? "Bijv. Jan de Vries" : "Bijv. Maria Jansen"}
               value={formData.naam}
               onChange={(e) => handleInputChange("naam", e.target.value)}
               disabled={isSubmitting}
@@ -345,7 +426,7 @@ export function ContactForm() {
             <Input
               id="email"
               type="email"
-              placeholder="uw@email.nl"
+              placeholder={isOpdrachtgever ? "uw@email.nl" : "je@email.nl"}
               value={formData.email}
               onChange={(e) => handleInputChange("email", e.target.value)}
               disabled={isSubmitting}
@@ -387,7 +468,11 @@ export function ContactForm() {
             <textarea
               id="bericht"
               rows={3}
-              placeholder="Vertel ons kort over uw situatie..."
+              placeholder={
+                isOpdrachtgever
+                  ? "Vertel ons kort over uw situatie en behoefte..."
+                  : "Vertel kort over je beschikbaarheid en wat je zoekt..."
+              }
               value={formData.bericht}
               onChange={(e) => handleInputChange("bericht", e.target.value)}
               disabled={isSubmitting}
@@ -411,13 +496,17 @@ export function ContactForm() {
             )}
           </Button>
 
-          <div className="flex items-center justify-center gap-3 text-xs text-muted-foreground mt-1">
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground mt-1">
             <span className="flex items-center gap-1">
               <Check className="w-3 h-3 text-primary" />
               Binnen 24 uur reactie
             </span>
-            <span>&middot;</span>
+            <span className="hidden sm:inline">&middot;</span>
             <span>Geheel vrijblijvend</span>
+            <span className="hidden sm:inline">&middot;</span>
+            <span>AVG-conform</span>
+            <span className="hidden sm:inline">&middot;</span>
+            <span>Geen spam</span>
           </div>
 
           <button

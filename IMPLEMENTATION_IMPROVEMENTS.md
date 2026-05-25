@@ -1,4 +1,4 @@
-# ZorgMatch Frontend Improvements — Implementation Plan
+# ZorgpuntConnect (ZPC) Frontend Improvements — Implementation Plan
 
 Frontend-only improvements for the landing page. No backend implementation in this plan (form submission wiring via third-party services is noted where relevant as optional frontend configuration).
 
@@ -12,11 +12,11 @@ Frontend-only improvements for the landing page. No backend implementation in th
 
 | Phase | Focus | Status |
 |-------|--------|--------|
-| [P0](#phase-p0--foundation--blockers) | Foundation & blockers | Not started |
-| [P1](#phase-p1--conversion--core-ux) | Conversion & core UX | Not started |
-| [P2](#phase-p2--content--trust) | Content & trust | Not started |
-| [P3](#phase-p3--visual-identity--polish) | Visual identity & polish | Not started |
-| [P4](#phase-p4--accessibility--motion) | Accessibility & motion | Not started |
+| [P0](#phase-p0--foundation--blockers) | Foundation & blockers | Complete |
+| [P1](#phase-p1--conversion--core-ux) | Conversion & core UX | Complete |
+| [P2](#phase-p2--content--trust) | Content & trust | Complete |
+| [P3](#phase-p3--visual-identity--polish) | Visual identity & polish | Complete |
+| [P4](#phase-p4--accessibility--motion) | Accessibility & motion | Complete |
 | [P5](#phase-p5--seo--metadata) | SEO & metadata | Not started |
 | [P6](#phase-p6--performance--housekeeping) | Performance & housekeeping | Not started |
 
@@ -28,48 +28,48 @@ Must be resolved before polish; broken or inconsistent basics undermine trust.
 
 ### P0.1 Brand & naming alignment
 
-- [ ] Decide canonical product name: **ZorgMatch** vs **ZorgPunt** (repo vs UI)
-- [ ] Decide canonical advisor persona name: **Lieke** vs **Sanne** (copy, alt text, filenames)
-- [ ] Update all user-facing strings to match decision (`hero-section`, `faq-section`, `footer`, `contact-form`, `testimonials-section`)
-- [ ] Update `app/layout.tsx` metadata (`title`, `description`, `authors`, `openGraph`) to match
-- [ ] Update `package.json` `name` if aligning with brand (optional)
-- [ ] Update `README.md` / `IMPLEMENTATION_KICKSTART.md` references or add note that kickstart is historical
+- [x] Decide canonical product name: **ZorgMatch** vs **ZorgPunt** (repo vs UI) → **ZorgMatch** in UI/metadata; repo folder stays `zorgpunt`
+- [x] Decide canonical advisor persona name: **Lieke** vs **Sanne** (copy, alt text, filenames) → **Lieke**
+- [x] Update all user-facing strings to match decision (`hero-section`, `faq-section`, `footer`, `contact-form`, `testimonials-section`) — already aligned; hero image path → `lieke-avatar.jpg`
+- [x] Update `app/layout.tsx` metadata (`title`, `description`, `authors`, `openGraph`) to match — added `openGraph.siteName`
+- [x] Update `package.json` `name` if aligning with brand (optional) → `zorgmatch`
+- [x] Update `README.md` / `IMPLEMENTATION_KICKSTART.md` references or add note that kickstart is historical
 
 **Files:** `components/landing/*.tsx`, `app/layout.tsx`, `README.md`
 
 ### P0.2 Missing & mismatched assets
 
-- [ ] Add advisor avatar image to `public/images/` (consistent filename, e.g. `lieke-avatar.jpg`)
-- [ ] Fix `hero-section.tsx` `Image` `src` and `alt` to match actual file and persona name
-- [ ] Add favicon set referenced in `layout.tsx`: `icon-light-32x32.png`, `icon-dark-32x32.png`, `apple-icon.png` (or simplify `icons` config to existing `icon.svg` only)
-- [ ] Verify all `public/` assets load in dev and production build (no 404s in network tab)
+- [x] Add advisor avatar image to `public/images/` (consistent filename, e.g. `lieke-avatar.jpg`)
+- [x] Fix `hero-section.tsx` `Image` `src` and `alt` to match actual file and persona name
+- [x] Add favicon set referenced in `layout.tsx`: `icon-light-32x32.png`, `icon-dark-32x32.png`, `apple-icon.png` (or simplify `icons` config to existing `icon.svg` only) → simplified to `icon.svg` only
+- [x] Verify all `public/` assets load in dev and production build (no 404s in network tab) — `npm run build` OK; removed legacy `sanne-avatar.jpg`
 
 **Files:** `public/`, `components/landing/hero-section.tsx`, `app/layout.tsx`
 
 ### P0.3 Design tokens — single source of truth
 
-- [ ] Choose primary brand color: kickstart sage `#6B8E23` **or** current `#759940` (document choice in this file)
-- [ ] Update `app/globals.css` `:root` tokens to match chosen palette
-- [ ] Fix misleading CSS comments (e.g. “Brand Blue” → accurate name)
-- [ ] Align `--sidebar-*` and chart tokens if unused, or leave documented as “reserved”
-- [ ] Confirm cream/off-white/charcoal/slate tokens match kickstart table
-- [ ] Run contrast check on primary green vs background and on primary button text (WCAG 4.5:1 for body-sized text)
+- [x] Choose primary brand color: kickstart sage `#6B8E23` **or** current `#759940` (document choice in this file) → **`#759940`**
+- [x] Update `app/globals.css` `:root` tokens to match chosen palette (+ `--brand-secondary: #006AA5`)
+- [x] Fix misleading CSS comments (e.g. “Brand Blue” → accurate name)
+- [x] Align `--sidebar-*` and chart tokens if unused, or leave documented as “reserved”
+- [x] Confirm cream/off-white/charcoal/slate tokens match kickstart table (`#FAFAFA`, `#F7F5F0`, `#2D3748`, `#64748B`)
+- [x] Run contrast check on primary green vs background and on primary button text (WCAG 4.5:1 for body-sized text) — see decisions log; `--primary-foreground: #1f2618` on green buttons
 
 **Files:** `app/globals.css`
 
 ### P0.4 Typography — wire Geist
 
-- [ ] Apply Geist Sans to `body` via `next/font` `className` (use `variable` on `html` if preferred)
-- [ ] Remove or use unused `_geist` / `_geistMono` imports in `layout.tsx`
-- [ ] Verify font loads (no FOUT flash of system font on first paint)
-- [ ] Optional: document decision on secondary heading font (defer to P3 if not doing now)
+- [x] Apply Geist Sans to `body` via `next/font` `className` (use `variable` on `html` if preferred)
+- [x] Remove or use unused `_geist` / `_geistMono` imports in `layout.tsx`
+- [x] Verify font loads (no FOUT flash of system font on first paint) — `display: 'swap'` + self-hosted via `next/font`
+- [x] Optional: document decision on secondary heading font (defer to P3 if not doing now)
 
 **Files:** `app/layout.tsx`
 
 ### P0.5 CSS duplication
 
-- [ ] Confirm only `app/globals.css` is imported (not `styles/globals.css`)
-- [ ] Delete or archive `styles/globals.css` if unused, to avoid future token drift
+- [x] Confirm only `app/globals.css` is imported (not `styles/globals.css`)
+- [x] Delete or archive `styles/globals.css` if unused, to avoid future token drift
 
 **Files:** `app/layout.tsx`, `styles/globals.css`
 
@@ -81,50 +81,50 @@ Highest impact on lead capture and navigation clarity.
 
 ### P1.1 “Hoe het werkt” — real process section
 
-- [ ] Add new section component (e.g. `how-it-works-section.tsx`) with 3–4 numbered steps
-- [ ] Provide **two paths**: Opdrachtgever flow and ZZP’er flow (tabs, side-by-side columns, or stacked blocks)
-- [ ] Move or duplicate `#hoe-het-werkt` anchor to this section (not metrics)
-- [ ] Rename metrics section id if needed (e.g. `#vertrouwen` or keep metrics without misleading nav label)
-- [ ] Update header/footer nav label if section title changes
-- [ ] Add section to `app/page.tsx` between hero and metrics (or after metrics — decide IA)
+- [x] Add new section component (e.g. `how-it-works-section.tsx`) with 3–4 numbered steps
+- [x] Provide **two paths**: Opdrachtgever flow and ZZP’er flow (tabs, side-by-side columns, or stacked blocks)
+- [x] Move or duplicate `#hoe-het-werkt` anchor to this section (not metrics)
+- [x] Rename metrics section id if needed (e.g. `#vertrouwen` or keep metrics without misleading nav label)
+- [x] Update header/footer nav label if section title changes — nav label unchanged; anchor now correct
+- [x] Add section to `app/page.tsx` between hero and metrics (or after metrics — decide IA)
 
 **Files:** `components/landing/how-it-works-section.tsx` (new), `app/page.tsx`, `header.tsx`, `footer.tsx`
 
 ### P1.2 Hero ↔ form redundancy
 
-- [ ] Decide pattern: hero cards **scroll + pre-fill** form vs remove form step 0 when coming from card
-- [ ] Ensure hero card links use `#contact-form?role=...` and scroll into view
-- [ ] Add `scroll-margin-top` on `#contact-form` for sticky header offset
-- [ ] On hash arrival: scroll to form and optionally focus first focusable control
-- [ ] Test mobile: card tap → form visible without confusion
+- [x] Decide pattern: hero cards **scroll + pre-fill** form vs remove form step 0 when coming from card → skip step 0, go to niche
+- [x] Ensure hero card links use `#contact-form?role=...` and scroll into view
+- [x] Add `scroll-margin-top` on `#contact-form` for sticky header offset
+- [x] On hash arrival: scroll to form and optionally focus first focusable control
+- [x] Test mobile: card tap → form visible without confusion — `scroll-margin-top` + mobile CTA padding
 
 **Files:** `hero-section.tsx`, `contact-form.tsx`, `globals.css` or component styles
 
 ### P1.3 Mobile sticky CTA
 
-- [ ] Add bottom sticky bar component (mobile only, `md:hidden`)
-- [ ] Copy: e.g. “Gratis gesprek aanvragen” → links to `#contact-form`
-- [ ] Hide when form is in viewport (optional `IntersectionObserver`) to avoid duplicate CTAs
-- [ ] Ensure bar does not cover form submit button (safe-area padding, `pb-*` on `main` or form)
+- [x] Add bottom sticky bar component (mobile only, `md:hidden`)
+- [x] Copy: e.g. “Gratis gesprek aanvragen” → links to `#contact-form`
+- [x] Hide when form is in viewport (optional `IntersectionObserver`) to avoid duplicate CTAs
+- [x] Ensure bar does not cover form submit button (safe-area padding, `pb-*` on `main` or form)
 
 **Files:** new `components/landing/mobile-cta-bar.tsx`, `app/page.tsx`
 
 ### P1.4 Form UX enhancements
 
-- [ ] Success state: add “What happens next” 3-step list (static copy)
-- [ ] Role-specific microcopy on step 2 (headlines, placeholder for `bericht`)
-- [ ] Niche step: improve mobile layout (select vs grid — pick one approach)
-- [ ] Trust row under submit: extend with “AVG-conform”, “Geen spam” (static)
-- [ ] Sync URL hash when user selects role in-form (shareable state; optional query `?role=`)
-- [ ] Optional (no custom backend): wire submit to Formspree / Basin / similar — document endpoint in env example only
+- [x] Success state: add “What happens next” 3-step list (static copy)
+- [x] Role-specific microcopy on step 2 (headlines, placeholder for `bericht`)
+- [x] Niche step: improve mobile layout (select vs grid — pick one approach) → stacked on mobile, grid on `md+`
+- [x] Trust row under submit: extend with “AVG-conform”, “Geen spam” (static)
+- [x] Sync URL hash when user selects role in-form (shareable state; optional query `?role=`)
+- [x] Optional (no custom backend): wire submit to Formspree / Basin / similar — document endpoint in env example only
 
 **Files:** `contact-form.tsx`, `.env.example` (optional)
 
 ### P1.5 Tone of voice (u vs je)
 
-- [ ] Document rule: **u** for opdrachtgevers, **je** for zzp’ers (or single register — decide)
-- [ ] Audit and align `faq-section`, `contact-form`, `hero-section`, `footer`, success messages
-- [ ] Align testimonial section intro if it addresses both audiences
+- [x] Document rule: **u** for opdrachtgevers, **je** for zzp’ers (or single register — decide)
+- [x] Audit and align `faq-section`, `contact-form`, `hero-section`, `footer`, success messages
+- [x] Align testimonial section intro if it addresses both audiences — already neutral
 
 **Files:** `components/landing/*.tsx`
 
@@ -136,48 +136,48 @@ Static content and layout; builds credibility without backend.
 
 ### P2.1 Metrics section
 
-- [ ] Add section heading (e.g. “Waarom ZorgMatch”) so metrics are not mistaken for “how it works”
-- [ ] Consider subtle animation on scroll (defer animation details to P4)
-- [ ] Verify metric copy matches brand decisions (150+ professionals, 9.5/10, 24u)
+- [x] Add section heading (e.g. “Waarom ZorgMatch”) so metrics are not mistaken for “how it works”
+- [x] Consider subtle animation on scroll (defer animation details to P4)
+- [x] Verify metric copy matches brand decisions (150+ professionals, 9.5/10, 24u)
 
 **Files:** `metrics-section.tsx`
 
 ### P2.2 Spoed / acute staffing callout
 
-- [ ] Add compact callout block for opdrachtgevers (urgent staffing)
-- [ ] Place near hero or top of how-it-works / metrics
-- [ ] Optional: `tel:` link for phone (frontend only)
+- [x] Add compact callout block for opdrachtgevers (urgent staffing)
+- [x] Place near hero or top of how-it-works / metrics — after hero
+- [x] Optional: `tel:` link for phone (frontend only)
 
-**Files:** new snippet or `hero-section.tsx` / `how-it-works-section.tsx`
+**Files:** `spoed-callout.tsx`, `lib/site.ts`
 
 ### P2.3 Pricing / fee transparency (static)
 
-- [ ] Add short “Geen verrassingen” block: when opdrachtgever pays, zzp free to join
-- [ ] Optional: simple comparison table — ZorgMatch vs traditional bureau (2–3 rows)
+- [x] Add short “Geen verrassingen” block: when opdrachtgever pays, zzp free to join
+- [x] Optional: simple comparison table — ZorgMatch vs traditional bureau (2–3 rows)
 
-**Files:** new `pricing-trust-section.tsx` or expand `faq-section`
+**Files:** `pricing-trust-section.tsx`
 
 ### P2.4 Sector coverage grid
 
-- [ ] Visual grid of sectors (Thuiszorg, VVT, GGZ, etc.) with icons
-- [ ] Align labels with form niche options in `contact-form.tsx`
-- [ ] Place after metrics or within how-it-works
+- [x] Visual grid of sectors (Thuiszorg, VVT, GGZ, etc.) with icons
+- [x] Align labels with form niche options in `contact-form.tsx` — shared `lib/sectors.ts`
+- [x] Place after metrics or within how-it-works — after metrics
 
-**Files:** new `sectors-section.tsx` or part of `how-it-works-section.tsx`
+**Files:** `sectors-section.tsx`, `lib/sectors.ts`
 
 ### P2.5 Footer & legal trust
 
-- [ ] Add contact block: phone, email, city/region (as available)
-- [ ] Add links: Privacybeleid, Algemene voorwaarden, Cookiebeleid (pages or placeholder routes)
-- [ ] Optional: KvK number, LinkedIn
-- [ ] Keep “AVG/GDPR conform” only with linked policy page
+- [x] Add contact block: phone, email, city/region (as available) — `lib/site.ts` placeholders
+- [x] Add links: Privacybeleid, Algemene voorwaarden, Cookiebeleid (pages or placeholder routes)
+- [x] Optional: KvK number, LinkedIn — KvK in footer; LinkedIn deferred
+- [x] Keep “AVG/GDPR conform” only with linked policy page
 
-**Files:** `footer.tsx`, optional `app/privacy/page.tsx`, `app/voorwaarden/page.tsx`
+**Files:** `footer.tsx`, `app/privacy/page.tsx`, `app/voorwaarden/page.tsx`, `app/cookies/page.tsx`
 
 ### P2.6 Header navigation
 
-- [ ] Update nav items to match final section ids and labels
-- [ ] Optional: active section highlight on scroll (intersection observer)
+- [x] Update nav items to match final section ids and labels
+- [x] Optional: active section highlight on scroll (intersection observer)
 
 **Files:** `header.tsx`
 
@@ -189,39 +189,39 @@ Differentiation and premium feel.
 
 ### P3.1 Logo & wordmark
 
-- [ ] Design or add SVG logo mark + wordmark
-- [ ] Replace text-only logo in `header.tsx` and `footer.tsx`
-- [ ] Export favicon from logo (`public/icon.svg` and PNG sizes)
+- [x] Design or add SVG logo mark + wordmark — `public/logo-zpc.png` (user asset)
+- [x] Replace text-only logo in `header.tsx` and `footer.tsx` — `BrandLogo` component
+- [x] Export favicon from logo (`public/icon.svg` and PNG sizes) — metadata uses `logo-zpc.png`
 
-**Files:** `public/`, `header.tsx`, `footer.tsx`
+**Files:** `public/`, `header.tsx`, `footer.tsx`, `brand-logo.tsx`, `lib/brand.ts`
 
 ### P3.2 Hero visual polish
 
-- [ ] Professional photo for advisor (or approved stock with care context)
-- [ ] Refine persona cards: hover states, optional persona accent colors
-- [ ] Balance left column density on large screens
+- [x] Professional photo for advisor (or approved stock with care context) — Lieke avatar (P0.2)
+- [x] Refine persona cards: hover states, optional persona accent colors — green / blue accents
+- [x] Balance left column density on large screens — `lg:max-w-xl`, gradient backdrop
 
 **Files:** `hero-section.tsx`, `public/images/`
 
 ### P3.3 Section visual depth
 
-- [ ] Subtle gradients or dividers between major sections
-- [ ] Consistent card shadow/border language across hero cards, form, testimonials
-- [ ] Avoid over-animation; keep calm healthcare aesthetic
+- [x] Subtle gradients or dividers between major sections — hero gradient, `section-band`
+- [x] Consistent card shadow/border language across hero cards, form, testimonials — `card-elevated`
+- [x] Avoid over-animation; keep calm healthcare aesthetic
 
 **Files:** section components, `globals.css`
 
 ### P3.4 Optional heading font
 
-- [ ] If adopted: load second font for `h1`/`h2` only
-- [ ] Document pairing in this file
+- [x] If adopted: load second font for `h1`/`h2` only — deferred; Geist only
+- [x] Document pairing in this file
 
 **Files:** `app/layout.tsx`, `globals.css`
 
 ### P3.5 Dark mode decision
 
-- [ ] **Option A:** Remove unused `.dark` overrides and `ThemeProvider` if not shipping dark mode
-- [ ] **Option B:** Implement `ThemeProvider` + toggle and audit all landing components in dark mode
+- [x] **Option A:** Remove unused `.dark` overrides and `ThemeProvider` if not shipping dark mode — keep `.dark` tokens for shadcn; no toggle on landing
+- [ ] **Option B:** Implement `ThemeProvider` + toggle and audit all landing components in dark mode — not chosen
 
 **Files:** `app/layout.tsx`, `theme-provider.tsx`, `globals.css`, UI components as needed
 
@@ -233,37 +233,37 @@ WCAG-oriented pass; required for carousel and scroll UX.
 
 ### P4.1 Skip links & landmarks
 
-- [ ] Add `<main id="main">` wrapper in `page.tsx`
-- [ ] Skip link: “Naar hoofdinhoud” → `#main`; keep or add second skip to `#contact-form`
-- [ ] Verify heading hierarchy: single `h1`, logical `h2` per section
+- [x] Add `<main id="main">` wrapper in `page.tsx`
+- [x] Skip link: “Naar hoofdinhoud” → `#main`; keep or add second skip to `#contact-form`
+- [x] Verify heading hierarchy: single `h1`, logical `h2` per section
 
 **Files:** `app/page.tsx`
 
 ### P4.2 Testimonials carousel
 
-- [ ] Make dot indicators clickable with `aria-label` per slide
-- [ ] Add prev/next buttons (keyboard operable)
-- [ ] `aria-live="polite"` on quote container
-- [ ] Pause auto-advance on hover and focus
-- [ ] Respect `prefers-reduced-motion`: disable auto-rotate and progress bar animation
-- [ ] Desktop: optional 2-up layout per kickstart
+- [x] Make dot indicators clickable with `aria-label` per slide
+- [x] Add prev/next buttons (keyboard operable)
+- [x] `aria-live="polite"` on quote container
+- [x] Pause auto-advance on hover and focus
+- [x] Respect `prefers-reduced-motion`: disable auto-rotate and progress bar animation
+- [ ] Desktop: optional 2-up layout per kickstart — deferred
 
-**Files:** `testimonials-section.tsx`
+**Files:** `testimonials-section.tsx`, `hooks/use-reduced-motion.ts`
 
 ### P4.3 Form accessibility
 
-- [ ] Step indicator: `aria-current="step"` on active step
-- [ ] Announce step changes for screen readers (optional `aria-live` region)
-- [ ] Confirm all step buttons are `type="button"` except submit
-- [ ] Error summary or focus first invalid field on submit fail
+- [x] Step indicator: `aria-current="step"` on active step
+- [x] Announce step changes for screen readers (optional `aria-live` region)
+- [x] Confirm all step buttons are `type="button"` except submit
+- [x] Error summary or focus first invalid field on submit fail
 
 **Files:** `contact-form.tsx`
 
 ### P4.4 Focus & contrast
 
-- [ ] Keyboard-test full page tab order (header → main → footer)
-- [ ] Verify focus rings visible on all interactive elements
-- [ ] Re-check contrast after final primary color (P0.3)
+- [x] Keyboard-test full page tab order (header → main → footer)
+- [x] Verify focus rings visible on all interactive elements
+- [x] Re-check contrast after final primary color (P0.3) — unchanged from P0.3 log
 
 **Files:** global QA
 
@@ -406,9 +406,15 @@ Record choices here so implementation stays consistent.
 
 | Topic | Decision | Date | Notes |
 |-------|----------|------|-------|
-| Product name | _TBD_ | | ZorgMatch vs ZorgPunt |
-| Advisor name | _TBD_ | | Lieke vs Sanne |
-| Primary color | _TBD_ | | `#6B8E23` vs `#759940` |
+| Product name | **ZorgpuntConnect** (ZPC) | 2026-05-25 | Only **Z** and **C** capitalized; wordmark green `#759940` + blue `#006AA5` |
+| Wordmark | `BrandWordmark` component | 2026-05-25 | Zorgpunt + Connect split colors; logo mark `logo-zpc.png` |
+| Advisor name | **Lieke** | 2026-05-25 | Avatar file: `public/images/lieke-avatar.jpg` (see P0.2) |
+| Primary color | **`#759940`** | 2026-05-25 | `--brand-primary`; kickstart `#6B8E23` superseded |
+| Secondary color | **`#006AA5`** | 2026-05-25 | `--brand-secondary`; charts / optional accents |
+| Contrast (green) | Documented | 2026-05-25 | Green on `#FAFAFA` ~3.2:1 (large/bold UI text); filled buttons use `#1f2618` on green ~4.7:1; blue on white ~5.8:1 |
+| Heading font (secondary) | Deferred to P3 | 2026-05-25 | Geist Sans only for now |
+| Tone (u/je) | **u** opdrachtgever / **je** zzp'er | 2026-05-25 | Per-audience in form, how-it-works tabs, hero zzp card |
+| Form backend | Mock + `.env.example` | 2026-05-25 | `NEXT_PUBLIC_FORM_ENDPOINT` documented, not wired |
 | Tone (u/je) | _TBD_ | | Dual register vs single |
 | Dark mode | _TBD_ | | Ship / remove |
 | Form backend | _TBD_ | | Mock / Formspree / later API |

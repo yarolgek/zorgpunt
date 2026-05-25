@@ -1,5 +1,7 @@
 # ZorgMatch Landing Page - Implementation Kickstart
 
+> **Historical document.** Original build spec. Current product: **ZorgPuntConnect** (ZPC). Advisor persona: **Lieke**. See [`IMPLEMENTATION_IMPROVEMENTS.md`](./IMPLEMENTATION_IMPROVEMENTS.md).
+
 ## Project Overview
 
 A highly accessible, premium, single-page landing website in **Dutch** for a care provider platform operating in the Netherlands. The primary goal is a single CTA: getting users to fill out a contact form.

@@ -1,9 +1,22 @@
+import Link from "next/link"
+import { Mail, MapPin, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { siteContact } from "@/lib/site"
+import { brand } from "@/lib/brand"
+import { BrandLogo } from "@/components/landing/brand-logo"
 
-const footerLinks = [
+const footerNav = [
   { label: "Hoe het werkt", href: "#hoe-het-werkt" },
+  { label: "Sectoren", href: "#sectoren" },
+  { label: "Tarieven", href: "#tarieven" },
   { label: "Ervaringen", href: "#ervaringen" },
   { label: "Veelgestelde vragen", href: "#faq" },
+]
+
+const legalLinks = [
+  { label: "Privacybeleid", href: "/privacy" },
+  { label: "Algemene voorwaarden", href: "/voorwaarden" },
+  { label: "Cookiebeleid", href: "/cookies" },
 ]
 
 export function Footer() {
@@ -18,7 +31,8 @@ export function Footer() {
             Klaar om de juiste match te vinden?
           </p>
           <p className="text-muted-foreground max-w-md">
-            Gratis adviesgesprek. Geen verplichtingen. Lieke helpt u persoonlijk verder.
+            Gratis adviesgesprek. Geen verplichtingen. Lieke helpt u persoonlijk
+            verder.
           </p>
           <Button asChild size="lg" className="font-semibold mt-2">
             <a href="#contact-form">Start uw gratis gesprek</a>
@@ -26,17 +40,41 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
-      <div className="py-8">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          {/* Logo */}
-          <a href="#" className="font-semibold text-base text-foreground hover:text-primary transition-colors">
-            <span className="text-primary font-bold">Zorg</span>Match
-          </a>
+      {/* Contact & links */}
+      <div className="py-10 border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div>
+            <BrandLogo size={44} wordmarkSize="sm" />
+            <ul className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
+              <li>
+                <a
+                  href={`tel:${siteContact.phone}`}
+                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+                >
+                  <Phone className="h-4 w-4 shrink-0" />
+                  {siteContact.phoneDisplay}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`mailto:${siteContact.email}`}
+                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+                >
+                  <Mail className="h-4 w-4 shrink-0" />
+                  {siteContact.email}
+                </a>
+              </li>
+              <li className="inline-flex items-center gap-2">
+                <MapPin className="h-4 w-4 shrink-0" />
+                {siteContact.region}
+              </li>
+              <li className="text-xs">KvK: {siteContact.kvk}</li>
+            </ul>
+          </div>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2" aria-label="Voetnav">
-            {footerLinks.map((link) => (
+          <nav aria-label="Voetnavigatie" className="flex flex-col gap-2">
+            <p className="text-sm font-semibold text-foreground mb-1">Pagina</p>
+            {footerNav.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -47,9 +85,33 @@ export function Footer() {
             ))}
           </nav>
 
-          {/* Legal */}
-          <p className="text-xs text-muted-foreground text-center sm:text-right">
-            &copy; {currentYear} ZorgMatch &middot; AVG/GDPR conform
+          <nav aria-label="Juridisch" className="flex flex-col gap-2">
+            <p className="text-sm font-semibold text-foreground mb-1">Juridisch</p>
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="py-6">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+          <p className="text-xs text-muted-foreground">
+            &copy; {currentYear} {brand.name}
+          </p>
+          <p className="text-xs text-muted-foreground">
+            <Link href="/privacy" className="hover:text-foreground underline-offset-4 hover:underline">
+              AVG/GDPR conform
+            </Link>
+            {" "}
+            — zie privacybeleid
           </p>
         </div>
       </div>

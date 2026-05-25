@@ -1,39 +1,37 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { brand } from '@/lib/brand'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geistSans = Geist({
+  subsets: ['latin'],
+  variable: '--font-geist-sans',
+  display: 'swap',
+})
+
+const geistMono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-geist-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
-  title: 'ZorgMatch - Freelance Zorgbemiddeling & Zorgpersoneel',
-  description: 'ZorgMatch brengt gekwalificeerde freelance zorgverleners (zzp\'ers) en zorgorganisaties in heel Nederland samen. Snel, persoonlijk en betrouwbaar.',
+  title: brand.metaTitle,
+  description: brand.tagline,
   generator: 'v0.app',
-  keywords: ['zzp zorg', 'freelance zorg', 'zorgpersoneel', 'zorgorganisatie', 'zorgmatch', 'Nederland', 'thuiszorg', 'verpleegkundige'],
-  authors: [{ name: 'ZorgMatch' }],
+  keywords: ['zzp zorg', 'freelance zorg', 'zorgpersoneel', 'zorgorganisatie', 'zorgpuntconnect', 'zpc', 'Nederland', 'thuiszorg', 'verpleegkundige'],
+  authors: [{ name: brand.name }],
   openGraph: {
-    title: 'ZorgMatch - Freelance Zorgbemiddeling & Zorgpersoneel',
-    description: 'Koppel gekwalificeerde zzp\'ers in de zorg aan zorgorganisaties. Snel, persoonlijk en betrouwbaar.',
+    siteName: brand.name,
+    title: brand.metaTitle,
+    description: brand.tagline,
     locale: 'nl_NL',
     type: 'website',
   },
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: [{ url: '/logo-zpc.png', type: 'image/png' }],
+    apple: '/logo-zpc.png',
   },
 }
 
@@ -43,8 +41,11 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="nl" className="bg-background scroll-smooth">
-      <body className="font-sans antialiased">
+    <html
+      lang="nl"
+      className={`${geistSans.variable} ${geistMono.variable} bg-background scroll-smooth`}
+    >
+      <body className={`${geistSans.className} font-sans antialiased`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

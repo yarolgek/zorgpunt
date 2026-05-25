@@ -1,77 +1,100 @@
 import Image from "next/image"
 import { ContactForm } from "./contact-form"
+import { brand } from "@/lib/brand"
+import { cn } from "@/lib/utils"
+
+const audienceCards = [
+  {
+    role: "opdrachtgever" as const,
+    title: "Voor Zorgorganisaties",
+    description:
+      "Snel gekwalificeerde zzp'ers nodig voor uw afdeling of instelling? Wij koppelen u snel aan gescreende professionals.",
+    cta: "Vind zorgpersoneel",
+    accent: "primary" as const,
+  },
+  {
+    role: "freelancer" as const,
+    title: "Voor Freelancers (ZZP)",
+    description:
+      "Op zoek naar flexibele en goedbetaalde opdrachten in de zorg? Bepaal zelf je uurtarief en waar je werkt.",
+    cta: "Meld je aan als zzp'er",
+    accent: "secondary" as const,
+  },
+]
 
 export function HeroSection() {
   return (
-    <section className="py-12 lg:py-20">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          {/* Left Column - Copy & Target Cards */}
-          <div className="flex flex-col gap-6">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-foreground text-balance">
+    <section className="relative py-12 lg:py-20 overflow-hidden">
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.04] via-transparent to-brand-secondary/[0.06]"
+        aria-hidden
+      />
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
+          <div className="flex flex-col gap-6 lg:max-w-xl">
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold leading-tight text-foreground text-balance">
               De match die wél werkt in de zorg
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              ZorgMatch brengt gekwalificeerde freelance zorgverleners (zzp'ers) en zorgorganisaties in heel Nederland samen. Snel, persoonlijk en betrouwbaar.
+              {brand.tagline}
             </p>
 
-            {/* Target Audience Entrance Cards */}
-            <div className="grid sm:grid-cols-2 gap-4 mt-2">
-              {/* Card for Employers */}
-              <div className="p-5 rounded-xl border border-border bg-card/60 flex flex-col justify-between gap-3 shadow-sm hover:border-primary/40 transition-colors">
-                <div>
-                  <h3 className="font-semibold text-foreground text-sm">Voor Zorgorganisaties</h3>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    Snel gekwalificeerde zzp'ers nodig voor uw afdeling of instelling? Wij koppelen u snel aan gescreende professionals.
-                  </p>
-                </div>
-                <a
-                  href="#contact-form?role=opdrachtgever"
-                  className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 mt-1"
+            <div className="grid sm:grid-cols-2 gap-4">
+              {audienceCards.map((card) => (
+                <div
+                  key={card.role}
+                  className={cn(
+                    "group p-5 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col justify-between gap-3",
+                    "shadow-sm transition-all duration-200",
+                    "hover:shadow-md hover:-translate-y-0.5",
+                    card.accent === "primary"
+                      ? "hover:border-primary/50 hover:bg-primary/[0.03]"
+                      : "hover:border-brand-secondary/50 hover:bg-brand-secondary/[0.03]"
+                  )}
                 >
-                  Vind zorgpersoneel &rarr;
-                </a>
-              </div>
-
-              {/* Card for Freelancers */}
-              <div className="p-5 rounded-xl border border-border bg-card/60 flex flex-col justify-between gap-3 shadow-sm hover:border-primary/40 transition-colors">
-                <div>
-                  <h3 className="font-semibold text-foreground text-sm">Voor Freelancers (ZZP)</h3>
-                  <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                    Op zoek naar flexibele en goedbetaalde opdrachten in de zorg? Bepaal zelf je uurtarief en waar je werkt.
-                  </p>
+                  <div>
+                    <h3 className="font-semibold text-foreground text-sm">
+                      {card.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
+                      {card.description}
+                    </p>
+                  </div>
+                  <a
+                    href={`#contact-form?role=${card.role}`}
+                    className={cn(
+                      "text-xs font-semibold hover:underline inline-flex items-center gap-1 mt-1 transition-colors",
+                      card.accent === "primary"
+                        ? "text-primary"
+                        : "text-brand-secondary"
+                    )}
+                  >
+                    {card.cta} &rarr;
+                  </a>
                 </div>
-                <a
-                  href="#contact-form?role=freelancer"
-                  className="text-xs font-semibold text-primary hover:underline inline-flex items-center gap-1 mt-1"
-                >
-                  Meld je aan als zzp'er &rarr;
-                </a>
-              </div>
+              ))}
             </div>
 
-            {/* Avatar with caption */}
-            <div className="flex items-center gap-4 mt-2">
-              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/20 shadow-md flex-shrink-0">
+            <div className="flex items-center gap-4 pt-1">
+              <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/25 shadow-md flex-shrink-0 ring-2 ring-background">
                 <Image
-                  src="/images/sanne-avatar.jpg"
-                  alt="Lieke - Persoonlijke zorgadviseur"
+                  src="/images/lieke-avatar.jpg"
+                  alt="Lieke - Persoonlijke zorgadviseur bij ZorgpuntConnect"
                   fill
                   className="object-cover"
-                  priority
+                  sizes="56px"
                 />
               </div>
-              <div className="flex flex-col">
+              <div className="flex flex-col min-w-0">
                 <p className="text-sm font-medium text-foreground">Lieke</p>
-                <p className="text-xs text-muted-foreground italic">
+                <p className="text-xs text-muted-foreground italic leading-relaxed">
                   &quot;Ik help u persoonlijk om de perfecte match te vinden.&quot;
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Contact Form */}
-          <div className="lg:pl-8 lg:sticky lg:top-24">
+          <div className="lg:pl-4 xl:pl-8 lg:sticky lg:top-24">
             <ContactForm />
           </div>
         </div>

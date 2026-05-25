@@ -1,4 +1,8 @@
-# zorgpunt
+# ZorgpuntConnect (ZPC)
+
+Landing page for **ZorgpuntConnect** — freelance zorgbemiddeling in Nederland (zzp'ers en zorgorganisaties).
+
+> **Repo name:** This project lives in the `zorgpunt` repository on GitHub/v0. The product brand is **ZorgpuntConnect** (short: **ZPC**). The advisor persona in copy is **Lieke**.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [v0](https://v0.app).
 
@@ -23,6 +27,12 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Implementation docs
+
+- Active plan: [`IMPLEMENTATION_IMPROVEMENTS.md`](./IMPLEMENTATION_IMPROVEMENTS.md)
+- Brand constants: [`lib/brand.ts`](./lib/brand.ts)
+- Historical kickstart spec: [`IMPLEMENTATION_KICKSTART.md`](./IMPLEMENTATION_KICKSTART.md)
 
 ## Learn More
 
