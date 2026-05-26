@@ -82,7 +82,7 @@ Highest impact on lead capture and navigation clarity.
 ### P1.1 “Hoe het werkt” — real process section
 
 - [x] Add new section component (e.g. `how-it-works-section.tsx`) with 3–4 numbered steps
-- [x] Provide **two paths**: Opdrachtgever flow and ZZP’er flow (tabs, side-by-side columns, or stacked blocks)
+- [x] Provide **two paths**: Opdrachtgever flow and ZZP’er flow (static side-by-side columns on desktop)
 - [x] Move or duplicate `#hoe-het-werkt` anchor to this section (not metrics)
 - [x] Rename metrics section id if needed (e.g. `#vertrouwen` or keep metrics without misleading nav label)
 - [x] Update header/footer nav label if section title changes — nav label unchanged; anchor now correct

@@ -1,61 +1,58 @@
-"use client"
-
 import { Briefcase, User } from "lucide-react"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 const opdrachtgeverSteps = [
   {
     title: "Vraag een gratis gesprek aan",
-    description:
-      "Vul het formulier in en vertel kort wat u zoekt. Geen verplichtingen.",
+    description: "Vul het formulier in en vertel kort wat u zoekt. Geen verplichtingen.",
   },
   {
     title: "Persoonlijk contact binnen 24 uur",
-    description:
-      "Lieke belt u om uw situatie, planning en wensen door te nemen.",
+    description: "Lieke belt u om uw situatie, planning en wensen door te nemen.",
   },
   {
     title: "Ontvang passende zzp'ers",
-    description:
-      "Wij stellen geverifieerde professionals voor die aansluiten bij uw organisatie.",
+    description: "Wij stellen geverifieerde professionals voor die aansluiten bij uw organisatie.",
   },
   {
     title: "Start met de juiste match",
-    description:
-      "Kies de professional die het beste past en ga snel aan de slag.",
+    description: "Kies de professional die het beste past en ga snel aan de slag.",
   },
-]
+] as const
 
 const freelancerSteps = [
   {
     title: "Meld je aan via het formulier",
-    description:
-      "Kies je vakgebied en laat kort weten wat je zoekt. Aanmelden is gratis.",
+    description: "Kies je vakgebied en laat kort weten wat je zoekt. Aanmelden is gratis.",
   },
   {
     title: "Persoonlijk contact binnen 24 uur",
-    description:
-      "Lieke belt je om je profiel, beschikbaarheid en voorkeuren te bespreken.",
+    description: "Lieke belt je om je profiel, beschikbaarheid en voorkeuren te bespreken.",
   },
   {
     title: "Ontvang passende opdrachten",
-    description:
-      "Wij matchen je met opdrachten die passen bij jouw expertise en regio.",
+    description: "Wij matchen je met opdrachten die passen bij jouw expertise en regio.",
   },
   {
     title: "Ga aan de slag op jouw voorwaarden",
-    description:
-      "Jij bepaalt je tarief en planning — wij ontzorgen waar nodig.",
+    description: "Jij bepaalt je tarief en planning — wij ontzorgen waar nodig.",
   },
-]
+] as const
 
-function StepList({ steps }: { steps: typeof opdrachtgeverSteps }) {
+type Step = (typeof opdrachtgeverSteps)[number]
+type Accent = "primary" | "secondary"
+
+function StepList({ steps, accent }: { steps: Step[]; accent: Accent }) {
+  const numberCircle =
+    accent === "primary"
+      ? "bg-primary text-primary-foreground"
+      : "bg-brand-secondary text-primary-foreground"
+
   return (
     <ol className="flex flex-col gap-6">
       {steps.map((step, index) => (
         <li key={step.title} className="flex gap-4">
           <span
-            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
+            className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-semibold ${numberCircle}`}
             aria-hidden
           >
             {index + 1}
@@ -92,25 +89,33 @@ export function HowItWorksSection() {
           </p>
         </div>
 
-        <Tabs defaultValue="opdrachtgever" className="max-w-3xl mx-auto">
-          <TabsList className="grid w-full grid-cols-2 h-auto p-1">
-            <TabsTrigger value="opdrachtgever" className="gap-2 py-2.5">
-              <Briefcase className="w-4 h-4" />
-              Opdrachtgever
-            </TabsTrigger>
-            <TabsTrigger value="freelancer" className="gap-2 py-2.5">
-              <User className="w-4 h-4" />
-              ZZP&apos;er
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="opdrachtgever" className="mt-8">
-            <StepList steps={opdrachtgeverSteps} />
-          </TabsContent>
-          <TabsContent value="freelancer" className="mt-8">
-            <StepList steps={freelancerSteps} />
-          </TabsContent>
-        </Tabs>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
+          <div className="rounded-xl border border-border bg-card p-6 lg:p-8">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                <Briefcase className="h-5 w-5 text-primary" aria-hidden />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground">Opdrachtgever</h3>
+            </div>
+            <div className="mt-6">
+              <StepList steps={[...opdrachtgeverSteps] as Step[]} accent="primary" />
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card p-6 lg:p-8">
+            <div className="flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-secondary/10">
+                <User className="h-5 w-5 text-brand-secondary" aria-hidden />
+              </div>
+              <h3 className="text-lg font-semibold text-foreground">ZZP&apos;er</h3>
+            </div>
+            <div className="mt-6">
+              <StepList steps={[...freelancerSteps] as Step[]} accent="secondary" />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
 }
+

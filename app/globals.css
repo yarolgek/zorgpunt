@@ -23,8 +23,8 @@
 
   /* Primary actions & brand accents (sage green) */
   --primary: var(--brand-primary);
-  /* Dark green text on #759940 — 4.74:1 (AA). White on green is ~3.3:1. */
-  --primary-foreground: #1f2618;
+  /* Button/text on primary */
+  --primary-foreground: #ffffff;
 
   /* UI surfaces (cream) — not brand secondary */
   --secondary: #f3f1ec;

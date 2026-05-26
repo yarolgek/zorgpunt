@@ -9,10 +9,19 @@ import { TestimonialsSection } from "@/components/landing/testimonials-section"
 import { FaqSection } from "@/components/landing/faq-section"
 import { Footer } from "@/components/landing/footer"
 import { MobileCtaBar } from "@/components/landing/mobile-cta-bar"
+import { faqPageJsonLd, organizationJsonLd } from "@/lib/structured-data"
 
 export default function Page() {
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+  const jsonLd = [organizationJsonLd({ baseUrl }), faqPageJsonLd()]
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <a
         href="#main"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md"

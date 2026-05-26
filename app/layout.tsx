@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: brand.metaTitle,
   description: brand.tagline,
-  generator: 'v0.app',
   keywords: ['zzp zorg', 'freelance zorg', 'zorgpersoneel', 'zorgorganisatie', 'zorgpuntconnect', 'zpc', 'Nederland', 'thuiszorg', 'verpleegkundige'],
   authors: [{ name: brand.name }],
   openGraph: {
@@ -28,6 +28,20 @@ export const metadata: Metadata = {
     description: brand.tagline,
     locale: 'nl_NL',
     type: 'website',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: `${brand.name} — ${brand.shortName}`,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: brand.metaTitle,
+    description: brand.tagline,
+    images: ['/og-image.svg'],
   },
   icons: {
     icon: [{ url: '/logo-zpc.png', type: 'image/png' }],

@@ -293,13 +293,13 @@ export function ContactForm() {
             <button
               type="button"
               onClick={() => handleRoleSelect("opdrachtgever")}
-              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary/50 hover:bg-primary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
             >
               <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                 <Briefcase className="w-6 h-6 text-primary" />
               </div>
               <div>
-                <p className="font-semibold text-foreground text-sm">Opdrachtgever</p>
+                <p className="font-semibold text-primary text-sm">Opdrachtgever</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Ik zoek zorgprofessionals</p>
               </div>
             </button>
@@ -307,13 +307,13 @@ export function ContactForm() {
             <button
               type="button"
               onClick={() => handleRoleSelect("freelancer")}
-              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-brand-secondary/50 hover:bg-brand-secondary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary"
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <User className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-full bg-brand-secondary/10 flex items-center justify-center group-hover:bg-brand-secondary/20 transition-colors">
+                <User className="w-6 h-6 text-brand-secondary" />
               </div>
               <div>
-                <p className="font-semibold text-foreground text-sm">Freelancer</p>
+                <p className="font-semibold text-brand-secondary text-sm">Freelancer</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Ik ben een zorgprofessional</p>
               </div>
             </button>
@@ -370,6 +370,7 @@ export function ContactForm() {
 
   const selectedNicheLabel = niches.find((n) => n.value === niche)?.label ?? ""
   const roleLabel = role === "opdrachtgever" ? "Opdrachtgever" : "Freelancer"
+  const roleLabelClassName = role === "freelancer" ? "text-brand-secondary" : "text-foreground"
 
   return (
     <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
@@ -382,7 +383,7 @@ export function ContactForm() {
         <div className="flex items-center gap-2 mb-1">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
             <Check className="w-3 h-3" />
-            {roleLabel} &middot; {selectedNicheLabel}
+            <span className={roleLabelClassName}>{roleLabel}</span> &middot; {selectedNicheLabel}
           </span>
         </div>
         <CardTitle className="text-xl font-semibold text-foreground">

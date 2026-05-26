@@ -1,11 +1,4 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion"
-
-const faqs = [
+export const faqs = [
   {
     question: "Hoe snel kan ik een freelance zorgverlener inzetten?",
     answer:
@@ -41,32 +34,40 @@ export function FaqSection() {
           <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-3 text-balance">
             Veelgestelde vragen
           </h2>
-          <p className="text-muted-foreground">
-            Antwoorden voor opdrachtgevers en zzp&apos;ers
-          </p>
+          <p className="text-muted-foreground">Antwoorden voor opdrachtgevers en zzp&apos;ers</p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full">
+        <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-foreground hover:text-primary">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground">
+            <details
+              key={faq.question}
+              open={index === 0}
+              className="group rounded-xl border border-border bg-background p-4 shadow-sm"
+            >
+              <summary
+                className={
+                  "cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden " +
+                  "flex items-start justify-between gap-4 text-left text-sm font-medium " +
+                  "text-foreground hover:text-primary transition-colors"
+                }
+              >
+                <span className="pr-4">{faq.question}</span>
+                <span aria-hidden className="text-primary font-semibold pt-0.5">
+                  +
+                </span>
+              </summary>
+              <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
                 {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
+              </p>
+            </details>
           ))}
-        </Accordion>
+        </div>
 
         {/* CTA #2 */}
         <div className="mt-10 text-center">
           <p className="text-muted-foreground">
             Staat uw vraag er niet tussen?{" "}
-            <a
-              href="#contact-form"
-              className="text-primary hover:underline font-medium"
-            >
+            <a href="#contact-form" className="text-primary hover:underline font-medium">
               Vraag een gratis gesprek aan met Lieke
             </a>
           </p>
@@ -75,3 +76,4 @@ export function FaqSection() {
     </section>
   )
 }
+
