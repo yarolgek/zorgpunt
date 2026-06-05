@@ -1,11 +1,11 @@
 export const faqs = [
   {
-    question: "Hoe snel kan ik een freelance zorgverlener inzetten?",
+    question: "Hoe snel kan ik een zelfstandige zorgverlener (zzp'er) inzetten?",
     answer:
       "Na uw aanvraag neemt Lieke binnen 24 uur telefonisch contact met u op om uw wensen te bespreken. Dankzij ons brede netwerk kunnen we vaak al binnen enkele dagen (en bij spoed nog sneller) een gekwalificeerde zzp'er aan u voorstellen.",
   },
   {
-    question: "Hoe worden de freelance zorgverleners gescreend?",
+    question: "Hoe worden de zelfstandige zorgverleners (zzp'ers) gescreend?",
     answer:
       "Kwaliteit en veiligheid staan voorop. Alle zzp'ers in ons netwerk worden grondig gescreend. We controleren hun diploma's, eventuele KIWA-keurmerken, VOG, KvK-inschrijving, beroepsaansprakelijkheidsverzekering en we bellen referenties na.",
   },
@@ -17,7 +17,7 @@ export const faqs = [
   {
     question: "Hoe kan ik me als zzp'er aanmelden en wat kost het?",
     answer:
-      "Je kunt je eenvoudig aanmelden via ons contactformulier door te kiezen voor de optie 'Freelancer'. Aanmelden en bemiddeld worden naar opdrachten is voor zzp'ers volledig gratis. Wij helpen je met het vinden van passende opdrachten en ontzorgen je administratief.",
+      "Je kunt je eenvoudig aanmelden via ons contactformulier door te kiezen voor de optie 'Zzp'er'. Aanmelden en bemiddeld worden naar opdrachten is voor zzp'ers volledig gratis. Wij helpen je met het vinden van passende opdrachten en ontzorgen je administratief.",
   },
   {
     question: "In welke zorgsectoren is ZorgpuntConnect actief?",

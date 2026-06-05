@@ -7,6 +7,7 @@ import { SectorsSection } from "@/components/landing/sectors-section"
 import { PricingTrustSection } from "@/components/landing/pricing-trust-section"
 import { TestimonialsSection } from "@/components/landing/testimonials-section"
 import { FaqSection } from "@/components/landing/faq-section"
+import { AppDownloadSection } from "@/components/landing/app-download-section"
 import { Footer } from "@/components/landing/footer"
 import { MobileCtaBar } from "@/components/landing/mobile-cta-bar"
 import { faqPageJsonLd, organizationJsonLd } from "@/lib/structured-data"
@@ -46,6 +47,7 @@ export default function Page() {
         <PricingTrustSection />
         <TestimonialsSection />
         <FaqSection />
+        <AppDownloadSection />
       </main>
 
       <MobileCtaBar />

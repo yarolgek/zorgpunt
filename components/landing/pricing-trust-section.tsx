@@ -36,7 +36,7 @@ export function PricingTrustSection() {
           </h2>
           <p className="text-muted-foreground leading-relaxed">
             Heldere afspraken voor opdrachtgevers en zzp&apos;ers — u betaalt pas
-            bij een geslaagde match, aanmelden als freelancer is gratis.
+            bij een geslaagde match, aanmelden als zzp&apos;er is gratis.
           </p>
         </div>
 

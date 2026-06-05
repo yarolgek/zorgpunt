@@ -61,6 +61,7 @@ export default function RootLayout({
     >
       <body className={`${geistSans.className} font-sans antialiased`}>
         {children}
+        {/* Voiceflow Loader has been removed from here */}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

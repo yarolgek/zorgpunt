@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://zorgpuntconnect.nl/sitemap.xml

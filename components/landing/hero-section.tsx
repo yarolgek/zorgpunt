@@ -14,7 +14,7 @@ const audienceCards = [
   },
   {
     role: "freelancer" as const,
-    title: "Voor Freelancers (ZZP)",
+    title: "Voor zzp'ers",
     description:
       "Op zoek naar flexibele en goedbetaalde opdrachten in de zorg? Bepaal zelf je uurtarief en waar je werkt.",
     cta: "Meld je aan als zzp'er",
@@ -41,15 +41,16 @@ export function HeroSection() {
 
             <div className="grid sm:grid-cols-2 gap-4">
               {audienceCards.map((card) => (
-                <div
+                <a
                   key={card.role}
+                  href={`#contact-form?role=${card.role}`}
                   className={cn(
-                    "group p-5 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col justify-between gap-3",
+                    "group p-5 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col justify-between gap-3 cursor-pointer block",
                     "shadow-sm transition-all duration-200",
                     "hover:shadow-md hover:-translate-y-0.5",
                     card.accent === "primary"
-                      ? "hover:border-primary/50 hover:bg-primary/[0.03]"
-                      : "hover:border-brand-secondary/50 hover:bg-brand-secondary/[0.03]"
+                      ? "hover:border-[#759940]/50 hover:bg-[#759940]/[0.03]"
+                      : "hover:border-[#006aa5]/50 hover:bg-[#006aa5]/[0.03]"
                   )}
                 >
                   <div>
@@ -60,18 +61,17 @@ export function HeroSection() {
                       {card.description}
                     </p>
                   </div>
-                  <a
-                    href={`#contact-form?role=${card.role}`}
+                  <span
                     className={cn(
-                      "text-xs font-semibold hover:underline inline-flex items-center gap-1 mt-1 transition-colors",
+                      "text-xs font-semibold group-hover:underline inline-flex items-center gap-1 mt-1 transition-colors",
                       card.accent === "primary"
-                        ? "text-primary"
-                        : "text-brand-secondary"
+                        ? "text-[#759940]"
+                        : "text-[#006aa5]"
                     )}
                   >
                     {card.cta} &rarr;
-                  </a>
-                </div>
+                  </span>
+                </a>
               ))}
             </div>
 
