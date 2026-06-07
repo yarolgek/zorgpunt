@@ -12,6 +12,7 @@ import {
   scrollToContactForm,
   syncRoleToUrl,
 } from "@/lib/contact-form-url"
+import { freelancerNiches, opdrachtgeverNiches } from "@/lib/sectors"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -33,24 +34,30 @@ interface FormErrors {
 
 // ─── Sub-components ────────────────────────────────────────────────────────────
 
-const STEP_LABELS = [
-  "Stap 1 van 3: kies uw rol",
-  "Stap 2 van 3: kies type dienstverlening",
-  "Stap 3 van 3: vul uw gegevens in",
-] as const
+function getStepLabels(role: Role): readonly [string, string, string] {
+  if (role === "freelancer") {
+    return [
+      "Stap 1 van 3: kies je rol",
+      "Stap 2 van 3: kies je vakgebied",
+      "Stap 3 van 3: vul je gegevens in",
+    ]
+  }
+  return [
+    "Stap 1 van 3: kies uw rol",
+    "Stap 2 van 3: kies sector of vakgebied",
+    "Stap 3 van 3: vul uw gegevens in",
+  ]
+}
 
-const CONTACT_SERVICES = [
-  { value: "bemiddeling", label: "Bemiddeling" },
-  { value: "detachering", label: "Detachering" },
-  { value: "onderaanneming", label: "Onderaanneming" },
-  { value: "bemiddeling_tussenkomst", label: "Bemiddeling met tussenkomst" },
-]
-
-function StepIndicator({ step, total, role }: { step: number; total: number; role: Role }) {
-  const isZzper = role === "freelancer"
-  const bgClass = isZzper ? "bg-brand-secondary" : "bg-primary"
-  const ringClass = isZzper ? "ring-brand-secondary/30" : "ring-primary/30"
-
+function StepIndicator({
+  step,
+  total,
+  stepLabels,
+}: {
+  step: number
+  total: number
+  stepLabels: readonly [string, string, string]
+}) {
   return (
     <ol
       className="flex items-center gap-2 mb-6 list-none p-0 m-0"
@@ -66,15 +73,15 @@ function StepIndicator({ step, total, role }: { step: number; total: number; rol
             className={cn(
               "w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold transition-colors",
               i < step
-                ? cn(bgClass, "text-white")
+                ? "bg-primary text-primary-foreground"
                 : i === step
-                  ? cn(bgClass, "text-white ring-2", ringClass)
+                  ? "bg-primary text-primary-foreground ring-2 ring-primary/30"
                   : "bg-muted text-muted-foreground"
             )}
           >
             <span className="sr-only">
               {i < step ? "Voltooid: " : i === step ? "Huidige stap: " : "Stap "}
-              {STEP_LABELS[i]}
+              {stepLabels[i]}
             </span>
             {i < step ? (
               <Check className="w-3.5 h-3.5" aria-hidden />
@@ -86,7 +93,7 @@ function StepIndicator({ step, total, role }: { step: number; total: number; rol
             <span
               className={cn(
                 "h-px block w-8 transition-colors",
-                i < step ? bgClass : "bg-border"
+                i < step ? "bg-primary" : "bg-border"
               )}
               aria-hidden
             />
@@ -112,28 +119,15 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [stepAnnouncement, setStepAnnouncement] = useState(STEP_LABELS[0])
+  const [stepAnnouncement, setStepAnnouncement] = useState<string>(getStepLabels(null)[0])
 
-  const niches = CONTACT_SERVICES
-
-  const isZzper = role === "freelancer"
-  const isOpdrachtgever = role === "opdrachtgever"
-
-  // Dynamic Theme styling based on role
-  const cardBorderClass = isZzper ? "border-brand-secondary/20" : "border-primary/20"
-  const textClass = isZzper ? "text-brand-secondary" : "text-primary"
-  const bgLight10Class = isZzper ? "bg-brand-secondary/10" : "bg-primary/10"
-  const bgLight15Class = isZzper ? "bg-brand-secondary/15" : "bg-primary/15"
-  const buttonClass = isZzper
-    ? "bg-brand-secondary hover:bg-brand-secondary/90 text-white focus-visible:ring-brand-secondary"
-    : "bg-primary hover:bg-primary/90 text-primary-foreground focus-visible:ring-primary"
-  const nicheButtonClass = isZzper
-    ? "hover:border-brand-secondary hover:bg-brand-secondary/5 focus-visible:ring-brand-secondary"
-    : "hover:border-primary hover:bg-primary/5 focus-visible:ring-primary"
+  const niches = role === "opdrachtgever" ? opdrachtgeverNiches : freelancerNiches
+  const stepLabels = getStepLabels(role)
 
   useEffect(() => {
-    setStepAnnouncement(STEP_LABELS[step] ?? STEP_LABELS[0])
-  }, [step])
+    const labels = getStepLabels(role)
+    setStepAnnouncement(labels[step] ?? labels[0])
+  }, [step, role])
 
   const applyRoleFromUrl = (shouldScroll: boolean) => {
     const roleFromUrl = parseRoleFromLocation()
@@ -157,6 +151,8 @@ export function ContactForm() {
   }, [])
 
   // ── Validation ──────────────────────────────────────────────────────────────
+
+  const isOpdrachtgever = role === "opdrachtgever"
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {}
@@ -246,17 +242,17 @@ export function ContactForm() {
           "U ontvangt passende, gescreende zzp'ers om uit te kiezen.",
         ]
       : [
-          "Lieke belt je binnen 24 uur telefonisch op.",
-          "Samen bespreken we je profiel, beschikbaarheid en voorkeuren.",
-          "Je ontvangt passende opdrachten die bij jou passen.",
+          "Lieke belt je — vaak nog dezelfde dag.",
+          "Jullie bespreken je profiel, beschikbaarheid en wat je zoekt.",
+          "Je krijgt opdrachten die echt bij jou passen.",
         ]
 
     return (
-      <Card className={cn("border-2 shadow-lg card-elevated", cardBorderClass)} id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
         <CardContent className="pt-8 pb-8">
           <div className="flex flex-col items-center text-center gap-4">
-            <div className={cn("w-16 h-16 rounded-full flex items-center justify-center", bgLight10Class)}>
-              <Check className={cn("w-8 h-8", textClass)} />
+            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+              <Check className="w-8 h-8 text-primary" />
             </div>
             <div>
               <h3 className="text-xl font-semibold text-foreground">
@@ -272,12 +268,12 @@ export function ContactForm() {
             </div>
             <div className="w-full text-left mt-2 rounded-xl border border-border bg-muted/30 p-4">
               <p className="text-sm font-semibold text-foreground mb-3">
-                Wat gebeurt er nu?
+                {isOpdrachtgever ? "Wat gebeurt er nu?" : "En nu?"}
               </p>
               <ol className="flex flex-col gap-2.5">
                 {nextSteps.map((text, i) => (
                   <li key={text} className="flex gap-3 text-sm text-muted-foreground">
-                    <span className={cn("flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-semibold", bgLight15Class, textClass)}>
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-semibold text-primary">
                       {i + 1}
                     </span>
                     <span className="pt-0.5 leading-relaxed">{text}</span>
@@ -286,7 +282,7 @@ export function ContactForm() {
               </ol>
             </div>
             <Button type="button" variant="outline" onClick={handleReset} className="mt-2">
-              Nog een aanvraag doen
+              {isOpdrachtgever ? "Nog een aanvraag doen" : "Nog een keer aanmelden"}
             </Button>
           </div>
         </CardContent>
@@ -303,7 +299,7 @@ export function ContactForm() {
           {stepAnnouncement}
         </p>
         <CardHeader className="pb-2">
-          <StepIndicator step={0} total={3} role={role} />
+          <StepIndicator step={0} total={3} stepLabels={stepLabels} />
           <CardTitle className="text-xl font-semibold text-foreground">
             Wie bent u?
           </CardTitle>
@@ -350,19 +346,19 @@ export function ContactForm() {
 
   if (step === 1) {
     return (
-      <Card className={cn("border-2 shadow-lg card-elevated", cardBorderClass)} id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
         <p className="sr-only" aria-live="polite">
           {stepAnnouncement}
         </p>
         <CardHeader className="pb-2">
-          <StepIndicator step={1} total={3} role={role} />
+          <StepIndicator step={1} total={3} stepLabels={stepLabels} />
           <CardTitle className="text-xl font-semibold text-foreground">
-            {role === "opdrachtgever" ? "Kies de gewenste dienst" : "Kies uw werkgebied"}
+            {role === "opdrachtgever" ? "In welke sector zoekt u?" : "In welk vakgebied werk jij?"}
           </CardTitle>
-          <p className="text-sm text-muted-foreground mt-1 leading-relaxed">
+          <p className="text-sm text-muted-foreground mt-1">
             {role === "opdrachtgever"
-              ? "Dit zijn de diensten die wij aanbieden met onze zzp'ers. Selecteer de dienst waarin u ondersteuning zoekt:"
-              : "Dit zijn de categorieën waarin u als zzp'er actief bent of wilt werken. Selecteer de gewenste categorie:"}
+              ? "Zo brengen wij u in contact met de juiste match."
+              : "Zo vinden we opdrachten die bij jou passen."}
           </p>
         </CardHeader>
         <CardContent className="pt-4 flex flex-col gap-3">
@@ -372,10 +368,7 @@ export function ContactForm() {
                 type="button"
                 key={n.value}
                 onClick={() => handleNicheSelect(n.value)}
-                className={cn(
-                  "rounded-lg border-2 border-border bg-background px-4 py-3 text-left text-sm font-medium text-foreground transition-all focus-visible:outline-none focus-visible:ring-2",
-                  nicheButtonClass
-                )}
+                className="rounded-lg border-2 border-border bg-background px-4 py-3 text-left text-sm font-medium text-foreground transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
               >
                 {n.label}
               </button>
@@ -399,15 +392,15 @@ export function ContactForm() {
   const roleLabelClassName = role === "freelancer" ? "text-brand-secondary" : "text-foreground"
 
   return (
-    <Card className={cn("border-2 shadow-lg card-elevated", cardBorderClass)} id="contact-form">
+    <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
       <p className="sr-only" aria-live="polite">
         {stepAnnouncement}
       </p>
       <CardHeader className="pb-2">
-        <StepIndicator step={2} total={3} role={role} />
+        <StepIndicator step={2} total={3} stepLabels={stepLabels} />
         {/* Context confirmation chip */}
         <div className="flex items-center gap-2 mb-1">
-          <span className={cn("inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium", bgLight10Class, textClass)}>
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
             <Check className="w-3 h-3" />
             <span className={roleLabelClassName}>{roleLabel}</span> &middot; {selectedNicheLabel}
           </span>
@@ -415,12 +408,12 @@ export function ContactForm() {
         <CardTitle className="text-xl font-semibold text-foreground">
           {isOpdrachtgever
             ? "Vraag een gratis adviesgesprek aan"
-            : "Vraag je gratis adviesgesprek aan"}
+            : "Vraag jouw gratis gesprek aan"}
         </CardTitle>
         <p className="text-sm text-muted-foreground mt-1">
           {isOpdrachtgever
             ? "Lieke neemt binnen 24 uur telefonisch contact met u op."
-            : "Lieke neemt binnen 24 uur telefonisch contact met je op."}
+            : "Lieke belt je binnen 24 uur — even kennismaken en jouw wensen bespreken."}
         </p>
       </CardHeader>
       <CardContent className="pt-2">
@@ -510,7 +503,7 @@ export function ContactForm() {
           <Button
             type="submit"
             size="lg"
-            className={cn("w-full mt-1 font-semibold", buttonClass)}
+            className="w-full mt-1 font-semibold"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -518,14 +511,22 @@ export function ContactForm() {
                 <Loader2 className="w-4 h-4 animate-spin" />
                 Versturen...
               </>
+            ) : isOpdrachtgever ? (
+              "Gratis adviesgesprek aanvragen"
             ) : (
-              "Gratis Adviesgesprek Aanvragen"
+              "Gratis gesprek aanvragen"
             )}
           </Button>
 
-          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground mt-1">
+          <p className="text-sm font-medium text-foreground text-center">
+            {isOpdrachtgever
+              ? "Lieke belt u meestal dezelfde dag nog terug."
+              : "Lieke belt je vaak nog dezelfde dag."}
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
             <span className="flex items-center gap-1">
-              <Check className={cn("w-3 h-3", textClass)} />
+              <Check className="w-3 h-3 text-primary" />
               Binnen 24 uur reactie
             </span>
             <span className="hidden sm:inline">&middot;</span>

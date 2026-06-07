@@ -1,0 +1,181 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2868
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 import React from 'react';\
+import \{ useNavigate \} from 'react-router-dom';\
+import \{ useLanguage \} from '../contexts/LanguageContext';\
+import \{ usePageMetadata \} from '../hooks/usePageMetadata';\
+import Footer from '../components/Footer';\
+import \{ MessageCircle, Bot, Zap, Star, ArrowRight, Phone \} from 'lucide-react';\
+\
+function AIPage() \{\
+  const \{ t \} = useLanguage();\
+  const navigate = useNavigate();\
+\
+  // Set page metadata for AI page\
+  usePageMetadata(\{\
+    title: t('seo.ai.title'),\
+    description: t('seo.ai.description'),\
+    schema: \{\
+      "@context": "https://schema.org",\
+      "@type": "Service",\
+      "name": "AI Automation Services",\
+      "description": t('seo.ai.description'),\
+      "provider": \{\
+        "@type": "Organization",\
+        "name": "KI Brueder",\
+        "@id": "https://kibrueder.de/#organization"\
+      \},\
+      "areaServed": \{\
+        "@type": "Place",\
+        "name": "Germany"\
+      \},\
+      "serviceType": "AI Business Automation"\
+    \}\
+  \});\
+\
+  const handleContactClick = () => \{\
+    navigate('/contact');\
+    setTimeout(() => \{\
+      window.scrollTo(\{ top: 0, behavior: 'smooth' \});\
+    \}, 100);\
+  \};\
+\
+  return (\
+    <div className="pt-20">\
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-12">\
+        \{/* Hero Section */\}\
+        <div className="text-center mb-16">\
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">\
+            \{t('ai.title')\}\
+          </h1>\
+          <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl max-w-3xl mx-auto">\
+            \{t('ai.subtitle')\}\
+          </p>\
+        </div>\
+\
+        \{/* Features Grid */\}\
+        <div className="grid md:grid-cols-3 gap-8 mb-16">\
+          <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-yellow-500/50 dark:hover:border-yellow-500/50 transition-all duration-300">\
+            <div className="text-yellow-500 mb-4">\
+              <MessageCircle className="w-10 h-10" />\
+            </div>\
+            <h3 className="text-xl font-semibold mb-3">\
+              \{t('ai.feature1.title')\}\
+            </h3>\
+            <p className="text-gray-600 dark:text-gray-400">\
+              \{t('ai.feature1.description')\}\
+            </p>\
+          </div>\
+\
+          <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-yellow-500/50 dark:hover:border-yellow-500/50 transition-all duration-300">\
+            <div className="text-yellow-500 mb-4">\
+              <Phone className="w-10 h-10" />\
+            </div>\
+            <h3 className="text-xl font-semibold mb-3">\
+              \{t('ai.feature2.title')\}\
+            </h3>\
+            <p className="text-gray-600 dark:text-gray-400">\
+              \{t('ai.feature2.description')\}\
+            </p>\
+          </div>\
+\
+          <div className="bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-200 dark:border-gray-800 hover:border-yellow-500/50 dark:hover:border-yellow-500/50 transition-all duration-300">\
+            <div className="text-yellow-500 mb-4">\
+              <Zap className="w-10 h-10" />\
+            </div>\
+            <h3 className="text-xl font-semibold mb-3">\
+              \{t('ai.feature3.title')\}\
+            </h3>\
+            <p className="text-gray-600 dark:text-gray-400">\
+              \{t('ai.feature3.description')\}\
+            </p>\
+          </div>\
+        </div>\
+\
+        \{/* Custom Content Section - Placeholder for user's text */\}\
+        <div className="bg-white dark:bg-gray-900 p-8 md:p-12 rounded-2xl border border-gray-200 dark:border-gray-800 mb-16">\
+          <h2 className="text-3xl font-bold mb-6 text-center">\
+            \{t('ai.content.title')\}\
+          </h2>\
+          <div className="prose dark:prose-invert max-w-none">\
+            \{t('ai.content.placeholder').split('\\n\\n').map((paragraph, index) => (\
+              <p key=\{index\} className="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mb-4">\
+                \{paragraph\}\
+              </p>\
+            ))\}\
+          </div>\
+        </div>\
+\
+        \{/* Benefits Section */\}\
+        <div className="bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-2xl p-8 md:p-12 mb-16">\
+          <h2 className="text-3xl font-bold mb-8 text-center">\
+            \{t('ai.benefits.title')\}\
+          </h2>\
+          <div className="grid md:grid-cols-2 gap-6">\
+            <div className="flex items-start gap-4">\
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">\
+                <Star className="w-5 h-5 text-white" />\
+              </div>\
+              <div>\
+                <h3 className="font-semibold mb-2">\{t('ai.benefits.benefit1.title')\}</h3>\
+                <p className="text-gray-600 dark:text-gray-400">\{t('ai.benefits.benefit1.description')\}</p>\
+              </div>\
+            </div>\
+            <div className="flex items-start gap-4">\
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">\
+                <Star className="w-5 h-5 text-white" />\
+              </div>\
+              <div>\
+                <h3 className="font-semibold mb-2">\{t('ai.benefits.benefit2.title')\}</h3>\
+                <p className="text-gray-600 dark:text-gray-400">\{t('ai.benefits.benefit2.description')\}</p>\
+              </div>\
+            </div>\
+            <div className="flex items-start gap-4">\
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">\
+                <Star className="w-5 h-5 text-white" />\
+              </div>\
+              <div>\
+                <h3 className="font-semibold mb-2">\{t('ai.benefits.benefit3.title')\}</h3>\
+                <p className="text-gray-600 dark:text-gray-400">\{t('ai.benefits.benefit3.description')\}</p>\
+              </div>\
+            </div>\
+            <div className="flex items-start gap-4">\
+              <div className="flex-shrink-0 w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center">\
+                <Star className="w-5 h-5 text-white" />\
+              </div>\
+              <div>\
+                <h3 className="font-semibold mb-2">\{t('ai.benefits.benefit4.title')\}</h3>\
+                <p className="text-gray-600 dark:text-gray-400">\{t('ai.benefits.benefit4.description')\}</p>\
+              </div>\
+            </div>\
+          </div>\
+        </div>\
+\
+        \{/* CTA Section */\}\
+        <div className="text-center">\
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">\
+            \{t('ai.cta.title')\}\
+          </h2>\
+          <p className="text-gray-600 dark:text-gray-400 text-lg mb-8 max-w-2xl mx-auto">\
+            \{t('ai.cta.subtitle')\}\
+          </p>\
+          <button\
+            onClick=\{handleContactClick\}\
+            className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white px-8 py-4 rounded-lg font-semibold transition-all inline-flex items-center gap-2"\
+          >\
+            \{t('ai.cta.button')\} <ArrowRight className="w-5 h-5" />\
+          </button>\
+        </div>\
+      </div>\
+      <Footer />\
+    </div>\
+  );\
+\}\
+\
+export default AIPage;\
+}

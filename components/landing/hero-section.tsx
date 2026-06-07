@@ -1,4 +1,5 @@
 import Image from "next/image"
+import { Briefcase, User } from "lucide-react"
 import { ContactForm } from "./contact-form"
 import { brand } from "@/lib/brand"
 import { cn } from "@/lib/utils"
@@ -8,17 +9,19 @@ const audienceCards = [
     role: "opdrachtgever" as const,
     title: "Voor Zorgorganisaties",
     description:
-      "Snel gekwalificeerde zzp'ers nodig voor uw afdeling of instelling? Wij koppelen u snel aan gescreende professionals.",
+      "Snel gekwalificeerde zzp'ers voor uw afdeling of instelling — wij koppelen u aan gescreende professionals.",
     cta: "Vind zorgpersoneel",
     accent: "primary" as const,
+    icon: Briefcase,
   },
   {
     role: "freelancer" as const,
-    title: "Voor zzp'ers",
+    title: "Voor Zzp'ers",
     description:
-      "Op zoek naar flexibele en goedbetaalde opdrachten in de zorg? Bepaal zelf je uurtarief en waar je werkt.",
-    cta: "Meld je aan als zzp'er",
+      "Flexibele, goedbetaalde opdrachten in de zorg — bepaal zelf je uurtarief en waar je werkt.",
+    cta: "Meld je aan",
     accent: "secondary" as const,
+    icon: User,
   },
 ]
 
@@ -39,40 +42,64 @@ export function HeroSection() {
               {brand.tagline}
             </p>
 
-            <div className="grid sm:grid-cols-2 gap-4">
-              {audienceCards.map((card) => (
-                <a
-                  key={card.role}
-                  href={`#contact-form?role=${card.role}`}
-                  className={cn(
-                    "group p-5 rounded-xl border border-border bg-card/80 backdrop-blur-sm flex flex-col justify-between gap-3 cursor-pointer block",
-                    "shadow-sm transition-all duration-200",
-                    "hover:shadow-md hover:-translate-y-0.5",
-                    card.accent === "primary"
-                      ? "hover:border-[#759940]/50 hover:bg-[#759940]/[0.03]"
-                      : "hover:border-[#006aa5]/50 hover:bg-[#006aa5]/[0.03]"
-                  )}
-                >
-                  <div>
-                    <h3 className="font-semibold text-foreground text-sm">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-1 leading-relaxed">
-                      {card.description}
-                    </p>
-                  </div>
-                  <span
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
+              {audienceCards.map((card) => {
+                const Icon = card.icon
+                const isPrimary = card.accent === "primary"
+                return (
+                  <a
+                    key={card.role}
+                    href={`#contact-form?role=${card.role}`}
                     className={cn(
-                      "text-xs font-semibold group-hover:underline inline-flex items-center gap-1 mt-1 transition-colors",
-                      card.accent === "primary"
-                        ? "text-[#759940]"
-                        : "text-[#006aa5]"
+                      "group flex flex-col rounded-2xl border-2 p-6 lg:p-7 min-h-[220px] sm:min-h-[240px]",
+                      "shadow-md transition-all duration-200",
+                      "hover:shadow-xl hover:-translate-y-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+                      isPrimary
+                        ? "border-primary/30 bg-primary/[0.06] hover:border-primary hover:bg-primary/[0.1] focus-visible:ring-primary"
+                        : "border-brand-secondary/30 bg-brand-secondary/[0.06] hover:border-brand-secondary hover:bg-brand-secondary/[0.1] focus-visible:ring-brand-secondary"
                     )}
                   >
-                    {card.cta} &rarr;
-                  </span>
-                </a>
-              ))}
+                    <div
+                      className={cn(
+                        "w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-colors",
+                        isPrimary
+                          ? "bg-primary/15 group-hover:bg-primary/25"
+                          : "bg-brand-secondary/15 group-hover:bg-brand-secondary/25"
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          "w-7 h-7",
+                          isPrimary ? "text-primary" : "text-brand-secondary"
+                        )}
+                        strokeWidth={2}
+                        aria-hidden
+                      />
+                    </div>
+                    <h3
+                      className={cn(
+                        "text-lg font-bold leading-tight",
+                        isPrimary ? "text-primary" : "text-brand-secondary"
+                      )}
+                    >
+                      {card.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed flex-1">
+                      {card.description}
+                    </p>
+                    <span
+                      className={cn(
+                        "mt-5 w-full inline-flex items-center justify-center rounded-lg px-4 py-3 text-sm font-semibold transition-colors",
+                        isPrimary
+                          ? "bg-primary text-primary-foreground group-hover:bg-primary/90"
+                          : "bg-brand-secondary text-white group-hover:bg-brand-secondary/90"
+                      )}
+                    >
+                      {card.cta}
+                    </span>
+                  </a>
+                )
+              })}
             </div>
 
             <div className="flex items-center gap-4 pt-1">

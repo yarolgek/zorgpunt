@@ -1,0 +1,3 @@
+fullscreen false;
+borderless_window true;
+gfx_fullscreen false;

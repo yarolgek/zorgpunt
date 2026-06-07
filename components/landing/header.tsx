@@ -71,14 +71,8 @@ export function Header() {
           </nav>
 
           <div className="hidden md:block">
-            <Button asChild size="sm" className="font-semibold bg-[#759940] hover:bg-[#759940]/90 text-white">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.app.mijnzpc"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Download App
-              </a>
+            <Button asChild size="sm" className="font-semibold">
+              <a href="#contact-form">Gratis gesprek aanvragen</a>
             </Button>
           </div>
 
@@ -105,14 +99,9 @@ export function Header() {
                 {link.label}
               </a>
             ))}
-            <Button asChild size="sm" className="font-semibold w-full mt-2 bg-[#759940] hover:bg-[#759940]/90 text-white">
-              <a
-                href="https://play.google.com/store/apps/details?id=com.app.mijnzpc"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileOpen(false)}
-              >
-                Download App
+            <Button asChild size="sm" className="font-semibold w-full mt-2">
+              <a href="#contact-form" onClick={() => setMobileOpen(false)}>
+                Gratis gesprek aanvragen
               </a>
             </Button>
           </div>
