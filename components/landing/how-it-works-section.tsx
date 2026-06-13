@@ -1,4 +1,6 @@
 import { Briefcase, User } from "lucide-react"
+import { cn } from "@/lib/utils"
+import { freelancerBoxHover, opdrachtgeverBoxHover } from "@/lib/role-hover"
 
 const opdrachtgeverSteps = [
   {
@@ -44,8 +46,8 @@ type Accent = "primary" | "secondary"
 function StepList({ steps, accent }: { steps: Step[]; accent: Accent }) {
   const numberCircle =
     accent === "primary"
-      ? "bg-primary text-primary-foreground"
-      : "bg-brand-secondary text-primary-foreground"
+      ? "bg-brand-primary text-white"
+      : "bg-brand-secondary text-white"
 
   return (
     <ol className="flex flex-col gap-6">
@@ -90,10 +92,15 @@ export function HowItWorksSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="rounded-xl border border-border bg-card p-6 lg:p-8">
+          <div
+            className={cn(
+              "rounded-xl border border-border bg-card p-6 lg:p-8",
+              opdrachtgeverBoxHover
+            )}
+          >
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                <Briefcase className="h-5 w-5 text-primary" aria-hidden />
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-primary/10">
+                <Briefcase className="h-5 w-5 text-brand-primary" aria-hidden />
               </div>
               <h3 className="text-lg font-semibold text-foreground">Opdrachtgever</h3>
             </div>
@@ -102,7 +109,12 @@ export function HowItWorksSection() {
             </div>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-6 lg:p-8">
+          <div
+            className={cn(
+              "rounded-xl border border-border bg-card p-6 lg:p-8",
+              freelancerBoxHover
+            )}
+          >
             <div className="flex items-center gap-3">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-secondary/10">
                 <User className="h-5 w-5 text-brand-secondary" aria-hidden />

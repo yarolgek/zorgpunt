@@ -67,7 +67,10 @@ export function FaqSection() {
         <div className="mt-10 text-center">
           <p className="text-muted-foreground">
             Staat uw vraag er niet tussen?{" "}
-            <a href="#contact-form" className="text-primary hover:underline font-medium">
+            <a
+              href="#contact-form"
+              className="text-brand-primary hover:text-brand-secondary font-medium transition-colors no-underline hover:no-underline"
+            >
               Vraag een gratis gesprek aan met Lieke
             </a>
           </p>

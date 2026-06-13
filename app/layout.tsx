@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ConvocoreChat } from '@/components/landing/convocore-chat'
 import { brand } from '@/lib/brand'
 import './globals.css'
 
@@ -57,11 +58,12 @@ export default function RootLayout({
   return (
     <html
       lang="nl"
-      className={`${geistSans.variable} ${geistMono.variable} bg-background scroll-smooth`}
+      className={`${geistSans.variable} ${geistMono.variable} light bg-background scroll-smooth`}
+      suppressHydrationWarning
     >
       <body className={`${geistSans.className} font-sans antialiased`}>
         {children}
-        {/* Voiceflow Loader has been removed from here */}
+        <ConvocoreChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

@@ -72,7 +72,7 @@ export function Header() {
 
           <div className="hidden md:block">
             <Button asChild size="sm" className="font-semibold">
-              <a href="#contact-form">Gratis gesprek aanvragen</a>
+              <a href="#app">Download de app</a>
             </Button>
           </div>
 
@@ -100,8 +100,8 @@ export function Header() {
               </a>
             ))}
             <Button asChild size="sm" className="font-semibold w-full mt-2">
-              <a href="#contact-form" onClick={() => setMobileOpen(false)}>
-                Gratis gesprek aanvragen
+              <a href="#app" onClick={() => setMobileOpen(false)}>
+                Download de app
               </a>
             </Button>
           </div>

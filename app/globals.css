@@ -142,13 +142,17 @@
 }
 
 @layer base {
+  html {
+    color-scheme: light;
+  }
   * {
     @apply border-border outline-ring/50;
   }
   body {
     @apply bg-background text-foreground;
   }
-  #contact-form {
+  #contact-form,
+  #app {
     scroll-margin-top: 5rem;
   }
 }
@@ -191,4 +195,35 @@
 
 .card-elevated-hover {
   @apply border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
+}
+
+@keyframes scroll-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal-hidden {
+  opacity: 0;
+  transform: translateY(1.25rem);
+}
+
+.scroll-reveal-shown {
+  animation: scroll-reveal-in 0.55s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal-hidden {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal-shown {
+    animation: none;
+  }
 }

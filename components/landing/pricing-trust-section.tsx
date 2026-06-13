@@ -1,5 +1,7 @@
 import { Check, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { freelancerBoxHover, opdrachtgeverBoxHover } from "@/lib/role-hover"
 
 const comparisonRows = [
   {
@@ -41,50 +43,60 @@ export function PricingTrustSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          <div className="rounded-xl border border-border bg-card p-6 lg:p-8 shadow-sm">
+          <div
+            className={cn(
+              "rounded-xl border border-border bg-card p-6 lg:p-8 shadow-sm",
+              opdrachtgeverBoxHover
+            )}
+          >
             <h3 className="font-semibold text-foreground text-lg mb-4">
               Voor opdrachtgevers
             </h3>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-primary shrink-0 mt-0.5" />
                 <span>
                   Het eerste adviesgesprek met Lieke is <strong className="text-foreground font-medium">gratis</strong> en vrijblijvend.
                 </span>
               </li>
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-primary shrink-0 mt-0.5" />
                 <span>
                   U betaalt pas wanneer een zzp&apos;er daadwerkelijk bij u aan de slag gaat.
                 </span>
               </li>
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-primary shrink-0 mt-0.5" />
                 <span>Geen verborgen kosten — vooraf heldere afspraken.</span>
               </li>
             </ul>
           </div>
 
-          <div className="rounded-xl border border-border bg-card p-6 lg:p-8 shadow-sm">
+          <div
+            className={cn(
+              "rounded-xl border border-border bg-card p-6 lg:p-8 shadow-sm",
+              freelancerBoxHover
+            )}
+          >
             <h3 className="font-semibold text-foreground text-lg mb-4">
               Voor zzp&apos;ers
             </h3>
             <ul className="flex flex-col gap-3 text-sm text-muted-foreground">
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-secondary shrink-0 mt-0.5" />
                 <span>
                   Aanmelden en bemiddeling naar opdrachten is{" "}
                   <strong className="text-foreground font-medium">volledig gratis</strong>.
                 </span>
               </li>
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-secondary shrink-0 mt-0.5" />
                 <span>
                   Je bepaalt zelf je tarief en beschikbaarheid bij passende opdrachten.
                 </span>
               </li>
               <li className="flex gap-2">
-                <Check className="h-4 w-4 text-primary shrink-0 mt-0.5" />
+                <Check className="h-4 w-4 text-brand-secondary shrink-0 mt-0.5" />
                 <span>Persoonlijke begeleiding door Lieke, zonder verplichtingen.</span>
               </li>
             </ul>

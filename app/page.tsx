@@ -10,6 +10,7 @@ import { FaqSection } from "@/components/landing/faq-section"
 import { AppDownloadSection } from "@/components/landing/app-download-section"
 import { Footer } from "@/components/landing/footer"
 import { MobileCtaBar } from "@/components/landing/mobile-cta-bar"
+import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import { faqPageJsonLd, organizationJsonLd } from "@/lib/structured-data"
 
 export default function Page() {
@@ -39,15 +40,33 @@ export default function Page() {
       <Header />
 
       <main id="main" className="pb-24 md:pb-0">
-        <HeroSection />
-        <SpoedCallout />
-        <HowItWorksSection />
-        <MetricsSection />
-        <SectorsSection />
-        <PricingTrustSection />
-        <TestimonialsSection />
-        <FaqSection />
-        <AppDownloadSection />
+        <ScrollReveal>
+          <HeroSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <SpoedCallout />
+        </ScrollReveal>
+        <ScrollReveal>
+          <HowItWorksSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <MetricsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <SectorsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <PricingTrustSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <TestimonialsSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <FaqSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <AppDownloadSection />
+        </ScrollReveal>
       </main>
 
       <MobileCtaBar />

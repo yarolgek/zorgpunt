@@ -18,6 +18,14 @@ export const opdrachtgeverNiches = [
   { value: "anders", label: "Anders" },
 ] as const
 
+/** Service types shown in the contact form for both opdrachtgever and zzp'er. */
+export const serviceCategories = [
+  { value: "bemiddeling", label: "Bemiddeling" },
+  { value: "detacheren", label: "Detacheren" },
+  { value: "onderaanneming", label: "Onderaanneming" },
+  { value: "bemiddeling-met-tussenkomst", label: "Bemiddeling met tussenkomst" },
+] as const
+
 export const freelancerNiches = [
   { value: "verpleegkundige", label: "Verpleegkundige" },
   { value: "verzorgende", label: "Verzorgende IG" },

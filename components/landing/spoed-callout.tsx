@@ -1,5 +1,7 @@
 import { AlertCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
+import { opdrachtgeverBoxHover } from "@/lib/role-hover"
 import { siteContact } from "@/lib/site"
 
 export function SpoedCallout() {
@@ -9,7 +11,12 @@ export function SpoedCallout() {
       aria-label="Spoedhulp voor opdrachtgevers"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-xl border border-brand-secondary/25 bg-background/80 p-5 shadow-sm">
+        <div
+          className={cn(
+            "flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 rounded-xl border border-border bg-background/80 p-5 shadow-sm",
+            opdrachtgeverBoxHover
+          )}
+        >
           <div className="flex items-start gap-3 flex-1 min-w-0">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-secondary/15">
               <AlertCircle className="h-5 w-5 text-brand-secondary" aria-hidden />

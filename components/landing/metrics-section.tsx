@@ -1,5 +1,12 @@
 import { Clock, Users, Star } from "lucide-react"
 import { brand } from "@/lib/brand"
+import { cn } from "@/lib/utils"
+import {
+  greenToBlueGroup,
+  greenToBlueIcon,
+  greenToBlueIconCircle,
+  greenToBlueText,
+} from "@/lib/role-hover"
 
 const metrics = [
   {
@@ -42,12 +49,25 @@ export function MetricsSection() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="flex flex-col items-center text-center gap-3"
+              className={cn(
+                "flex flex-col items-center text-center gap-3",
+                greenToBlueGroup
+              )}
             >
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center">
-                <metric.icon className="w-7 h-7 text-primary" />
+              <div
+                className={cn(
+                  "w-14 h-14 rounded-full flex items-center justify-center",
+                  greenToBlueIconCircle
+                )}
+              >
+                <metric.icon className={cn("w-7 h-7", greenToBlueIcon)} />
               </div>
-              <p className="text-2xl lg:text-3xl font-semibold text-foreground">
+              <p
+                className={cn(
+                  "text-2xl lg:text-3xl font-semibold",
+                  greenToBlueText
+                )}
+              >
                 {metric.value}
               </p>
               <p className="text-muted-foreground text-sm lg:text-base max-w-[250px]">

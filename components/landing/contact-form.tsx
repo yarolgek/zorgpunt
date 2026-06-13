@@ -12,7 +12,8 @@ import {
   scrollToContactForm,
   syncRoleToUrl,
 } from "@/lib/contact-form-url"
-import { freelancerNiches, opdrachtgeverNiches } from "@/lib/sectors"
+import { freelancerBoxHover, opdrachtgeverBoxHover } from "@/lib/role-hover"
+import { serviceCategories } from "@/lib/sectors"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -38,13 +39,13 @@ function getStepLabels(role: Role): readonly [string, string, string] {
   if (role === "freelancer") {
     return [
       "Stap 1 van 3: kies je rol",
-      "Stap 2 van 3: kies je vakgebied",
+      "Stap 2 van 3: kies type dienstverlening",
       "Stap 3 van 3: vul je gegevens in",
     ]
   }
   return [
     "Stap 1 van 3: kies uw rol",
-    "Stap 2 van 3: kies sector of vakgebied",
+    "Stap 2 van 3: kies type dienstverlening",
     "Stap 3 van 3: vul uw gegevens in",
   ]
 }
@@ -121,7 +122,7 @@ export function ContactForm() {
   const [isSuccess, setIsSuccess] = useState(false)
   const [stepAnnouncement, setStepAnnouncement] = useState<string>(getStepLabels(null)[0])
 
-  const niches = role === "opdrachtgever" ? opdrachtgeverNiches : freelancerNiches
+  const niches = serviceCategories
   const stepLabels = getStepLabels(role)
 
   useEffect(() => {
@@ -312,13 +313,16 @@ export function ContactForm() {
             <button
               type="button"
               onClick={() => handleRoleSelect("opdrachtgever")}
-              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-primary/50 hover:bg-primary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              className={cn(
+                "group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center",
+                opdrachtgeverBoxHover
+              )}
             >
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                <Briefcase className="w-6 h-6 text-primary" />
+              <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
+                <Briefcase className="w-6 h-6 text-brand-primary" />
               </div>
               <div>
-                <p className="font-semibold text-primary text-sm">Opdrachtgever</p>
+                <p className="font-semibold text-brand-primary text-sm">Opdrachtgever</p>
                 <p className="text-xs text-muted-foreground mt-0.5">Ik zoek zorgprofessionals</p>
               </div>
             </button>
@@ -326,7 +330,10 @@ export function ContactForm() {
             <button
               type="button"
               onClick={() => handleRoleSelect("freelancer")}
-              className="group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center transition-all hover:border-brand-secondary/50 hover:bg-brand-secondary/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary"
+              className={cn(
+                "group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center",
+                freelancerBoxHover
+              )}
             >
               <div className="w-12 h-12 rounded-full bg-brand-secondary/10 flex items-center justify-center group-hover:bg-brand-secondary/20 transition-colors">
                 <User className="w-6 h-6 text-brand-secondary" />
@@ -353,12 +360,14 @@ export function ContactForm() {
         <CardHeader className="pb-2">
           <StepIndicator step={1} total={3} stepLabels={stepLabels} />
           <CardTitle className="text-xl font-semibold text-foreground">
-            {role === "opdrachtgever" ? "In welke sector zoekt u?" : "In welk vakgebied werk jij?"}
+            {role === "opdrachtgever"
+              ? "Welke vorm van samenwerking zoekt u?"
+              : "Welke vorm van samenwerking zoek je?"}
           </CardTitle>
           <p className="text-sm text-muted-foreground mt-1">
             {role === "opdrachtgever"
-              ? "Zo brengen wij u in contact met de juiste match."
-              : "Zo vinden we opdrachten die bij jou passen."}
+              ? "Kies de dienst die het beste bij uw situatie past."
+              : "Kies de dienst die het beste bij jouw situatie past."}
           </p>
         </CardHeader>
         <CardContent className="pt-4 flex flex-col gap-3">
@@ -368,7 +377,10 @@ export function ContactForm() {
                 type="button"
                 key={n.value}
                 onClick={() => handleNicheSelect(n.value)}
-                className="rounded-lg border-2 border-border bg-background px-4 py-3 text-left text-sm font-medium text-foreground transition-all hover:border-primary hover:bg-primary/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+                className={cn(
+                  "rounded-lg border-2 border-border bg-background px-4 py-3 text-left text-sm font-medium text-foreground",
+                  role === "opdrachtgever" ? opdrachtgeverBoxHover : freelancerBoxHover
+                )}
               >
                 {n.label}
               </button>

@@ -1,4 +1,11 @@
 import { landingSectors } from "@/lib/sectors"
+import { cn } from "@/lib/utils"
+import {
+  greenToBlueCardHover,
+  greenToBlueGroup,
+  greenToBlueIcon,
+  greenToBlueIconCircle,
+} from "@/lib/role-hover"
 
 export function SectorsSection() {
   return (
@@ -25,9 +32,23 @@ export function SectorsSection() {
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {landingSectors.map((sector) => (
             <li key={sector.value}>
-              <div className="flex flex-col items-center text-center gap-3 rounded-xl card-elevated-hover p-4 h-full hover:border-primary/30">
-                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary/10">
-                  <sector.icon className="h-5 w-5 text-primary" aria-hidden />
+              <div
+                className={cn(
+                  "flex flex-col items-center text-center gap-3 rounded-xl card-elevated-hover p-4 h-full",
+                  greenToBlueGroup,
+                  greenToBlueCardHover
+                )}
+              >
+                <div
+                  className={cn(
+                    "flex h-11 w-11 items-center justify-center rounded-full",
+                    greenToBlueIconCircle
+                  )}
+                >
+                  <sector.icon
+                    className={cn("h-5 w-5", greenToBlueIcon)}
+                    aria-hidden
+                  />
                 </div>
                 <span className="text-xs sm:text-sm font-medium text-foreground leading-snug">
                   {sector.label}
