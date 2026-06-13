@@ -14,7 +14,7 @@ const footerNav = [
 ]
 
 const legalLinks = [
-  { label: "Privacybeleid", href: "/privacy" },
+  { label: "Privacy Statement", href: "/privacy" },
   { label: "Algemene voorwaarden", href: "/voorwaarden" },
   { label: "Cookiebeleid", href: "/cookies" },
 ]
@@ -111,7 +111,7 @@ export function Footer() {
               AVG/GDPR conform
             </Link>
             {" "}
-            — zie privacybeleid
+            — zie privacy statement
           </p>
         </div>
       </div>

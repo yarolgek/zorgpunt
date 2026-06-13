@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { LegalPage } from "@/components/landing/legal-page"
+import { VoorwaardenAppendices } from "@/components/landing/voorwaarden-appendices"
+import { VoorwaardenContent } from "@/components/landing/voorwaarden-content"
 import { brand } from "@/lib/brand"
 
 export const metadata: Metadata = {
@@ -10,15 +12,8 @@ export const metadata: Metadata = {
 export default function VoorwaardenPage() {
   return (
     <LegalPage title="Algemene voorwaarden">
-      <p>
-        Dit is een tijdelijke placeholder. Leg hier aansprakelijkheid,
-        bemiddelingsvoorwaarden, tarieven en geschillenbeslechting vast vóór
-        productie.
-      </p>
-      <p>
-        Door gebruik te maken van {brand.name} gaat u akkoord met deze voorwaarden
-        zodra de definitieve versie is gepubliceerd.
-      </p>
+      <VoorwaardenContent />
+      <VoorwaardenAppendices />
     </LegalPage>
   )
 }
