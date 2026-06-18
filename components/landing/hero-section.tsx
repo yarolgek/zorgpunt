@@ -40,7 +40,7 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           <div className="flex flex-col gap-6 lg:max-w-xl">
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold leading-tight text-foreground text-balance">
-              De match die wél werkt in de zorg
+            Vind de diensten die jij wilt. Het personeel dat jij nodig hebt.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {brand.tagline}
