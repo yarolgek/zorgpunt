@@ -243,7 +243,7 @@ export function ContactForm() {
           "U ontvangt passende, gescreende zzp'ers om uit te kiezen.",
         ]
       : [
-          "Lieke belt je — vaak nog dezelfde dag.",
+          "Lieke belt je, vaak nog dezelfde dag.",
           "Jullie bespreken je profiel, beschikbaarheid en wat je zoekt.",
           "Je krijgt opdrachten die echt bij jou passen.",
         ]
@@ -425,7 +425,7 @@ export function ContactForm() {
         <p className="text-sm text-muted-foreground mt-1">
           {isOpdrachtgever
             ? "Lieke neemt binnen 24 uur telefonisch contact met u op."
-            : "Lieke belt je binnen 24 uur — even kennismaken en jouw wensen bespreken."}
+            : "Lieke belt je binnen 24 uur, even kennismaken en jouw wensen bespreken."}
         </p>
       </CardHeader>
       <CardContent className="pt-2">

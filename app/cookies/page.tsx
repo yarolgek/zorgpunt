@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/landing/legal-page"
 import { brand } from "@/lib/brand"
 
 export const metadata: Metadata = {
-  title: `Cookiebeleid — ${brand.name}`,
+  title: `Cookiebeleid, ${brand.name}`,
   robots: { index: false, follow: true },
 }
 
@@ -16,7 +16,7 @@ export default function CookiesPage() {
       </p>
       <p>
         De landingpagina gebruikt momenteel alleen functionele en analytische
-        cookies waar van toepassing — werk dit document bij vóór livegang.
+        cookies waar van toepassing, werk dit document bij vóór livegang.
       </p>
     </LegalPage>
   )

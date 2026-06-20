@@ -21,32 +21,32 @@ export function VoorwaardenAppendices() {
       <h3 className={h3}>1. Begripsbepalingen</h3>
       <p>In deze Algemene voorwaarden wordt verstaan onder:</p>
       <p>
-        <strong>Algemene voorwaarden</strong> — deze Algemene voorwaarden.
+        <strong>Algemene voorwaarden</strong>, deze Algemene voorwaarden.
       </p>
       <p>
-        <strong>Mijn ZPC</strong> — de gebruiker van deze algemene voorwaarden.
+        <strong>Mijn ZPC</strong>, de gebruiker van deze algemene voorwaarden.
       </p>
       <p>
-        <strong>Opdrachtgever</strong> — een natuurlijke persoon of
+        <strong>Opdrachtgever</strong>, een natuurlijke persoon of
         rechtspersoon, die middels de Software van Mijn ZPC een Opdrachtnemer
         inzet ten behoeve van het uitvoeren van werkzaamheden binnen de
         organisatie van de Opdrachtgever.
       </p>
       <p>
-        <strong>Opdrachtnemer</strong> — de natuurlijke persoon of
+        <strong>Opdrachtnemer</strong>, de natuurlijke persoon of
         rechtspersoon die als professional in de zorg en middels de service van
         Mijn ZPC een Opdracht is aangegaan met een Opdrachtgever, teneinde de
         gevraagde kennis en ervaring op de door Opdrachtgever gewenste gebieden
         tijdelijk ter beschikking te stellen.
       </p>
       <p>
-        <strong>Opdracht</strong> — de mondelinge, schriftelijke of digitale
+        <strong>Opdracht</strong>, de mondelinge, schriftelijke of digitale
         overeenkomst van opdracht tussen een Opdrachtgever en Opdrachtnemer, op
         basis waarvan Opdrachtnemer begeleidende, verzorgende, verpleegkundige
         of andere werkzaamheden zal uitvoeren.
       </p>
       <p>
-        <strong>Software</strong> — De software die Mijn ZPC heeft ontwikkeld
+        <strong>Software</strong>, de software die Mijn ZPC heeft ontwikkeld
         als serviceproduct om Opdrachtnemer en Opdrachtgever te faciliteren in
         de totstandkoming van een Opdracht en ter ontlasting van hun
         administratieve werkzaamheden.

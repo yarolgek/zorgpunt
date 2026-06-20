@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/landing/legal-page"
 import { brand } from "@/lib/brand"
 
 export const metadata: Metadata = {
-  title: `Privacy Statement — ${brand.name}`,
+  title: `Privacy Statement, ${brand.name}`,
   robots: { index: false, follow: true },
 }
 

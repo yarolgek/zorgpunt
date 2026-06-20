@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { siteContact } from "@/lib/site"
 import { brand } from "@/lib/brand"
 import { BrandLogo } from "@/components/landing/brand-logo"
+import { getServicesByCategory, serviceCategories } from "@/lib/services"
 
 const footerNav = [
   { label: "Hoe het werkt", href: "#hoe-het-werkt" },
@@ -98,6 +99,36 @@ export function Footer() {
             ))}
           </nav>
         </div>
+
+        <nav
+          aria-label="Onze diensten"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10 border-t border-border"
+        >
+          <p className="text-sm font-semibold text-foreground mb-6">
+            Onze diensten
+          </p>
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {serviceCategories.map((category) => (
+              <div key={category.id}>
+                <p className="text-xs font-semibold text-foreground mb-3">
+                  {category.label}
+                </p>
+                <ul className="flex flex-col gap-2">
+                  {getServicesByCategory(category.id).map((service) => (
+                    <li key={service.slug}>
+                      <Link
+                        href={`/diensten/${service.slug}`}
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug"
+                      >
+                        {service.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </nav>
       </div>
 
       {/* Bottom bar */}
@@ -111,7 +142,7 @@ export function Footer() {
               AVG/GDPR conform
             </Link>
             {" "}
-            — zie privacy statement
+            , zie privacy statement
           </p>
         </div>
       </div>

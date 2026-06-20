@@ -37,7 +37,7 @@ export function PricingTrustSection() {
             Geen verrassingen
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Heldere afspraken voor opdrachtgevers en zzp&apos;ers — u betaalt pas
+            Heldere afspraken voor opdrachtgevers en zzp&apos;ers, u betaalt pas
             bij een geslaagde match, aanmelden als zzp&apos;er is gratis.
           </p>
         </div>
@@ -67,7 +67,7 @@ export function PricingTrustSection() {
               </li>
               <li className="flex gap-2">
                 <Check className="h-4 w-4 text-brand-primary shrink-0 mt-0.5" />
-                <span>Geen verborgen kosten — vooraf heldere afspraken.</span>
+                <span>Geen verborgen kosten, vooraf heldere afspraken.</span>
               </li>
             </ul>
           </div>

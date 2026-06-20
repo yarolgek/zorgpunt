@@ -5,7 +5,7 @@ import { VoorwaardenContent } from "@/components/landing/voorwaarden-content"
 import { brand } from "@/lib/brand"
 
 export const metadata: Metadata = {
-  title: `Algemene voorwaarden — ${brand.name}`,
+  title: `Algemene voorwaarden, ${brand.name}`,
   robots: { index: false, follow: true },
 }
 

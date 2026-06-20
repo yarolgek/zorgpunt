@@ -36,7 +36,7 @@ const freelancerSteps = [
   },
   {
     title: "Ga aan de slag op jouw voorwaarden",
-    description: "Jij bepaalt je tarief en planning — wij ontzorgen waar nodig.",
+    description: "Jij bepaalt je tarief en planning, wij ontzorgen waar nodig.",
   },
 ] as const
 
@@ -87,7 +87,7 @@ export function HowItWorksSection() {
             Hoe het werkt
           </h2>
           <p className="text-muted-foreground">
-            In vier stappen naar de juiste match — voor zorgorganisaties en zzp&apos;ers
+            In vier stappen naar de juiste match, voor zorgorganisaties en zzp&apos;ers
           </p>
         </div>
 

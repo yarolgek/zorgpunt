@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         url: '/og-image.svg',
         width: 1200,
         height: 630,
-        alt: `${brand.name} — ${brand.shortName}`,
+        alt: `${brand.name}, ${brand.shortName}`,
       },
     ],
   },

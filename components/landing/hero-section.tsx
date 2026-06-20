@@ -9,7 +9,7 @@ const audienceCards = [
     role: "opdrachtgever" as const,
     title: "Voor Zorgorganisaties",
     description:
-      "Snel gekwalificeerde zzp'ers voor uw afdeling of instelling — wij koppelen u aan gescreende professionals.",
+      "Snel gekwalificeerde zzp'ers voor uw afdeling of instelling, wij koppelen u aan gescreende professionals.",
     cta: "Vind zorgpersoneel",
     accent: "primary" as const,
     icon: Briefcase,
@@ -18,7 +18,7 @@ const audienceCards = [
     role: "freelancer" as const,
     title: "Voor Zzp'ers",
     description:
-      "Flexibele, goedbetaalde opdrachten in de zorg — bepaal zelf je uurtarief en waar je werkt.",
+      "Flexibele, goedbetaalde opdrachten in de zorg, bepaal zelf je uurtarief en waar je werkt.",
     cta: "Meld je aan",
     accent: "secondary" as const,
     icon: User,

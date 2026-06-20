@@ -9,5 +9,5 @@ export const brand = {
   },
   tagline:
     "ZorgpuntConnect brengt gekwalificeerde freelance zorgverleners (zzp'ers) en zorgorganisaties in heel Nederland samen. Snel, persoonlijk en betrouwbaar.",
-  metaTitle: "ZorgpuntConnect (ZPC) — Zorgbemiddeling voor zzp'ers",
+  metaTitle: "ZorgpuntConnect (ZPC), Zorgbemiddeling voor zzp'ers",
 } as const

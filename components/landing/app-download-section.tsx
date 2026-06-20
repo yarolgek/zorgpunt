@@ -48,7 +48,7 @@ export function AppDownloadSection() {
               id="app-heading"
               className="text-2xl sm:text-3xl lg:text-4xl font-semibold leading-tight text-foreground text-balance"
             >
-              MijnZPC — altijd en overal toegang
+              MijnZPC, altijd en overal toegang
             </h2>
 
             <p className="text-base text-muted-foreground leading-relaxed max-w-lg">

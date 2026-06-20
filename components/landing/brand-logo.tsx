@@ -25,7 +25,7 @@ export function BrandLogo({
         "flex items-center gap-2.5 hover:opacity-90 transition-opacity min-w-0",
         className
       )}
-      aria-label={`${brand.name} (${brand.shortName}) — naar boven`}
+      aria-label={`${brand.name} (${brand.shortName}), naar boven`}
     >
       <Image
         src="/logo-zpc.png"

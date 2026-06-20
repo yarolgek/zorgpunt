@@ -23,7 +23,7 @@ export function SectorsSection() {
             Actief in heel Nederland
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Wij bemiddelen in de sectoren die u in het formulier kunt kiezen — en
+            Wij bemiddelen in de sectoren die u in het formulier kunt kiezen, en
             voor zzp&apos;ers in diverse vakgebieden van verpleegkundige tot
             begeleider.
           </p>
