@@ -128,28 +128,28 @@ function GhzPersoneelArticle() {
         aan screening. Afhankelijk van uw wensen kan dat via{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           ZZP-bemiddeling
         </Link>
         ,{" "}
         <Link
           href="/diensten/detachering-zorgpersoneel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           detachering
         </Link>{" "}
         of bij structurele behoefte{" "}
         <Link
           href="/diensten/werving-en-selectie"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           werving en selectie
         </Link>
         . Bij grotere opdrachten kan ook{" "}
         <Link
           href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           onderaanneming
         </Link>{" "}
@@ -206,7 +206,7 @@ function GhzPersoneelArticle() {
         Cliënten in de GHZ zijn vaak kwetsbaar. Daarom is{" "}
         <Link
           href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           kwaliteitscontrole en screening
         </Link>{" "}
@@ -245,14 +245,14 @@ function GhzPersoneelArticle() {
         GHZ overlapt soms met{" "}
         <Link
           href="/diensten/sociaal-werk"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           sociaal werk
         </Link>{" "}
         of{" "}
         <Link
           href="/diensten/vvt-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           VVT
         </Link>{" "}

@@ -2,20 +2,27 @@ import Link from "next/link"
 import type { Service } from "@/lib/services"
 import { getServiceBySlug, serviceCategories } from "@/lib/services"
 import { brand } from "@/lib/brand"
-import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/landing/footer"
+import { ServiceAreaLinksSection } from "@/components/landing/service-area-links-section"
+import type { EnhancedSubpageSeo } from "@/lib/subpage-seo"
 import type { RichServicePage } from "@/lib/service-content/types"
 
 interface ServicePageContentProps {
   service: Service
   rich?: RichServicePage
+  seo: EnhancedSubpageSeo
 }
 
-export function ServicePageContent({ service, rich }: ServicePageContentProps) {
+export function ServicePageContent({
+  service,
+  rich,
+  seo,
+}: ServicePageContentProps) {
   const categoryLabel = serviceCategories.find(
     (c) => c.id === service.category
   )?.label
 
-  const h1 = rich?.seo.h1 ?? service.title
+  const h1 = seo.h1
 
   return (
     <div className="min-h-screen bg-background">
@@ -23,7 +30,7 @@ export function ServicePageContent({ service, rich }: ServicePageContentProps) {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-4 flex flex-col gap-2">
           <Link
             href="/"
-            className="text-sm font-medium text-primary hover:underline w-fit"
+            className="text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline w-fit"
           >
             &larr; Terug naar {brand.name}
           </Link>
@@ -93,7 +100,7 @@ export function ServicePageContent({ service, rich }: ServicePageContentProps) {
                         <li key={slug}>
                           <Link
                             href={`/diensten/${slug}`}
-                            className="text-primary hover:underline"
+                            className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
                           >
                             {related.title}
                           </Link>
@@ -103,6 +110,12 @@ export function ServicePageContent({ service, rich }: ServicePageContentProps) {
                   </ul>
                 </section>
               ) : null}
+
+              <ServiceAreaLinksSection
+                serviceSlug={service.slug}
+                serviceTitle={service.title}
+                relatedAreaSlugs={rich.relatedAreaSlugs}
+              />
             </>
           ) : (
             <>
@@ -122,20 +135,16 @@ export function ServicePageContent({ service, rich }: ServicePageContentProps) {
                 Voor wie
               </h2>
               <p>{service.audience}</p>
+
+              <ServiceAreaLinksSection
+                serviceSlug={service.slug}
+                serviceTitle={service.title}
+              />
             </>
           )}
-
-          <div className="pt-8 border-t border-border mt-8">
-            <p className="text-foreground font-medium mb-4">
-              Wilt u meer weten over {service.title.toLowerCase()}? Neem
-              vrijblijvend contact op met Lieke voor een gratis adviesgesprek.
-            </p>
-            <Button asChild className="font-semibold">
-              <a href="/#contact-form">Gratis gesprek aanvragen</a>
-            </Button>
-          </div>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }

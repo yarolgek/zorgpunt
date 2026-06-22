@@ -1,6 +1,7 @@
 import Link from "next/link"
 import type { ReactNode } from "react"
 import { brand } from "@/lib/brand"
+import { Footer } from "@/components/landing/footer"
 
 export function LegalPage({
   title,
@@ -15,7 +16,7 @@ export function LegalPage({
         <div className="max-w-3xl mx-auto px-4 sm:px-6 py-4">
           <Link
             href="/"
-            className="text-sm font-medium text-primary hover:underline"
+            className="text-sm font-medium text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
           >
             &larr; Terug naar {brand.name}
           </Link>
@@ -27,6 +28,7 @@ export function LegalPage({
           {children}
         </div>
       </main>
+      <Footer />
     </div>
   )
 }

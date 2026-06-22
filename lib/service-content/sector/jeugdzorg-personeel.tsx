@@ -128,21 +128,21 @@ function JeugdzorgPersoneelArticle() {
         via{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           ZZP-bemiddeling
         </Link>
         ,{" "}
         <Link
           href="/diensten/detachering-zorgpersoneel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           detachering
         </Link>{" "}
         of{" "}
         <Link
           href="/diensten/werving-en-selectie"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           werving en selectie
         </Link>{" "}
@@ -199,7 +199,7 @@ function JeugdzorgPersoneelArticle() {
         Werken met minderjarigen vraagt om strikte screening. Onze{" "}
         <Link
           href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           kwaliteitscontrole
         </Link>{" "}
@@ -226,14 +226,14 @@ function JeugdzorgPersoneelArticle() {
         Jongeren raken ook GGZ of sociaal werk. Bekijk{" "}
         <Link
           href="/diensten/ggz-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           GGZ personeel
         </Link>{" "}
         en{" "}
         <Link
           href="/diensten/sociaal-werk"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           sociaal werk
         </Link>{" "}

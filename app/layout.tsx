@@ -2,7 +2,9 @@ import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import { ConvocoreChat } from '@/components/landing/convocore-chat'
+import { WhatsAppFloatingButton } from '@/components/landing/whatsapp-floating-button'
 import { brand } from '@/lib/brand'
+import { getSiteUrl } from '@/lib/site-url'
 import './globals.css'
 
 const geistSans = Geist({
@@ -17,32 +19,33 @@ const geistMono = Geist_Mono({
   display: 'swap',
 })
 
+const homeTitle =
+  'Beste Zorgbemiddeling Roermond, ZorgpuntConnect | Zorgpersoneel inhuren, ZZP-zorgprofessionals, detachering en uitzendbureau voor de zorg in Roermond en omgeving (Limburg en Noord-Brabant)'
+
+const homeDescription =
+  'ZorgpuntConnect is dé zorgbemiddelaar in Roermond. Wij bemiddelen en detacheren gekwalificeerde ZZP-zorgprofessionals voor zorgorganisaties in Roermond, Limburg en Noord-Brabant. Snel, persoonlijk en SNA-gecertificeerd.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
-  title: brand.metaTitle,
-  description: brand.tagline,
-  keywords: ['zzp zorg', 'freelance zorg', 'zorgpersoneel', 'zorgorganisatie', 'zorgpuntconnect', 'zpc', 'Nederland', 'thuiszorg', 'verpleegkundige'],
+  metadataBase: new URL(getSiteUrl()),
+  title: homeTitle,
+  description: homeDescription,
+  keywords: ['zorgbemiddeling Roermond', 'zorgpersoneel inhuren', 'zzp zorg', 'zzp zorgprofessionals', 'detachering zorg', 'uitzendbureau zorg', 'zorgbemiddelaar', 'freelance zorg', 'zorgorganisatie', 'zorgpuntconnect', 'zpc', 'Roermond', 'Limburg', 'Noord-Brabant', 'thuiszorg', 'verpleegkundige'],
   authors: [{ name: brand.name }],
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     siteName: brand.name,
-    title: brand.metaTitle,
-    description: brand.tagline,
+    title: homeTitle,
+    description: homeDescription,
     locale: 'nl_NL',
     type: 'website',
-    images: [
-      {
-        url: '/og-image.svg',
-        width: 1200,
-        height: 630,
-        alt: `${brand.name}, ${brand.shortName}`,
-      },
-    ],
+    url: '/',
   },
   twitter: {
     card: 'summary_large_image',
-    title: brand.metaTitle,
-    description: brand.tagline,
-    images: ['/og-image.svg'],
+    title: homeTitle,
+    description: homeDescription,
   },
   icons: {
     icon: [{ url: '/logo-zpc.png', type: 'image/png' }],
@@ -63,6 +66,7 @@ export default function RootLayout({
     >
       <body className={`${geistSans.className} font-sans antialiased`}>
         {children}
+        <WhatsAppFloatingButton />
         <ConvocoreChat />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

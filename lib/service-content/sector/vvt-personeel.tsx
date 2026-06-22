@@ -132,14 +132,14 @@ function VvtPersoneelArticle() {
         van uw behoefte schakelen we{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           ZZP-zorgprofessionals
         </Link>{" "}
         in, detacheren we voor langere periodes of denken we mee over structurele{" "}
         <Link
           href="/diensten/werving-en-selectie"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           werving en selectie
         </Link>
@@ -209,14 +209,14 @@ function VvtPersoneelArticle() {
         direct impact op cliënten. Daarom sluiten onze diensten aan op{" "}
         <Link
           href="/diensten/roosterplanning-personeelsbezetting"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           roosterplanning en personeelsbezetting
         </Link>{" "}
         via Mijn ZPC. Urenregistratie en{" "}
         <Link
           href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           documentbeheer
         </Link>{" "}
@@ -255,14 +255,14 @@ function VvtPersoneelArticle() {
         Thuiszorg raakt andere domeinen. Bekijk ook{" "}
         <Link
           href="/diensten/ggz-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           GGZ personeel
         </Link>{" "}
         voor psychogeriatrie of{" "}
         <Link
           href="/diensten/ghz-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           GHZ personeel
         </Link>{" "}

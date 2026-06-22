@@ -18,5 +18,7 @@ export interface RichServicePage {
   seo: ServiceSeo
   faqs: ServiceFaq[]
   relatedSlugs: string[]
+  /** Optional werkgebied overrides; defaults apply when omitted. */
+  relatedAreaSlugs?: string[]
   renderArticle: () => ReactNode
 }

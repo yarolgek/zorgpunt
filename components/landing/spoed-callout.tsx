@@ -1,4 +1,4 @@
-import { AlertCircle, Phone } from "lucide-react"
+import { AlertCircle, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { opdrachtgeverBoxHover } from "@/lib/role-hover"
@@ -45,6 +45,20 @@ export function SpoedCallout() {
             </Button>
             <Button asChild className="font-semibold">
               <a href="#contact-form?role=opdrachtgever">Spoed aanvragen</a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              className="border-brand-primary/40 text-brand-primary hover:bg-brand-primary/10 font-semibold"
+            >
+              <a
+                href={siteContact.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp chat
+              </a>
             </Button>
           </div>
         </div>

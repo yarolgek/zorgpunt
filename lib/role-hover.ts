@@ -12,6 +12,10 @@ export const greenToBlueIcon =
 export const greenToBlueText =
   "text-brand-primary group-hover:text-brand-secondary transition-colors duration-200"
 
+/** Green at rest, blue on hover — for inline text links */
+export const greenToBlueLink =
+  "text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+
 export const greenToBlueCardHover =
   "transition-all duration-200 hover:border-brand-secondary/40 hover:bg-brand-secondary/[0.04] hover:shadow-md"
 

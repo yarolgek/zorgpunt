@@ -124,21 +124,21 @@ function SociaalWerkArticle() {
         kandidaten via{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           ZZP-bemiddeling
         </Link>
         ,{" "}
         <Link
           href="/diensten/detachering-zorgpersoneel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           detachering
         </Link>{" "}
         of{" "}
         <Link
           href="/diensten/werving-en-selectie"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           werving en selectie
         </Link>
@@ -195,21 +195,21 @@ function SociaalWerkArticle() {
         Sociaal werk raakt vaak{" "}
         <Link
           href="/diensten/jeugdzorg-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           jeugdzorg
         </Link>
         ,{" "}
         <Link
           href="/diensten/ghz-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           gehandicaptenzorg
         </Link>{" "}
         en{" "}
         <Link
           href="/diensten/vvt-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           thuiszorg
         </Link>

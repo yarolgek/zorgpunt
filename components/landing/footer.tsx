@@ -1,10 +1,11 @@
 import Link from "next/link"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siteContact } from "@/lib/site"
 import { brand } from "@/lib/brand"
 import { BrandLogo } from "@/components/landing/brand-logo"
 import { getServicesByCategory, serviceCategories } from "@/lib/services"
+import { serviceAreas } from "@/lib/service-areas"
 
 const footerNav = [
   { label: "Hoe het werkt", href: "#hoe-het-werkt" },
@@ -65,12 +66,51 @@ export function Footer() {
                   {siteContact.email}
                 </a>
               </li>
-              <li className="inline-flex items-center gap-2">
-                <MapPin className="h-4 w-4 shrink-0" />
-                {siteContact.region}
+              <li>
+                <a
+                  href={siteContact.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+                >
+                  <MessageCircle className="h-4 w-4 shrink-0" />
+                  WhatsApp chat
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>
+                  {brand.name}
+                  <br />
+                  {siteContact.street}
+                  <br />
+                  {siteContact.postalCode} {siteContact.city}
+                </span>
+              </li>
+              <li className="flex items-start gap-2">
+                <Clock className="h-4 w-4 shrink-0 mt-0.5" />
+                <span>
+                  Ma t/m vr: {siteContact.openingHours[0].opens}&ndash;
+                  {siteContact.openingHours[0].closes}
+                  <br />
+                  Za &amp; zo: gesloten
+                </span>
               </li>
               <li className="text-xs">KvK: {siteContact.kvk}</li>
             </ul>
+            <nav aria-label="Social media" className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
+              {siteContact.socialProfiles.map((profile) => (
+                <a
+                  key={profile.url}
+                  href={profile.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {profile.label}
+                </a>
+              ))}
+            </nav>
           </div>
 
           <nav aria-label="Voetnavigatie" className="flex flex-col gap-2">
@@ -105,7 +145,9 @@ export function Footer() {
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10 border-t border-border"
         >
           <p className="text-sm font-semibold text-foreground mb-6">
-            Onze diensten
+            <Link href="/diensten" className="hover:text-primary transition-colors">
+              Onze diensten
+            </Link>
           </p>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {serviceCategories.map((category) => (
@@ -128,6 +170,29 @@ export function Footer() {
               </div>
             ))}
           </div>
+        </nav>
+
+        <nav
+          aria-label="Werkgebieden"
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10 border-t border-border"
+        >
+          <p className="text-sm font-semibold text-foreground mb-6">
+            <Link href="/werkgebieden" className="hover:text-primary transition-colors">
+              Werkgebieden
+            </Link>
+          </p>
+          <ul className="grid gap-x-8 gap-y-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
+            {serviceAreas.map((area) => (
+              <li key={area.slug}>
+                <Link
+                  href={`/werkgebieden/${area.slug}`}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug"
+                >
+                  {area.city}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
       </div>
 

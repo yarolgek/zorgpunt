@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { Briefcase, User } from "lucide-react"
 import { ContactForm } from "./contact-form"
 import { brand } from "@/lib/brand"
@@ -29,10 +30,7 @@ export function HeroSection() {
   return (
     <section className="relative py-12 lg:py-20 overflow-hidden">
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden>
-        <div
-          className="absolute inset-0 bg-cover bg-[center_35%] bg-no-repeat"
-          style={{ backgroundImage: "url('/images/hero-team.jpg')" }}
-        />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-[url('/images/hero-team-mobile.jpg')] sm:bg-[url('/images/hero-team.jpg')] sm:bg-[center_35%]" />
         <div className="absolute inset-0 bg-gradient-to-r from-background/88 via-background/72 to-background/55" />
         <div className="absolute inset-0 bg-gradient-to-b from-background/25 via-transparent to-background/80" />
       </div>
@@ -40,11 +38,38 @@ export function HeroSection() {
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
           <div className="flex flex-col gap-6 lg:max-w-xl">
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold leading-tight text-foreground text-balance">
-            Vind de diensten die jij wilt. Het personeel dat jij nodig hebt.
+              <span className="block text-sm sm:text-base font-semibold uppercase tracking-wide text-primary mb-2">
+                Zorgbemiddeling in Roermond en omgeving
+              </span>
+              Vind de diensten die jij wilt. Het personeel dat jij nodig hebt.
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
               {brand.tagline}
             </p>
+            <h2 className="text-base font-medium text-foreground/80 leading-relaxed">
+              Zorgpersoneel inhuren via{" "}
+              <Link
+                href="/diensten/bemiddeling-zzp-zorgprofessionals"
+                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+              >
+                bemiddeling van ZZP-zorgprofessionals
+              </Link>
+              ,{" "}
+              <Link
+                href="/diensten/detachering-zorgpersoneel"
+                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+              >
+                detachering
+              </Link>{" "}
+              en{" "}
+              <Link
+                href="/diensten/werving-en-selectie"
+                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+              >
+                werving en selectie
+              </Link>{" "}
+              in Roermond, Limburg en Noord-Brabant.
+            </h2>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-5">
               {audienceCards.map((card) => {

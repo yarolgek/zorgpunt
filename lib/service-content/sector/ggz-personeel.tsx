@@ -64,7 +64,7 @@ export const ggzPersoneelContent: RichServicePage = {
     {
       question: "Waar is ZorgpuntConnect actief voor GGZ-personeel?",
       answer:
-        "Wij werken met opdrachtgevers in heel Nederland. Vanuit onze basis in Limburg (Roermond/Venray) kennen we de regionale arbeidsmarkt goed, maar ons netwerk reikt verder dan één provincie.",
+        "Wij werken met opdrachtgevers in heel Nederland. Vanuit onze basis in Roermond kennen we de regionale arbeidsmarkt goed, maar ons netwerk reikt verder dan één provincie.",
     },
   ],
   renderArticle: () => <GgzPersoneelArticle />,
@@ -138,21 +138,21 @@ function GgzPersoneelArticle() {
         zorgprofessionals. Afhankelijk van uw voorkeur kan dat via{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           bemiddeling van ZZP&apos;ers
         </Link>
         ,{" "}
         <Link
           href="/diensten/detachering-zorgpersoneel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           detachering
         </Link>{" "}
         of{" "}
         <Link
           href="/diensten/werving-en-selectie"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           werving en selectie
         </Link>
@@ -220,7 +220,7 @@ function GgzPersoneelArticle() {
         GGZ-werk vraagt om betrouwbare professionals. Via onze{" "}
         <Link
           href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           kwaliteitscontrole en screening
         </Link>{" "}
@@ -234,7 +234,7 @@ function GgzPersoneelArticle() {
         toepassing,{" "}
         <Link
           href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           Wet DBA-conforme plaatsingen
         </Link>
@@ -282,14 +282,14 @@ function GgzPersoneelArticle() {
         jeugdzorg of ouderenzorg? Bekijk dan onze pagina&apos;s over{" "}
         <Link
           href="/diensten/jeugdzorg-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           jeugdzorg personeel
         </Link>{" "}
         en{" "}
         <Link
           href="/diensten/vvt-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           VVT personeel
         </Link>

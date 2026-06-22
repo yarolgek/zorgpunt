@@ -7,45 +7,7 @@ import { StarRating } from "@/components/ui/star-rating"
 import { Button } from "@/components/ui/button"
 import { useReducedMotion } from "@/hooks/use-reduced-motion"
 import { cn } from "@/lib/utils"
-
-const testimonials = [
-  {
-    id: 1,
-    name: "Annelies",
-    location: "Utrecht",
-    role: "Zorgcoördinator Thuiszorg",
-    rating: 5,
-    quote:
-      "Binnen twee dagen had ZorgpuntConnect de perfecte freelance verpleegkundige voor ons team gevonden. De screening is grondig en de communicatie verloopt snel.",
-  },
-  {
-    id: 2,
-    name: "Henk",
-    location: "Eindhoven",
-    role: "Locatiemanager VVT",
-    rating: 5,
-    quote:
-      "Bij acute personeelsuitval lost ZorgpuntConnect het altijd snel op. De zzp'ers die ze voorstellen zijn uiterst vakkundig, flexibel en direct inzetbaar.",
-  },
-  {
-    id: 3,
-    name: "Maria",
-    location: "Amsterdam",
-    role: "Freelance Begeleider",
-    rating: 5,
-    quote:
-      "Als zzp'er in de zorg vind ik via ZorgpuntConnect de meest uitdagende opdrachten. Lieke luistert echt naar je wensen en matcht je op plekken waar je goed past.",
-  },
-  {
-    id: 4,
-    name: "Roos",
-    location: "Rotterdam",
-    role: "Freelance Verpleegkundige",
-    rating: 5,
-    quote:
-      "Sinds ik samenwerk met ZorgpuntConnect heb ik een constante stroom aan mooie opdrachten in de regio. De uitbetaling is snel en de begeleiding is persoonlijk.",
-  },
-]
+import { googleReviewsUrl, testimonials } from "@/lib/testimonials"
 
 const SLIDE_DURATION = 5000
 const TRANSITION_MS = 500
@@ -173,9 +135,7 @@ export function TestimonialsSection() {
 
                 <div className="flex flex-col items-center gap-0.5">
                   <p className="font-semibold text-foreground">{current.name}</p>
-                  <p className="text-sm text-muted-foreground">
-                    {current.role} &middot; {current.location}
-                  </p>
+                  <p className="text-sm text-muted-foreground">{current.role}</p>
                 </div>
               </div>
             </CardContent>
@@ -203,6 +163,17 @@ export function TestimonialsSection() {
               />
             ))}
           </div>
+
+          <p className="text-center text-sm text-muted-foreground mt-6">
+            <a
+              href={googleReviewsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+            >
+              Bekijk meer reviews op Google
+            </a>
+          </p>
         </div>
       </div>
     </section>

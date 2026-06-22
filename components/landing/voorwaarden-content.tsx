@@ -709,7 +709,7 @@ export function VoorwaardenContent() {
         23.2 Alle geschillen, verband houdende met overeenkomsten en/ of
         opdrachten tussen de opdrachtgever en {brand.name}, waarop deze
         voorwaarden van toepassing zijn, worden beslecht door de rechter in
-        Roermond omdat {brand.name} is gevestigd in Venray. Partijen zullen pas
+        Roermond omdat {brand.name} is gevestigd in Roermond. Partijen zullen pas
         een beroep op de rechter doen nadat zij zich hebben ingespannen een
         geschil in onderling overleg te beslechten.
       </p>

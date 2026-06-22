@@ -198,7 +198,7 @@ export default function PrivacyPage() {
         e-mail gestuurd worden naar onze Functionaris Gegevensbescherming:{" "}
         <a
           href="mailto:info@zorgpuntconnect.nl"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           info@zorgpuntconnect.nl
         </a>
@@ -299,7 +299,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline break-all"
                 >
                   policies.google.com/privacy
                 </a>
@@ -316,7 +316,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline break-all"
                 >
                   policies.google.com/privacy
                 </a>
@@ -336,7 +336,7 @@ export default function PrivacyPage() {
                   href="https://policies.google.com/privacy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline break-all"
                 >
                   policies.google.com/privacy
                 </a>
@@ -354,7 +354,7 @@ export default function PrivacyPage() {
                   href="https://www.linkedin.com/legal/privacy-policy"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline break-all"
                 >
                   linkedin.com/legal/privacy-policy
                 </a>
@@ -371,7 +371,7 @@ export default function PrivacyPage() {
                   href="https://www.whatsapp.com/legal/cookies"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary hover:underline break-all"
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline break-all"
                 >
                   whatsapp.com/legal/cookies
                 </a>

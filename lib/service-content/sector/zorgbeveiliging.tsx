@@ -117,7 +117,7 @@ function ZorgbeveiligingArticle() {
         zorgomgevingen, vaak naast onze{" "}
         <Link
           href="/diensten/ggz-personeel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           GGZ-personeelsbemiddeling
         </Link>
@@ -133,14 +133,14 @@ function ZorgbeveiligingArticle() {
         professionals via{" "}
         <Link
           href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           bemiddeling
         </Link>{" "}
         of{" "}
         <Link
           href="/diensten/detachering-zorgpersoneel"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           detachering
         </Link>
@@ -198,14 +198,14 @@ function ZorgbeveiligingArticle() {
         Veiligheid en kwaliteit horen bij elkaar. Onze{" "}
         <Link
           href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           screening
         </Link>{" "}
         en afspraken rond{" "}
         <Link
           href="/diensten/klachtenafhandeling-klachtenportaal-zorg"
-          className="text-primary hover:underline"
+          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
         >
           klachtenafhandeling
         </Link>{" "}

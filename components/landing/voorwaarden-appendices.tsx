@@ -598,7 +598,7 @@ export function VoorwaardenAppendices() {
           Mail:{" "}
           <a
             href="mailto:info@zorgpuntconnect.nl"
-            className="text-primary hover:underline"
+            className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
           >
             info@zorgpuntconnect.nl
           </a>

@@ -4,12 +4,20 @@ import { ServicePageContent } from "@/components/landing/service-page"
 import { getRichServiceContent } from "@/lib/service-content"
 import { brand } from "@/lib/brand"
 import { getAllServiceSlugs, getServiceBySlug } from "@/lib/services"
+import {
+  breadcrumbJsonLd,
+  faqJsonLd,
+  serviceJsonLd,
+} from "@/lib/structured-data"
+
+import { getEnhancedServiceSeo } from "@/lib/subpage-seo"
+import { getSiteUrl } from "@/lib/site-url"
 
 type PageProps = {
   params: Promise<{ slug: string }>
 }
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://zorgpuntconnect.nl"
+const BASE_URL = getSiteUrl()
 
 export function generateStaticParams() {
   return getAllServiceSlugs().map((slug) => ({ slug }))
@@ -26,17 +34,20 @@ export async function generateMetadata({
     return { title: `Dienst niet gevonden, ${brand.name}` }
   }
 
-  const title = rich?.seo.title ?? `${service.title}, ${brand.name}`
-  const description = rich?.seo.description ?? service.metaDescription
+  const seo = getEnhancedServiceSeo(service, rich)
 
   return {
-    title,
-    description,
+    title: seo.title,
+    description: seo.description,
+    alternates: {
+      canonical: `/diensten/${slug}/`,
+    },
     openGraph: {
-      title,
-      description,
+      title: seo.title,
+      description: seo.description,
       type: "website",
       url: `${BASE_URL}/diensten/${slug}/`,
+      images: [{ url: "/opengraph-image", width: 1200, height: 630, type: "image/png" }],
     },
   }
 }
@@ -50,36 +61,18 @@ export default async function ServicePage({ params }: PageProps) {
     notFound()
   }
 
-  const faqJsonLd = rich
-    ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: rich.faqs.map((faq) => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      }
-    : null
+  const seo = getEnhancedServiceSeo(service, rich)
 
-  const serviceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: rich?.seo.h1 ?? service.title,
-    description: rich?.seo.description ?? service.metaDescription,
-    provider: {
-      "@type": "Organization",
-      name: brand.name,
-      url: BASE_URL,
-    },
-    areaServed: {
-      "@type": "Country",
-      name: "Nederland",
-    },
-    url: `${BASE_URL}/diensten/${slug}/`,
+  const jsonLd: object[] = [
+    serviceJsonLd({ baseUrl: BASE_URL, service, rich, seo }),
+    breadcrumbJsonLd([
+      { name: brand.name, url: `${BASE_URL}/` },
+      { name: service.title, url: `${BASE_URL}/diensten/${slug}/` },
+    ]),
+  ]
+
+  if (rich) {
+    jsonLd.push(faqJsonLd(rich.faqs))
   }
 
   return (
@@ -87,16 +80,9 @@ export default async function ServicePage({ params }: PageProps) {
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      {faqJsonLd ? (
-        <script
-          type="application/ld+json"
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-        />
-      ) : null}
-      <ServicePageContent service={service} rich={rich} />
+      <ServicePageContent service={service} rich={rich} seo={seo} />
     </>
   )
 }

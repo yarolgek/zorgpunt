@@ -10,7 +10,8 @@ const navLinks = [
   { label: "Hoe het werkt", href: "#hoe-het-werkt", sectionId: "hoe-het-werkt" },
   { label: "Sectoren", href: "#sectoren", sectionId: "sectoren" },
   { label: "Tarieven", href: "#tarieven", sectionId: "tarieven" },
-  { label: "Ervaringen", href: "#ervaringen", sectionId: "ervaringen" },
+  { label: "Diensten", href: "/diensten", sectionId: "diensten" },
+  { label: "Werkgebieden", href: "/werkgebieden", sectionId: "werkgebieden" },
   { label: "Vragen", href: "#faq", sectionId: "faq" },
 ]
 

@@ -10,12 +10,25 @@ import { FaqSection } from "@/components/landing/faq-section"
 import { AppDownloadSection } from "@/components/landing/app-download-section"
 import { Footer } from "@/components/landing/footer"
 import { MobileCtaBar } from "@/components/landing/mobile-cta-bar"
+import { LocalLinksSection } from "@/components/landing/local-links-section"
+import { OfficeMapSection } from "@/components/landing/office-map-section"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
-import { faqPageJsonLd, organizationJsonLd } from "@/lib/structured-data"
+import {
+  faqPageJsonLd,
+  localBusinessHomeJsonLd,
+  organizationJsonLd,
+  websiteJsonLd,
+} from "@/lib/structured-data"
+import { getSiteUrl } from "@/lib/site-url"
 
 export default function Page() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
-  const jsonLd = [organizationJsonLd({ baseUrl }), faqPageJsonLd()]
+  const baseUrl = getSiteUrl()
+  const jsonLd = [
+    organizationJsonLd({ baseUrl }),
+    localBusinessHomeJsonLd({ baseUrl }),
+    websiteJsonLd({ baseUrl }),
+    faqPageJsonLd(),
+  ]
 
   return (
     <>
@@ -62,7 +75,13 @@ export default function Page() {
           <TestimonialsSection />
         </ScrollReveal>
         <ScrollReveal>
+          <LocalLinksSection />
+        </ScrollReveal>
+        <ScrollReveal>
           <FaqSection />
+        </ScrollReveal>
+        <ScrollReveal>
+          <OfficeMapSection />
         </ScrollReveal>
         <ScrollReveal>
           <AppDownloadSection />
