@@ -57,8 +57,8 @@ compliance). Kerndiensten afgerond:
       Fallback in code staat klaar via `lib/site-url.ts`.
 - [x] `metadataBase` in `app/layout.tsx` gezet (gebruikt `NEXT_PUBLIC_SITE_URL`).
 - [x] **Canonical URLs** toegevoegd op home, diensten(+detail), werkgebieden(+detail).
-- [ ] `sitemap.ts` , `lastModified` staat hardcoded op `"2025-01-01"`. Eventueel
-      dynamisch maken of bijwerken.
+- [ ] `sitemap.ts` , `lastModified` wordt nu bij build gezet (`new Date()`). Controleren
+      na eerste productie-deploy dat datums kloppen in `/sitemap.xml`.
 - [x] **Diensten-hubpagina** (`/diensten`) toegevoegd (zoals werkgebieden-hub),
       gelinkt vanuit header + footer, in sitemap + BreadcrumbList-schema.
 - [x] **OG-/social share image**: dynamische, merk-eigen PNG via `next/og`
@@ -91,6 +91,28 @@ zichtbaar in de footer als in de `openingHoursSpecification` van de schema.
 - [ ] Echte teamfoto's / kantoorfoto Roermond.
 - [ ] Telefoonnummer in CTA's koppelen aan klikbare `tel:`-link met het echte nummer.
 - [ ] CONVOCORE chatbot: agent-ID en regio nog bevestigen voor productie.
+
+## 7. Deployment & hosting (eigen domein)
+
+Vercel is **tijdelijk** voor preview/ontwikkeling. Bij livegang op eigen hosting
+(`www.zorgpuntconnect.nl`):
+
+- [ ] **Hosting kiezen** en deploy-proces bepalen (`npm run build` + `npm start`
+      voor Node/Next.js, of static export als de host alleen statische bestanden serveert).
+- [ ] **`NEXT_PUBLIC_SITE_URL`** op de nieuwe host zetten op
+      `https://www.zorgpuntconnect.nl` (omgevingsvariabele in hostingpanel), óf
+      vertrouwen op `.env.production` in de repo , controleer welke optie de host
+      ondersteunt.
+- [ ] **DNS** , `www.zorgpuntconnect.nl` (en eventueel bare `zorgpuntconnect.nl`
+      met redirect naar www) laten wijzen naar de nieuwe host. Zelfde variant gebruiken
+      als in `NEXT_PUBLIC_SITE_URL`.
+- [ ] **SSL/HTTPS** activeren op de nieuwe host vóór livegang.
+- [ ] **Na DNS + deploy** , controleren: `/robots.txt`, `/sitemap.xml`, `/llms.txt`,
+      canonical URLs en schema gebruiken allemaal `https://www.zorgpuntconnect.nl`.
+- [ ] **Google Search Console + Bing Webmaster** , sitemap indienen op het live domein.
+- [ ] **Vercel opruimen** , `@vercel/analytics` uit `app/layout.tsx` verwijderen of
+      vervangen (bijv. GA/Plausible); `vercel.json` mag weg als Vercel niet meer gebruikt wordt.
+- [ ] **Oude Vercel-URL** , redirect of offline halen zodat er geen dubbele indexatie ontstaat.
 
 ---
 

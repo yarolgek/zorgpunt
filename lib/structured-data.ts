@@ -38,6 +38,12 @@ export function organizationJsonLd(params: { baseUrl: string }) {
     telephone: siteContact.phone,
     email: siteContact.email,
     address: postalAddress,
+    identifier: {
+      "@type": "PropertyValue",
+      propertyID: "KvK",
+      name: "Kamer van Koophandel",
+      value: siteContact.kvk,
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",

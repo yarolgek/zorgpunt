@@ -67,6 +67,7 @@ export default async function ServicePage({ params }: PageProps) {
     serviceJsonLd({ baseUrl: BASE_URL, service, rich, seo }),
     breadcrumbJsonLd([
       { name: brand.name, url: `${BASE_URL}/` },
+      { name: "Diensten", url: `${BASE_URL}/diensten/` },
       { name: service.title, url: `${BASE_URL}/diensten/${slug}/` },
     ]),
   ]

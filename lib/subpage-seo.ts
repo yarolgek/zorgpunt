@@ -22,6 +22,11 @@ function splitH1(h1: string): { head: string; tail: string } {
   return { head: h1.slice(0, idx).trim(), tail: h1.slice(idx + 1).trim() }
 }
 
+function capitalizeFirst(text: string): string {
+  if (!text) return text
+  return text.charAt(0).toUpperCase() + text.slice(1)
+}
+
 function hasRegionalMention(text: string): boolean {
   const lower = text.toLowerCase()
   return (
@@ -59,18 +64,24 @@ function buildServiceH1(
   const { tail } = splitH1(baseH1)
   const suffix = tail ? `: ${tail}` : ""
 
+  let h1: string
   switch (category) {
     case "core-staffing":
-      return `${keyword} in ${HQ_CITY} en regio${suffix}`
+      h1 = `${keyword} in ${HQ_CITY} en regio${suffix}`
+      break
     case "sector-specific":
-      return `${keyword} in Zuid-Nederland${suffix}`
+      h1 = `${keyword} in Zuid-Nederland${suffix}`
+      break
     case "operational-support":
-      return `${keyword} voor zorgorganisaties in ${REGION_LABEL}${suffix}`
+      h1 = `${keyword} voor zorgorganisaties in ${REGION_LABEL}${suffix}`
+      break
     case "compliance-quality":
-      return `${keyword} bij ${brand.name}${suffix}`
+      h1 = `${keyword} bij ${brand.name}${suffix}`
+      break
     default:
-      return baseH1
+      h1 = baseH1
   }
+  return capitalizeFirst(h1)
 }
 
 function buildServiceDescription(

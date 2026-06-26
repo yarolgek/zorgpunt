@@ -43,14 +43,10 @@ export function ServicePageContent({
               </li>
               <li aria-hidden>/</li>
               <li>
-                <span>Diensten</span>
+                <Link href="/diensten" className="hover:text-foreground">
+                  Diensten
+                </Link>
               </li>
-              {categoryLabel ? (
-                <>
-                  <li aria-hidden>/</li>
-                  <li>{categoryLabel}</li>
-                </>
-              ) : null}
               <li aria-hidden>/</li>
               <li className="text-foreground font-medium">{service.title}</li>
             </ol>
