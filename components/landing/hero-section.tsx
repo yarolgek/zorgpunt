@@ -17,7 +17,8 @@ export function HeroSection() {
               <span className="block text-sm sm:text-base font-semibold uppercase tracking-wide text-primary mb-2">
                 Zorgbemiddeling in Roermond en omgeving
               </span>
-              Vind de diensten die jij wilt. Het personeel dat jij nodig hebt.
+              <span className="block">Vind de diensten die jij wilt.</span>
+              <span className="block">Het personeel dat jij nodig hebt.</span>
             </h1>
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl">
               {brand.tagline}

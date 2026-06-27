@@ -16,7 +16,7 @@ const metrics = [
   },
   {
     icon: Users,
-    value: "150+ Professionals",
+    value: "400+ Professionals",
     label: "Geverifieerde zzp'ers actief in heel Nederland",
   },
   {
