@@ -227,3 +227,9 @@
     animation: none;
   }
 }
+
+/* CONVOCORE chatbot — consistent bottom-right anchor (WhatsApp tracks via JS) */
+.vg-root {
+  bottom: 1.25rem !important;
+  right: 1.25rem !important;
+}

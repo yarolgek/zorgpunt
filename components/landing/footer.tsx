@@ -1,9 +1,11 @@
+import type { ReactNode } from "react"
 import Link from "next/link"
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react"
+import { Mail, Phone } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { siteContact } from "@/lib/site"
 import { brand } from "@/lib/brand"
 import { BrandLogo } from "@/components/landing/brand-logo"
+import { WhatsAppIcon } from "@/components/landing/whatsapp-icon"
 import { getServicesByCategory, serviceCategories } from "@/lib/services"
 import { serviceAreas } from "@/lib/service-areas"
 
@@ -21,138 +23,179 @@ const legalLinks = [
   { label: "Cookiebeleid", href: "/cookies" },
 ]
 
+function FooterLink({ href, children }: { href: string; children: ReactNode }) {
+  const className =
+    "text-sm text-muted-foreground hover:text-foreground transition-colors leading-snug"
+
+  if (href.startsWith("/")) {
+    return (
+      <Link href={href} className={className}>
+        {children}
+      </Link>
+    )
+  }
+
+  return (
+    <a href={href} className={className}>
+      {children}
+    </a>
+  )
+}
+
+function FooterSection({
+  title,
+  children,
+  className,
+}: {
+  title: string
+  children: ReactNode
+  className?: string
+}) {
+  return (
+    <section className={className}>
+      <h2 className="text-sm font-semibold text-foreground mb-3">{title}</h2>
+      {children}
+    </section>
+  )
+}
+
 export function Footer() {
   const currentYear = new Date().getFullYear()
+  const { opens, closes } = siteContact.openingHours[0]
 
   return (
     <footer className="border-t border-border bg-card">
-      {/* CTA strip */}
-      <div className="py-12 lg:py-16 border-b border-border">
+      <div className="py-12 lg:py-14 border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
           <p className="text-xl font-semibold text-foreground text-balance">
             Klaar om de juiste match te vinden?
           </p>
-          <p className="text-muted-foreground max-w-md">
+          <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
             Gratis adviesgesprek. Geen verplichtingen. Lieke helpt u persoonlijk
             verder.
           </p>
-          <Button asChild size="lg" className="font-semibold mt-2">
+          <Button asChild size="lg" className="font-semibold mt-1">
             <a href="#contact-form">Start uw gratis gesprek</a>
           </Button>
         </div>
       </div>
 
-      {/* Contact & links */}
-      <div className="py-10 border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          <div>
-            <BrandLogo size={44} wordmarkSize="sm" />
-            <ul className="mt-4 flex flex-col gap-2 text-sm text-muted-foreground">
-              <li>
-                <a
-                  href={`tel:${siteContact.phone}`}
-                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
-                >
-                  <Phone className="h-4 w-4 shrink-0" />
-                  {siteContact.phoneDisplay}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${siteContact.email}`}
-                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
-                >
-                  <Mail className="h-4 w-4 shrink-0" />
-                  {siteContact.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={siteContact.whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
-                >
-                  <MessageCircle className="h-4 w-4 shrink-0" />
-                  WhatsApp chat
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 shrink-0 mt-0.5" />
-                <span>
-                  {brand.name}
-                  <br />
-                  {siteContact.street}
-                  <br />
-                  {siteContact.postalCode} {siteContact.city}
-                </span>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock className="h-4 w-4 shrink-0 mt-0.5" />
-                <span>
-                  Ma t/m vr: {siteContact.openingHours[0].opens}&ndash;
-                  {siteContact.openingHours[0].closes}
-                  <br />
-                  Za &amp; zo: gesloten
-                </span>
-              </li>
-              <li className="text-xs">KvK: {siteContact.kvk}</li>
-            </ul>
-            <nav aria-label="Social media" className="mt-4 flex flex-wrap gap-x-4 gap-y-2">
-              {siteContact.socialProfiles.map((profile) => (
-                <a
-                  key={profile.url}
-                  href={profile.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  {profile.label}
-                </a>
-              ))}
-            </nav>
+      <div className="py-10 lg:py-12 border-b border-border">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <BrandLogo href="/" size={44} wordmarkSize="sm" />
+
+          <div className="mt-8 grid gap-10 sm:grid-cols-2 lg:grid-cols-12 lg:gap-x-12">
+            <FooterSection title="Contact" className="sm:col-span-2 lg:col-span-6">
+              <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-10 lg:gap-14">
+                <ul className="min-w-0 space-y-2.5 text-sm text-muted-foreground">
+                  <li>
+                    <a
+                      href={`tel:${siteContact.phone}`}
+                      className="inline-flex items-center gap-2.5 hover:text-foreground transition-colors whitespace-nowrap"
+                    >
+                      <Phone className="h-4 w-4 shrink-0 text-foreground/70" />
+                      {siteContact.phoneDisplay}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={`mailto:${siteContact.email}`}
+                      className="inline-flex items-center gap-2.5 hover:text-foreground transition-colors break-all sm:break-normal"
+                    >
+                      <Mail className="h-4 w-4 shrink-0 text-foreground/70" />
+                      {siteContact.email}
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href={siteContact.whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2.5 hover:text-foreground transition-colors whitespace-nowrap"
+                    >
+                      <span className="flex h-4 w-4 shrink-0 items-center justify-center text-[#25D366]">
+                        <WhatsAppIcon className="h-4 w-4" />
+                      </span>
+                      WhatsApp chat
+                    </a>
+                  </li>
+                </ul>
+
+                <div className="shrink-0 text-sm text-muted-foreground leading-relaxed">
+                  <address className="not-italic">
+                    {siteContact.street}
+                    <br />
+                    {siteContact.postalCode} {siteContact.city}
+                  </address>
+                  <p className="mt-2 whitespace-nowrap">
+                    Ma t/m vr: {opens}&ndash;{closes}
+                    <br />
+                    Za &amp; zo: gesloten
+                  </p>
+                </div>
+              </div>
+
+              <p className="mt-4 text-xs text-muted-foreground">KvK: {siteContact.kvk}</p>
+
+              <nav
+                aria-label="Social media"
+                className="mt-4 flex flex-wrap gap-x-3 gap-y-1"
+              >
+                {siteContact.socialProfiles.map((profile, index) => (
+                  <span key={profile.url} className="inline-flex items-center gap-3">
+                    {index > 0 ? (
+                      <span className="text-border" aria-hidden>
+                        |
+                      </span>
+                    ) : null}
+                    <a
+                      href={profile.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {profile.label}
+                    </a>
+                  </span>
+                ))}
+              </nav>
+            </FooterSection>
+
+            <FooterSection title="Pagina" className="lg:col-span-3">
+              <nav aria-label="Voetnavigatie" className="flex flex-col gap-2">
+                {footerNav.map((link) => (
+                  <FooterLink key={link.href} href={link.href}>
+                    {link.label}
+                  </FooterLink>
+                ))}
+              </nav>
+            </FooterSection>
+
+            <FooterSection title="Juridisch" className="lg:col-span-3">
+              <nav aria-label="Juridisch" className="flex flex-col gap-2">
+                {legalLinks.map((link) => (
+                  <FooterLink key={link.href} href={link.href}>
+                    {link.label}
+                  </FooterLink>
+                ))}
+              </nav>
+            </FooterSection>
           </div>
-
-          <nav aria-label="Voetnavigatie" className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-foreground mb-1">Pagina</p>
-            {footerNav.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <nav aria-label="Juridisch" className="flex flex-col gap-2">
-            <p className="text-sm font-semibold text-foreground mb-1">Juridisch</p>
-            {legalLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
         </div>
 
         <nav
           aria-label="Onze diensten"
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10 border-t border-border"
         >
-          <p className="text-sm font-semibold text-foreground mb-6">
+          <h2 className="text-sm font-semibold text-foreground mb-6">
             <Link href="/diensten" className="hover:text-primary transition-colors">
               Onze diensten
             </Link>
-          </p>
+          </h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {serviceCategories.map((category) => (
               <div key={category.id}>
-                <p className="text-xs font-semibold text-foreground mb-3">
+                <p className="text-xs font-semibold uppercase tracking-wide text-foreground/80 mb-3">
                   {category.label}
                 </p>
                 <ul className="flex flex-col gap-2">
@@ -176,11 +219,11 @@ export function Footer() {
           aria-label="Werkgebieden"
           className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-10 pt-10 border-t border-border"
         >
-          <p className="text-sm font-semibold text-foreground mb-6">
+          <h2 className="text-sm font-semibold text-foreground mb-4">
             <Link href="/werkgebieden" className="hover:text-primary transition-colors">
               Werkgebieden
             </Link>
-          </p>
+          </h2>
           <ul className="grid gap-x-8 gap-y-2 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5">
             {serviceAreas.map((area) => (
               <li key={area.slug}>
@@ -196,14 +239,16 @@ export function Footer() {
         </nav>
       </div>
 
-      {/* Bottom bar */}
       <div className="py-6">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
           <p className="text-xs text-muted-foreground">
             &copy; {currentYear} {brand.name}
           </p>
           <p className="text-xs text-muted-foreground">
-            <Link href="/privacy" className="hover:text-foreground underline-offset-4 hover:underline">
+            <Link
+              href="/privacy"
+              className="hover:text-foreground underline-offset-4 hover:underline"
+            >
               AVG/GDPR conform
             </Link>
             {" "}

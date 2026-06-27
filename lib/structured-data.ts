@@ -16,6 +16,22 @@ function orgId(baseUrl: string) {
   return `${baseUrl}/#organization`
 }
 
+function geoCoordinates(latitude: number, longitude: number) {
+  return {
+    "@type": "GeoCoordinates" as const,
+    latitude,
+    longitude,
+  }
+}
+
+function cityPlace(city: string, latitude: number, longitude: number) {
+  return {
+    "@type": "City" as const,
+    name: city,
+    geo: geoCoordinates(latitude, longitude),
+  }
+}
+
 const postalAddress = {
   "@type": "PostalAddress",
   streetAddress: siteContact.street,
@@ -86,11 +102,7 @@ export function localBusinessHomeJsonLd(params: { baseUrl: string }) {
     image: `${baseUrl}/logo-zpc.png`,
     priceRange: "€€",
     address: postalAddress,
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: siteContact.geo.latitude,
-      longitude: siteContact.geo.longitude,
-    },
+    geo: geoCoordinates(siteContact.geo.latitude, siteContact.geo.longitude),
     openingHoursSpecification,
     hasMap: getGoogleMapsPlaceUrl(),
     areaServed: [
@@ -209,6 +221,12 @@ export function localBusinessJsonLd(params: {
   rich?: RichAreaPage
 }) {
   const { baseUrl, slug, area, rich } = params
+  const imageUrl = `${baseUrl}/images/werkgebieden/${slug}.webp`
+  const contentLocation = cityPlace(
+    area.city,
+    area.geo.latitude,
+    area.geo.longitude,
+  )
 
   return {
     "@context": "https://schema.org",
@@ -219,20 +237,17 @@ export function localBusinessJsonLd(params: {
     url: `${baseUrl}/werkgebieden/${slug}/`,
     telephone: siteContact.phone,
     email: siteContact.email,
-    image: `${baseUrl}/images/werkgebieden/${slug}.webp`,
+    image: {
+      "@type": "ImageObject",
+      url: imageUrl,
+      contentLocation,
+    },
     logo: `${baseUrl}/logo-zpc.png`,
     priceRange: "€€",
     address: postalAddress,
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: siteContact.geo.latitude,
-      longitude: siteContact.geo.longitude,
-    },
+    geo: geoCoordinates(siteContact.geo.latitude, siteContact.geo.longitude),
     openingHoursSpecification,
-    areaServed: {
-      "@type": "City",
-      name: area.city,
-    },
+    areaServed: contentLocation,
     parentOrganization: { "@id": orgId(baseUrl) },
     ...(siteContact.socialProfiles.length
       ? { sameAs: siteContact.socialProfiles.map((profile) => profile.url) }

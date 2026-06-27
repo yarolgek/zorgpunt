@@ -32,12 +32,8 @@ Per werkgebied-pagina nog toe te voegen:
       Cloud/host-account vereist creditcard voor Maps Embed API , later oppakken.
 - [ ] **Lokale proof / E-E-A-T**: echte instellingen die we bemensen of
       geanonimiseerde klantverhalen per stad. Nu bewust geen verzonnen namen/quotes.
-- [x] Unieke (lokale) afbeeldingen per stad i.p.v. de gedeelde `hero-team.jpg`
-      (`public/images/werkgebieden/<stad>.png`).
-- [ ] **LET OP , beeldrechten**: huidige stadsfoto's in
-      `public/images/werkgebieden/` zijn waarschijnlijk auteursrechtelijk beschermd
-      (van Google gehaald). Vóór livegang vervangen door licentievrije beelden
-      (Unsplash/Pexels/Wikimedia CC0) of eigen foto's. `imageObject`/credit waar nodig.
+- [x] Unieke (lokale) afbeeldingen per stad in WebP
+      (`public/images/werkgebieden/<stad>.webp`) — 10 werkgebieden + Roermond.
 - [x] Title tags omgezet naar BESTE-formule + keyword-eyebrow in H1-kicker.
 
 ## 4. Diensten , rich SEO-content
@@ -64,14 +60,14 @@ compliance). Kerndiensten afgerond:
 - [x] **OG-/social share image**: dynamische, merk-eigen PNG via `next/og`
       (`app/opengraph-image.tsx` + `app/twitter-image.tsx`). Oude `og-image.svg`
       niet meer gebruikt (SVG werkt niet op social platforms).
-- [x] **Stadsfoto's geoptimaliseerd**: PNG , WebP (~35-45% kleiner) in
-      `public/images/werkgebieden/`. (Beeldrechten blijven nog open, zie sectie 3.)
-- [x] **Schema `sameAs`**: Facebook, Instagram, LinkedIn en X ingevuld in
+- [x] **Stadsfoto's**: eigen beelden per stad in WebP in `public/images/werkgebieden/`.
+- [x] **Schema `sameAs`**: Facebook, Instagram, LinkedIn, X en YouTube ingevuld in
       `siteContact.socialProfiles` (`lib/site.ts`).
 - [x] **WhatsApp chat-link** in footer + spoed-callout + zwevende mobiele knop
       (`WhatsAppFloatingButton`, site-wide via layout).
-- [ ] **Schema `geo`**: exacte lat/long van kantoor Roermond verfijnen in
-      `siteContact.geo` (nu bij benadering 51.1936, 5.9874).
+- [x] **Schema `geo`**: exacte lat/long kantoor Roermond in `siteContact.geo`
+      (51.189081, 5.988017 — Zwartbroekpoort 2). Werkgebied-pagina's: stad-coördinaten
+      in `areaServed` + `contentLocation` op `ImageObject`.
 
 - [x] **Reviews + schema**: Ilham, Yasmine, Sharon en Robin op homepage (gem. 4,5/5)
       + `AggregateRating`/`Review` in `LocalBusiness`-schema. Link naar Google reviews.
@@ -80,8 +76,8 @@ Schema dat nu actief is (JSON-LD via `lib/structured-data.ts`):
 - Homepage: `Organization` + `LocalBusiness` (incl. geo, openingstijden,
   areaServed Limburg/Noord-Brabant) + `WebSite` + `FAQPage`
 - Dienstpagina's: `Service` + `BreadcrumbList` + `FAQPage`
-- Werkgebied-pagina's: `LocalBusiness` (incl. geo, image, openingstijden,
-  areaServed) + `BreadcrumbList` + `FAQPage`
+- Werkgebied-pagina's: `LocalBusiness` (kantoor-geo, `ImageObject` met
+  `contentLocation`, `areaServed` met stad-geo) + `BreadcrumbList` + `FAQPage`
 
 Openingstijden (Ma t/m vr 09:00-17:00, weekend gesloten) staan nu zowel
 zichtbaar in de footer als in de `openingHoursSpecification` van de schema.

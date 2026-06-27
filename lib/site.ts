@@ -18,6 +18,10 @@ export const siteSocialProfiles = [
     label: "X",
     url: "https://twitter.com/zorgpuntconnect",
   },
+  {
+    label: "YouTube",
+    url: "https://www.youtube.com/@zorgpuntconnect",
+  },
 ] as const
 
 export const siteContact = {
@@ -31,8 +35,8 @@ export const siteContact = {
   kvk: "81706723",
   whatsappUrl:
     "https://wa.me/31630980424?text=Zorgpuntconnect%20Website%3A",
-  // Approximate coordinates of the Roermond office (refine with exact lat/long later).
-  geo: { latitude: 51.1936, longitude: 5.9874 },
+  // Zwartbroekpoort 2, Roermond (OpenStreetMap / BAG).
+  geo: { latitude: 51.189081, longitude: 5.988017 },
   socialProfiles: siteSocialProfiles,
   // Openingstijden (kantoor). Weekend gesloten.
   openingHours: [

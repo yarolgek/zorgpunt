@@ -125,7 +125,7 @@ Technische laag die Google helpt uw bedrijf **correct te tonen** in zoekresultat
 ## Fase 7 — Social, WhatsApp & share-previews
 
 - **WhatsApp-chatlink** in footer, spoed-sectie en **zwevende groene knop op mobiel** (link met vooringevuld bericht).
-- **Social media links** in footer: [Facebook](https://www.facebook.com/p/Zorgpuntconnect-100076449727871/), [Instagram](https://www.instagram.com/zorgpuntconnect/), [LinkedIn](https://nl.linkedin.com/company/zorgpuntconnect), [X](https://twitter.com/zorgpuntconnect).
+- **Social media links** in footer: [Facebook](https://www.facebook.com/p/Zorgpuntconnect-100076449727871/), [Instagram](https://www.instagram.com/zorgpuntconnect/), [LinkedIn](https://nl.linkedin.com/company/zorgpuntconnect), [X](https://twitter.com/zorgpuntconnect), [YouTube](https://www.youtube.com/@zorgpuntconnect).
 - **Social share preview** (Open Graph / Twitter) — branded afbeelding wanneer iemand uw link deelt op WhatsApp, LinkedIn of e-mail.
 - **Echte klantreviews** op homepage (vervangen placeholders) + link naar Google reviews.
 
@@ -164,7 +164,6 @@ Deze punten staan op de backlog en vereisen input van u of externe factoren:
 | Onderwerp | Status | Actie nodig van |
 |-----------|--------|-----------------|
 | Google Maps embed op stedenpagina’s | Wacht op Google Cloud creditcard | U / later |
-| Stadsfoto’s vervangen | Huidige foto’s mogelijk auteursrechtelijk | Licentievrije of eigen foto’s |
 | Lokale klantverhalen per stad | Nog geen verzonnen namen | Anonieme voorbeelden van u |
 | Juridische teksten final check | Tekst staat op site | Jurist / u |
 | Productie live zetten | Site klaar, oude site nog actief | Deployment + DNS switch |
@@ -184,11 +183,10 @@ Deze punten staan op de backlog en vereisen input van u of externe factoren:
 
 ## Volgende stap naar live
 
-1. Stadsfoto’s vervangen (licentievrij)
-2. `NEXT_PUBLIC_SITE_URL=https://www.zorgpuntconnect.nl` instellen bij hosting
-3. DNS / deployment switch van oude naar nieuwe site
-4. Google Search Console: sitemap indienen
-5. Google Business Profile: controleren of NAP exact matcht met website
+1. `NEXT_PUBLIC_SITE_URL=https://www.zorgpuntconnect.nl` instellen bij hosting
+2. DNS / deployment switch van oude naar nieuwe site
+3. Google Search Console: sitemap indienen
+4. Google Business Profile: controleren of NAP exact matcht met website
 
 ---
 

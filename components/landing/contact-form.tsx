@@ -5,19 +5,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Loader2, Check, AlertCircle, Briefcase, User } from "lucide-react"
+import { Loader2, Check, AlertCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
-import {
-  parseRoleFromLocation,
-  scrollToContactForm,
-  syncRoleToUrl,
-} from "@/lib/contact-form-url"
 import { freelancerBoxHover, opdrachtgeverBoxHover } from "@/lib/role-hover"
 import { serviceCategories } from "@/lib/sectors"
+import type { ContactRole } from "@/lib/contact-form-url"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
-type Role = "opdrachtgever" | "freelancer" | null
+type Role = ContactRole
 type Niche = string | null
 
 interface FormData {
@@ -107,9 +103,13 @@ function StepIndicator({
 
 // ─── Main Component ────────────────────────────────────────────────────────────
 
-export function ContactForm() {
-  const [step, setStep] = useState(0) // 0 = role, 1 = niche, 2 = form
-  const [role, setRole] = useState<Role>(null)
+type ContactFormProps = {
+  role: ContactRole
+  onRoleClear: () => void
+}
+
+export function ContactForm({ role, onRoleClear }: ContactFormProps) {
+  const [step, setStep] = useState(0) // 0 = niche, 1 = contact details
   const [niche, setNiche] = useState<Niche>(null)
   const [formData, setFormData] = useState<FormData>({
     naam: "",
@@ -120,36 +120,17 @@ export function ContactForm() {
   const [errors, setErrors] = useState<FormErrors>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
-  const [stepAnnouncement, setStepAnnouncement] = useState<string>(getStepLabels(null)[0])
 
   const niches = serviceCategories
   const stepLabels = getStepLabels(role)
+  const stepAnnouncement = stepLabels[step + 1] ?? stepLabels[1]
 
   useEffect(() => {
-    const labels = getStepLabels(role)
-    setStepAnnouncement(labels[step] ?? labels[0])
-  }, [step, role])
-
-  const applyRoleFromUrl = (shouldScroll: boolean) => {
-    const roleFromUrl = parseRoleFromLocation()
-    if (!roleFromUrl) return
-
-    setRole(roleFromUrl)
     setNiche(null)
-    setStep(1)
-
-    if (shouldScroll && window.location.hash.includes("contact-form")) {
-      scrollToContactForm(true)
-    }
-  }
-
-  useEffect(() => {
-    applyRoleFromUrl(true)
-
-    const onHashChange = () => applyRoleFromUrl(true)
-    window.addEventListener("hashchange", onHashChange)
-    return () => window.removeEventListener("hashchange", onHashChange)
-  }, [])
+    setStep(0)
+    setErrors({})
+    setIsSuccess(false)
+  }, [role])
 
   // ── Validation ──────────────────────────────────────────────────────────────
 
@@ -187,17 +168,13 @@ export function ContactForm() {
 
   // ── Handlers ────────────────────────────────────────────────────────────────
 
-  const handleRoleSelect = (selected: Role) => {
-    if (!selected) return
-    setRole(selected)
-    setNiche(null)
-    setStep(1)
-    syncRoleToUrl(selected)
+  const clearRole = () => {
+    onRoleClear()
   }
 
   const handleNicheSelect = (selected: Niche) => {
     setNiche(selected)
-    setStep(2)
+    setStep(1)
   }
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -224,13 +201,10 @@ export function ContactForm() {
   }
 
   const handleReset = () => {
-    setStep(0)
-    setRole(null)
-    setNiche(null)
+    onRoleClear()
     setFormData({ naam: "", email: "", telefoon: "", bericht: "" })
     setErrors({})
     setIsSuccess(false)
-    window.history.replaceState(null, "", `${window.location.pathname}#contact-form`)
   }
 
   // ── Success ──────────────────────────────────────────────────────────────────
@@ -249,7 +223,7 @@ export function ContactForm() {
         ]
 
     return (
-      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated w-full">
         <CardContent className="pt-8 pb-8">
           <div className="flex flex-col items-center text-center gap-4">
             <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
@@ -291,74 +265,28 @@ export function ContactForm() {
     )
   }
 
-  // ── Step 0: Role selection ───────────────────────────────────────────────────
+  // ── Step 2: Niche selection ──────────────────────────────────────────────────
 
   if (step === 0) {
     return (
-      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
-        <p className="sr-only" aria-live="polite">
-          {stepAnnouncement}
-        </p>
-        <CardHeader className="pb-2">
-          <StepIndicator step={0} total={3} stepLabels={stepLabels} />
-          <CardTitle className="text-xl font-semibold text-foreground">
-            Wie bent u?
-          </CardTitle>
-          <p className="text-sm text-muted-foreground mt-1">
-            Zoekt u zorgprofessionals, of bent u er zelf een?
-          </p>
-        </CardHeader>
-        <CardContent className="pt-4">
-          <div className="grid grid-cols-2 gap-4">
-            <button
-              type="button"
-              onClick={() => handleRoleSelect("opdrachtgever")}
-              className={cn(
-                "group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center",
-                opdrachtgeverBoxHover
-              )}
-            >
-              <div className="w-12 h-12 rounded-full bg-brand-primary/10 flex items-center justify-center group-hover:bg-brand-primary/20 transition-colors">
-                <Briefcase className="w-6 h-6 text-brand-primary" />
-              </div>
-              <div>
-                <p className="font-semibold text-brand-primary text-sm">Opdrachtgever</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Ik zoek zorgprofessionals</p>
-              </div>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleRoleSelect("freelancer")}
-              className={cn(
-                "group flex flex-col items-center gap-3 rounded-xl border-2 border-border bg-background p-6 text-center",
-                freelancerBoxHover
-              )}
-            >
-              <div className="w-12 h-12 rounded-full bg-brand-secondary/10 flex items-center justify-center group-hover:bg-brand-secondary/20 transition-colors">
-                <User className="w-6 h-6 text-brand-secondary" />
-              </div>
-              <div>
-                <p className="font-semibold text-brand-secondary text-sm">Zzp&apos;er</p>
-                <p className="text-xs text-muted-foreground mt-0.5">Ik ben een zelfstandige zorgprofessional</p>
-              </div>
-            </button>
-          </div>
-        </CardContent>
-      </Card>
-    )
-  }
-
-  // ── Step 1: Niche selection ──────────────────────────────────────────────────
-
-  if (step === 1) {
-    return (
-      <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+      <Card className="border-2 border-primary/20 shadow-lg card-elevated w-full">
         <p className="sr-only" aria-live="polite">
           {stepAnnouncement}
         </p>
         <CardHeader className="pb-2">
           <StepIndicator step={1} total={3} stepLabels={stepLabels} />
+          <div className="flex items-center gap-2 mb-1">
+            <span
+              className={cn(
+                "inline-flex items-center rounded-full px-3 py-1 text-xs font-medium",
+                role === "freelancer"
+                  ? "bg-brand-secondary/10 text-brand-secondary"
+                  : "bg-brand-primary/10 text-brand-primary"
+              )}
+            >
+              {role === "opdrachtgever" ? "Opdrachtgever" : "Zzp'er"}
+            </span>
+          </div>
           <CardTitle className="text-xl font-semibold text-foreground">
             {role === "opdrachtgever"
               ? "Welke vorm van samenwerking zoekt u?"
@@ -387,10 +315,11 @@ export function ContactForm() {
             ))}
           </div>
           <button
-            onClick={() => setStep(0)}
+            type="button"
+            onClick={clearRole}
             className="text-xs text-muted-foreground hover:text-foreground mt-1 transition-colors self-start"
           >
-            &larr; Terug
+            &larr; Andere rol kiezen
           </button>
         </CardContent>
       </Card>
@@ -404,9 +333,9 @@ export function ContactForm() {
   const roleLabelClassName = role === "freelancer" ? "text-brand-secondary" : "text-foreground"
 
   return (
-    <Card className="border-2 border-primary/20 shadow-lg card-elevated" id="contact-form">
+    <Card className="border-2 border-primary/20 shadow-lg card-elevated w-full">
       <p className="sr-only" aria-live="polite">
-        {stepAnnouncement}
+        {stepLabels[2]}
       </p>
       <CardHeader className="pb-2">
         <StepIndicator step={2} total={3} stepLabels={stepLabels} />
@@ -551,7 +480,7 @@ export function ContactForm() {
 
           <button
             type="button"
-            onClick={() => setStep(1)}
+            onClick={() => setStep(0)}
             className="text-xs text-muted-foreground hover:text-foreground transition-colors self-start"
           >
             &larr; Terug
