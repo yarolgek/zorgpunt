@@ -29,7 +29,7 @@ export function MobileCtaBar() {
     >
       <div className="px-4 py-3">
         <Button asChild size="lg" className="w-full font-semibold shadow-md">
-          <a href="#contact-form">Gratis gesprek aanvragen</a>
+          <a href="/contact#contact-form">Gratis gesprek aanvragen</a>
         </Button>
       </div>
     </div>

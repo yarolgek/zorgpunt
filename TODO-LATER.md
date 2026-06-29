@@ -1,7 +1,7 @@
 # ZorgpuntConnect , openstaande taken (backlog)
 
 Lopende lijst met dingen die later nog moeten gebeuren, zodat we niets vergeten.
-Laatst bijgewerkt: 22 jun 2026.
+Laatst bijgewerkt: 28 jun 2026.
 
 ---
 
@@ -11,13 +11,14 @@ Laatst bijgewerkt: 22 jun 2026.
 - [x] `lib/site.ts` , echt KvK-nummer **81706723** ingevuld (bevestigd door klant).
 - [x] Volledig adres (Zwartbroekpoort 2, 6041 LS Roermond) in footer + schema.
 - [x] Statutaire vestigingsplaats: **Roermond** (voorwaarden aangepast, was Venray).
-- [ ] Telefoon koppelen als klikbare `tel:` in CTA's buiten de footer.
+- [x] Telefoon als klikbare `tel:` waar relevant: footer, spoed-callout, kantoorkaart.
+      Mobiele sticky bar blijft form-first; WhatsApp + spoed-sectie voor chat/urgentie.
 
 ## 2. Juridische teksten , controleren
 
 - [x] Roermond vs. Venray in voorwaarden opgelost (rechtsforum + vestiging Roermond).
-- [ ] Privacy Statement en Algemene Voorwaarden nog laten checken door de klant/jurist
-      vóór publicatie. Tekst staat op `/privacy` (inhoud komt overeen met aangeleverde versie).
+- [x] Privacy Statement en Algemene Voorwaarden: tekst overgenomen van live site
+      (`/privacy`, `/voorwaarden`). Geen wijziging nodig.
 
 ## 3. Werkgebieden (lokale SEO)
 
@@ -27,9 +28,9 @@ Helmond.
 
 Per werkgebied-pagina nog toe te voegen:
 
-- [ ] **Google Maps embed + "Routebeschrijving"-knop** (nu alleen een tekst-tip als
-      placeholder). Component bouwen met route Roermond → stad. **Blokker:** Google
-      Cloud/host-account vereist creditcard voor Maps Embed API , later oppakken.
+- [x] **Google Maps embed + "Routebeschrijving"**: `GoogleMapEmbed` op homepage
+      (`/#kantoor`) en Roermond-werkgebied; overige steden linken via `OfficeMapLink`.
+      Geen aparte embed per stad (bewuste keuze).
 - [ ] **Lokale proof / E-E-A-T**: echte instellingen die we bemensen of
       geanonimiseerde klantverhalen per stad. Nu bewust geen verzonnen namen/quotes.
 - [x] Unieke (lokale) afbeeldingen per stad in WebP
@@ -85,8 +86,8 @@ zichtbaar in de footer als in de `openingHoursSpecification` van de schema.
 ## 6. Content & media
 
 - [ ] Echte teamfoto's / kantoorfoto Roermond.
-- [ ] Telefoonnummer in CTA's koppelen aan klikbare `tel:`-link met het echte nummer.
-- [ ] CONVOCORE chatbot: agent-ID en regio nog bevestigen voor productie.
+- [x] CONVOCORE chatbot: productie-agent (`PfbQy16RhxTSLoFfDxnb`, regio `eu`) specifiek
+      voor deze site gebouwd; actief via `ConvocoreChat` in layout.
 
 ## 7. Deployment & hosting (eigen domein)
 

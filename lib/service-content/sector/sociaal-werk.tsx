@@ -21,8 +21,6 @@ export const sociaalWerkContent: RichServicePage = {
     "jeugdzorg-personeel",
     "ghz-personeel",
     "vvt-personeel",
-    "bemiddeling-zzp-zorgprofessionals",
-    "werving-en-selectie",
   ],
   faqs: [
     {
@@ -136,12 +134,7 @@ function SociaalWerkArticle() {
           detachering
         </Link>{" "}
         of{" "}
-        <Link
-          href="/diensten/werving-en-selectie"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          werving en selectie
-        </Link>
+        werving en selectie
         . Documentatie en screening zijn ingebed in ons standaardproces.
       </p>
 
@@ -193,26 +186,11 @@ function SociaalWerkArticle() {
       </h2>
       <p>
         Sociaal werk raakt vaak{" "}
-        <Link
-          href="/diensten/jeugdzorg-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          jeugdzorg
-        </Link>
+        jeugdzorg
         ,{" "}
-        <Link
-          href="/diensten/ghz-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          gehandicaptenzorg
-        </Link>{" "}
+        gehandicaptenzorg{" "}
         en{" "}
-        <Link
-          href="/diensten/vvt-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          thuiszorg
-        </Link>
+        thuiszorg
         . Eén bemiddelaar voor meerdere sectoren vereenvoudigt uw
         personeelsbeleid en zorgt voor consistente screening.
       </p>

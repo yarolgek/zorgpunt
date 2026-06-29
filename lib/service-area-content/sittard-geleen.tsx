@@ -21,7 +21,11 @@ export const sittardGeleenContent: RichAreaPage = {
       "Zorgteam in Sittard-Geleen ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["roermond", "maastricht", "venlo", "eindhoven", "tilburg"],
+  relatedAreaSlugs: [
+    "roermond",
+    "maastricht",
+    "venlo",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Sittard-Geleen?",
@@ -263,25 +267,6 @@ function SittardGeleenArticle() {
           Gekwalificeerde zorgprofessionals voor de Westelijke Mijnstreek.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Sittard-Geleen ligt centraal in Zuid-Limburg. Bekijk ook onze
-        pagina&apos;s voor{" "}
-        <Link
-          href="/werkgebieden/maastricht"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Maastricht
-        </Link>{" "}
-        en{" "}
-        <Link href="/werkgebieden/venlo" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Venlo
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Sittard-Geleen?

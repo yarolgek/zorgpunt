@@ -12,7 +12,7 @@ const sizeClasses = {
   lg: "text-xl sm:text-2xl",
 }
 
-/** Zorgpunt (#759940) + Connect (#006AA5); only Z and C capitalized */
+/** Zorg + Connect (#006AA5), punt (#759940); only Z and C capitalized */
 export function BrandWordmark({ className, size = "md" }: BrandWordmarkProps) {
   return (
     <span
@@ -22,7 +22,8 @@ export function BrandWordmark({ className, size = "md" }: BrandWordmarkProps) {
         className
       )}
     >
-      <span style={{ color: brand.colors.wordmarkGreen }}>Zorgpunt</span>
+      <span style={{ color: brand.colors.wordmarkBlue }}>Zorg</span>
+      <span style={{ color: brand.colors.wordmarkGreen }}>punt</span>
       <span style={{ color: brand.colors.wordmarkBlue }}>Connect</span>
     </span>
   )

@@ -1,5 +1,6 @@
 import { Clock, Users, Star } from "lucide-react"
 import { brand } from "@/lib/brand"
+import { activeRegionShort, networkStats } from "@/lib/regions"
 import { cn } from "@/lib/utils"
 import {
   greenToBlueGroup,
@@ -16,12 +17,12 @@ const metrics = [
   },
   {
     icon: Users,
-    value: "400+ Professionals",
-    label: "Geverifieerde zzp'ers actief in heel Nederland",
+    value: networkStats.activeProfessionals,
+    label: networkStats.activeLabel,
   },
   {
     icon: Star,
-    value: "9.5 / 10",
+    value: "4,5 / 5",
     label: "Gemiddelde waardering door opdrachtgevers en zzp'ers",
   },
 ]
@@ -42,13 +43,14 @@ export function MetricsSection() {
             Waarom {brand.name}
           </h2>
           <p className="text-muted-foreground">
-            Betrouwbare bemiddeling met persoonlijke begeleiding
+            Betrouwbare bemiddeling met persoonlijke begeleiding in{" "}
+            {activeRegionShort}
           </p>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-          {metrics.map((metric, index) => (
+        <div className="grid sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
+          {metrics.map((metric) => (
             <div
-              key={index}
+              key={metric.label}
               className={cn(
                 "flex flex-col items-center text-center gap-3",
                 greenToBlueGroup
@@ -70,7 +72,7 @@ export function MetricsSection() {
               >
                 {metric.value}
               </p>
-              <p className="text-muted-foreground text-sm lg:text-base max-w-[250px]">
+              <p className="text-muted-foreground text-sm lg:text-base max-w-[220px]">
                 {metric.label}
               </p>
             </div>

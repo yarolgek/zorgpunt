@@ -22,8 +22,6 @@ export const vvtPersoneelContent: RichServicePage = {
     "ggz-personeel",
     "ghz-personeel",
     "bemiddeling-zzp-zorgprofessionals",
-    "roosterplanning-personeelsbezetting",
-    "documentbeheer-verificatie-zorgprofessionals",
   ],
   faqs: [
     {
@@ -207,19 +205,9 @@ function VvtPersoneelArticle() {
       <p>
         In thuiszorg is planning alles. Lege plekken in het rooster betekenen
         direct impact op cliënten. Daarom sluiten onze diensten aan op{" "}
-        <Link
-          href="/diensten/roosterplanning-personeelsbezetting"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          roosterplanning en personeelsbezetting
-        </Link>{" "}
+        roosterplanning en personeelsbezetting{" "}
         via Mijn ZPC. Urenregistratie en{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer
-        </Link>{" "}
+        documentbeheer{" "}
         horen bij hetzelfde plaatje: minder zoekwerk, meer overzicht.
       </p>
 
@@ -253,19 +241,9 @@ function VvtPersoneelArticle() {
       </h2>
       <p>
         Thuiszorg raakt andere domeinen. Bekijk ook{" "}
-        <Link
-          href="/diensten/ggz-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          GGZ personeel
-        </Link>{" "}
+        GGZ personeel{" "}
         voor psychogeriatrie of{" "}
-        <Link
-          href="/diensten/ghz-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          GHZ personeel
-        </Link>{" "}
+        GHZ personeel{" "}
         wanneer cliënten met een handicap thuis worden begeleid. Eén
         aanspreekpunt voor meerdere sectoren scheelt tijd in HR en planning.
       </p>

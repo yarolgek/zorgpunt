@@ -22,8 +22,6 @@ export const bemiddelingZzpContent: RichServicePage = {
     "tussenkomst-zzp-zorgprofessionals",
     "detachering-zorgpersoneel",
     "werving-en-selectie",
-    "wet-dba-conforme-plaatsingen",
-    "documentbeheer-verificatie-zorgprofessionals",
   ],
   faqs: [
     {
@@ -148,12 +146,7 @@ function BemiddelingArticle() {
       <p>
         Een ZZP&apos;er wordt pas voorgesteld als de papieren kloppen. Via onze
         dienst{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer en verificatie
-        </Link>{" "}
+        documentbeheer en verificatie{" "}
         controleren wij diploma&apos;s, BIG-registratie, VOG en certificaten, en
         signaleren we tijdig wanneer iets verloopt. Zo voldoet u aan uw
         zorgplicht en voorkomt u verrassingen op de werkvloer.
@@ -165,12 +158,7 @@ function BemiddelingArticle() {
       <p>
         Inzet van zelfstandigen vraagt om aandacht voor de arbeidsrelatie. Wij
         richten plaatsingen in volgens de{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Wet DBA-conforme werkwijze
-        </Link>{" "}
+        Wet DBA-conforme werkwijze{" "}
         en werken vanuit een gecertificeerde, transparante bedrijfsvoering. Dat
         beperkt risico&apos;s rond schijnzelfstandigheid en geeft beide partijen
         duidelijkheid.
@@ -190,12 +178,7 @@ function BemiddelingArticle() {
         Jaarlijks worden via {brand.name} circa 500.000 uren gerealiseerd. Die
         schaal betekent dat er vaak sneller een match is dan wanneer u alleen
         intern werft. Het beheer van planning en uren loopt via het{" "}
-        <Link
-          href="/diensten/zpc-online-portaal-opdrachtgevers"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZPC Online portaal
-        </Link>
+        ZPC Online portaal
         .
       </p>
 

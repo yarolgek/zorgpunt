@@ -22,8 +22,6 @@ export const kwaliteitscontroleContent: RichServicePage = {
     "documentbeheer-verificatie-zorgprofessionals",
     "sna-nen-4400-1-gecertificeerde-bemiddeling",
     "bemiddeling-zzp-zorgprofessionals",
-    "klachtenafhandeling-klachtenportaal-zorg",
-    "wet-dba-conforme-plaatsingen",
   ],
   faqs: [
     {
@@ -104,12 +102,7 @@ function KwaliteitscontroleArticle() {
           SNA-certificering
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          bemiddeling
-        </Link>
+        bemiddeling
         .
       </p>
 
@@ -199,20 +192,10 @@ function KwaliteitscontroleArticle() {
       </h2>
       <p>
         Niet elke opdracht vraagt hetzelfde. Bij{" "}
-        <Link
-          href="/diensten/jeugdzorg-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          jeugdzorg
-        </Link>{" "}
+        jeugdzorg{" "}
         en kwetsbare doelgroepen hanteren we extra aandacht voor geschiktheid en
         ervaring. Bij{" "}
-        <Link
-          href="/diensten/ggz-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          GGZ-personeel
-        </Link>{" "}
+        GGZ-personeel{" "}
         wegen de-escalatievaardigheden en settingervaring zwaar mee. Screening
         is maatwerk binnen een vast kader, niet een generieke checklist.
       </p>
@@ -223,12 +206,7 @@ function KwaliteitscontroleArticle() {
       <p>
         Kwaliteitscontrole en documentbeheer lopen samen in Mijn ZPC. Opdrachtgevers
         met portaaltoegang zien status en kwalificaties. Zie{" "}
-        <Link
-          href="/diensten/zpc-online-portaal-opdrachtgevers"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZPC Online portaal
-        </Link>{" "}
+        ZPC Online portaal{" "}
         voor de operationele kant. Met circa 1.500 aangesloten professionals en
         meer dan 45 raamovereenkomsten verwerken wij grote volumes, vooral in
         Limburg en Noord-Brabant. Consistente screening is dan geen luxe maar
@@ -241,19 +219,9 @@ function KwaliteitscontroleArticle() {
       <p>
         Goede screening voorkomt problemen, maar sluit ze niet uit. Daarom
         combineren wij kwaliteitscontrole met een transparante aanpak rond{" "}
-        <Link
-          href="/diensten/klachtenafhandeling-klachtenportaal-zorg"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          klachtenafhandeling
-        </Link>{" "}
+        klachtenafhandeling{" "}
         via het Klachtenportaal Zorg. Ook{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          DBA-conforme plaatsingen
-        </Link>{" "}
+        DBA-conforme plaatsingen{" "}
         profiteren van aantoonbare processen en complete dossiers.
       </p>
 

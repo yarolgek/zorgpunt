@@ -22,7 +22,11 @@ export const roermondContent: RichAreaPage = {
       "Zorgteam in Roermond ondersteund door ZorgpuntConnect",
     ],
   },
-  relatedAreaSlugs: ["venlo", "maastricht", "sittard-geleen", "helmond", "eindhoven"],
+  relatedAreaSlugs: [
+    "venlo",
+    "maastricht",
+    "sittard-geleen",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Roermond?",
@@ -258,32 +262,6 @@ function RoermondArticle() {
           Zorgbemiddeling vanuit Roermond, het hart van Midden-Limburg.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Ook actief in omliggende steden
-      </h2>
-      <p>
-        Vanuit Roermond bedienen we heel Limburg en Noord-Brabant. Bekijk ook
-        onze pagina&apos;s voor{" "}
-        <Link href="/werkgebieden/venlo" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Venlo
-        </Link>
-        ,{" "}
-        <Link
-          href="/werkgebieden/maastricht"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Maastricht
-        </Link>{" "}
-        en{" "}
-        <Link
-          href="/werkgebieden/eindhoven"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Eindhoven
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Roermond?

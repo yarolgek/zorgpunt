@@ -21,8 +21,6 @@ export const klachtenContent: RichServicePage = {
     "kwaliteitscontrole-screening-zorgprofessionals",
     "sna-nen-4400-1-gecertificeerde-bemiddeling",
     "documentbeheer-verificatie-zorgprofessionals",
-    "zorgbeveiliging",
-    "rapportage-analyse-personeelsinzet",
   ],
   faqs: [
     {
@@ -104,12 +102,7 @@ function KlachtenArticle() {
           SNA-certificering
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer
-        </Link>
+        documentbeheer
         .
       </p>
 
@@ -157,12 +150,7 @@ function KlachtenArticle() {
         Dit sluit aan bij onze werkwijze als full service provider: niet alleen
         plaatsen, maar ook verantwoorden. Rapportage en analyse helpen trends te
         zien. Zie{" "}
-        <Link
-          href="/diensten/rapportage-analyse-personeelsinzet"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          rapportage en analyse
-        </Link>{" "}
+        rapportage en analyse{" "}
         voor managementinzicht.
       </p>
 
@@ -219,12 +207,7 @@ function KlachtenArticle() {
       </h2>
       <p>
         In settings waar veiligheid extra aandacht vraagt, zoals{" "}
-        <Link
-          href="/diensten/zorgbeveiliging"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          zorgbeveiliging
-        </Link>
+        zorgbeveiliging
         , GGZ of jeugdzorg, zijn heldere protocollen en klachtenroutes
         essentieel. {brand.name} werkt met opdrachtgevers die hoge eisen stellen
         aan kwaliteitsborging. SNA NEN 4400-1 certificering en NBBU-kaders
@@ -232,12 +215,7 @@ function KlachtenArticle() {
       </p>
       <p>
         Opdrachtgevers die digitaal willen samenwerken, gebruiken het{" "}
-        <Link
-          href="/diensten/zpc-online-portaal-opdrachtgevers"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZPC Online portaal
-        </Link>{" "}
+        ZPC Online portaal{" "}
         voor overzicht en communicatie. Klachtenafhandeling is daar een
         aanvulling op, geen vervanging van goede screening en dagelijkse
         afstemming op de werkvloer.
@@ -251,12 +229,7 @@ function KlachtenArticle() {
         kwaliteitszorg en klachtenregeling bij zorgaanbieders. Als bemiddelaar
         in de zorgketen sluiten wij aan bij relevante sectorafspraken. Bij
         samenwerking via{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          bemiddeling
-        </Link>{" "}
+        bemiddeling{" "}
         of detachering bespreken we met opdrachtgevers welke verantwoordelijkheden
         waar liggen en hoe meldingen worden afgehandeld.
       </p>

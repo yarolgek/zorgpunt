@@ -21,8 +21,6 @@ export const ghzPersoneelContent: RichServicePage = {
     "vvt-personeel",
     "sociaal-werk",
     "bemiddeling-zzp-zorgprofessionals",
-    "kwaliteitscontrole-screening-zorgprofessionals",
-    "onderaanneming-zorgopdrachten",
   ],
   faqs: [
     {
@@ -140,19 +138,9 @@ function GhzPersoneelArticle() {
           detachering
         </Link>{" "}
         of bij structurele behoefte{" "}
-        <Link
-          href="/diensten/werving-en-selectie"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          werving en selectie
-        </Link>
+        werving en selectie
         . Bij grotere opdrachten kan ook{" "}
-        <Link
-          href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          onderaanneming
-        </Link>{" "}
+        onderaanneming{" "}
         een optie zijn.
       </p>
 
@@ -204,12 +192,7 @@ function GhzPersoneelArticle() {
       </h2>
       <p>
         Cliënten in de GHZ zijn vaak kwetsbaar. Daarom is{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole en screening
-        </Link>{" "}
+        kwaliteitscontrole en screening{" "}
         geen bijzaak. VOG, diploma&apos;s, referenties en waar nodig
         certificaten worden gecontroleerd vóór de eerste werkdag. Opdrachtgevers
         weten wie er voor de deur staat.
@@ -243,19 +226,9 @@ function GhzPersoneelArticle() {
       </h2>
       <p>
         GHZ overlapt soms met{" "}
-        <Link
-          href="/diensten/sociaal-werk"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          sociaal werk
-        </Link>{" "}
+        sociaal werk{" "}
         of{" "}
-        <Link
-          href="/diensten/vvt-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          VVT
-        </Link>{" "}
+        VVT{" "}
         bij cliënten die thuis wonen. Eén partner voor meerdere sectoren
         vereenvoudigt uw personeelsbeleid.
       </p>

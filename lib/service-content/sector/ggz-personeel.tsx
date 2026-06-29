@@ -22,8 +22,6 @@ export const ggzPersoneelContent: RichServicePage = {
     "vvt-personeel",
     "jeugdzorg-personeel",
     "bemiddeling-zzp-zorgprofessionals",
-    "detachering-zorgpersoneel",
-    "kwaliteitscontrole-screening-zorgprofessionals",
   ],
   faqs: [
     {
@@ -150,12 +148,7 @@ function GgzPersoneelArticle() {
           detachering
         </Link>{" "}
         of{" "}
-        <Link
-          href="/diensten/werving-en-selectie"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          werving en selectie
-        </Link>
+        werving en selectie
         .
       </p>
 
@@ -218,12 +211,7 @@ function GgzPersoneelArticle() {
       </h2>
       <p>
         GGZ-werk vraagt om betrouwbare professionals. Via onze{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole en screening
-        </Link>{" "}
+        kwaliteitscontrole en screening{" "}
         controleren we documentatie en achtergrond vóór inzet. Denk aan BIG waar
         vereist, VOG, diploma&apos;s en waar relevant certificaten zoals
         agressiehantering of medicatie. Als opdrachtgever hoeft u niet zelf het
@@ -232,12 +220,7 @@ function GgzPersoneelArticle() {
       <p>
         Daarnaast werken wij conform afspraken rond privacy en, waar van
         toepassing,{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Wet DBA-conforme plaatsingen
-        </Link>
+        Wet DBA-conforme plaatsingen
         . Dat geeft rust aan HR, teamleiders én de ingezette professional.
       </p>
 
@@ -280,19 +263,9 @@ function GgzPersoneelArticle() {
       <p>
         GGZ raakt vaak andere domeinen. Heeft u ook behoefte aan capaciteit in
         jeugdzorg of ouderenzorg? Bekijk dan onze pagina&apos;s over{" "}
-        <Link
-          href="/diensten/jeugdzorg-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          jeugdzorg personeel
-        </Link>{" "}
+        jeugdzorg personeel{" "}
         en{" "}
-        <Link
-          href="/diensten/vvt-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          VVT personeel
-        </Link>
+        VVT personeel
         . Zo bouwt u een consistent personeelsbeleid over sectoren heen, met één
         aanspreekpunt voor bemiddeling.
       </p>

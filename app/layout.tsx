@@ -1,7 +1,11 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
 import { ConvocoreChat } from '@/components/landing/convocore-chat'
+import { CookieConsentBanner } from '@/components/landing/cookie-consent-banner'
+import {
+  GoogleConsent,
+  GoogleTagManagerNoScript,
+} from '@/components/landing/google-consent'
 import { WhatsAppFloatingButton } from '@/components/landing/whatsapp-floating-button'
 import { brand } from '@/lib/brand'
 import { getSiteUrl } from '@/lib/site-url'
@@ -20,10 +24,10 @@ const geistMono = Geist_Mono({
 })
 
 const homeTitle =
-  'Beste Zorgbemiddeling Roermond, ZorgpuntConnect | Zorgpersoneel inhuren, ZZP-zorgprofessionals, detachering en uitzendbureau voor de zorg in Roermond en omgeving (Limburg en Noord-Brabant)'
+  'Beste Zorgbemiddeling Roermond, ZorgpuntConnect | Zorgpersoneel inhuren, ZZP-zorgprofessionals, detachering en uitzendbureau voor de zorg in Roermond en omgeving (Limburg, Noord-Brabant en Gelderland)'
 
 const homeDescription =
-  'ZorgpuntConnect is dé zorgbemiddelaar in Roermond. Wij bemiddelen en detacheren gekwalificeerde ZZP-zorgprofessionals voor zorgorganisaties in Roermond, Limburg en Noord-Brabant. Snel, persoonlijk en SNA-gecertificeerd.'
+  'ZorgpuntConnect is dé zorgbemiddelaar in Roermond. Wij bemiddelen en detacheren gekwalificeerde ZZP-zorgprofessionals voor zorgorganisaties in Limburg, Noord-Brabant en Gelderland. Snel, persoonlijk en SNA-gecertificeerd.'
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
@@ -64,11 +68,13 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} light bg-background scroll-smooth`}
       suppressHydrationWarning
     >
+      <GoogleConsent />
       <body className={`${geistSans.className} font-sans antialiased`}>
+        <GoogleTagManagerNoScript />
         {children}
+        <CookieConsentBanner />
         <WhatsAppFloatingButton />
         <ConvocoreChat />
-        {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
   )

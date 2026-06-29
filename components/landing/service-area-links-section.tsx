@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { getServiceAreaBySlug } from "@/lib/service-areas"
 import { getServiceAreaSlugsForService } from "@/lib/service-area-links"
+import { activeRegionShort } from "@/lib/regions"
+import { limitSlugs, MAX_SERVICE_AREA_LINKS } from "@/lib/subpage-links"
 
 interface ServiceAreaLinksSectionProps {
   serviceSlug: string
@@ -13,14 +15,18 @@ export function ServiceAreaLinksSection({
   serviceTitle,
   relatedAreaSlugs,
 }: ServiceAreaLinksSectionProps) {
-  const slugs = getServiceAreaSlugsForService(serviceSlug, relatedAreaSlugs)
+  const slugs = limitSlugs(
+    getServiceAreaSlugsForService(serviceSlug, relatedAreaSlugs),
+    MAX_SERVICE_AREA_LINKS
+  )
   const areas = slugs
     .map((slug) => getServiceAreaBySlug(slug))
     .filter((area): area is NonNullable<typeof area> => area != null)
 
   if (areas.length === 0) return null
 
-  const [first, second, third] = areas
+  const [first, second, ...rest] = areas
+  const listAreas = rest
 
   return (
     <section className="pt-10 border-t border-border mt-10">
@@ -40,7 +46,8 @@ export function ServiceAreaLinksSection({
         ) : null}
         {second ? (
           <>
-            ,{" "}
+            {" "}
+            en{" "}
             <Link
               href={`/werkgebieden/${second.slug}`}
               className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
@@ -49,32 +56,27 @@ export function ServiceAreaLinksSection({
             </Link>
           </>
         ) : null}
-        {third ? (
-          <>
-            {" "}
-            en{" "}
-            <Link
-              href={`/werkgebieden/${third.slug}`}
-              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-            >
-              {third.city}
-            </Link>
-          </>
-        ) : null}
-        . Vanuit ons kantoor in Roermond bedienen wij Limburg en Noord-Brabant.
+        . Vanuit ons kantoor in Roermond bedienen wij {activeRegionShort}.
       </p>
-      <ul className="flex flex-col gap-2 mt-4">
-        {areas.map((area) => (
-          <li key={area.slug}>
-            <Link
-              href={`/werkgebieden/${area.slug}`}
-              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-            >
-              {serviceTitle} in {area.city}
-            </Link>
-          </li>
-        ))}
-      </ul>
+      {listAreas.length > 0 ? (
+        <div className="mt-4">
+          <p className="text-sm font-medium text-foreground mb-2">
+            Ook actief in:
+          </p>
+          <ul className="flex flex-col gap-2">
+            {listAreas.map((area) => (
+              <li key={area.slug}>
+                <Link
+                  href={`/werkgebieden/${area.slug}`}
+                  className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+                >
+                  Zorgpersoneel in {area.city}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
     </section>
   )
 }

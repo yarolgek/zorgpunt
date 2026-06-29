@@ -11,6 +11,8 @@ import { AppDownloadSection } from "@/components/landing/app-download-section"
 import { Footer } from "@/components/landing/footer"
 import { MobileCtaBar } from "@/components/landing/mobile-cta-bar"
 import { LocalLinksSection } from "@/components/landing/local-links-section"
+import { CertificationsSection } from "@/components/landing/certifications-section"
+import { CtaSection } from "@/components/landing/cta-section"
 import { OfficeMapSection } from "@/components/landing/office-map-section"
 import { ScrollReveal } from "@/components/ui/scroll-reveal"
 import {
@@ -66,6 +68,9 @@ export default function Page() {
           <MetricsSection />
         </ScrollReveal>
         <ScrollReveal>
+          <CertificationsSection />
+        </ScrollReveal>
+        <ScrollReveal>
           <SectorsSection />
         </ScrollReveal>
         <ScrollReveal>
@@ -89,6 +94,7 @@ export default function Page() {
       </main>
 
       <MobileCtaBar />
+      <CtaSection />
       <Footer />
     </>
   )

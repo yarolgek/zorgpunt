@@ -21,7 +21,11 @@ export const tilburgContent: RichAreaPage = {
       "Zorgteam in Tilburg ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["breda", "s-hertogenbosch", "eindhoven", "helmond"],
+  relatedAreaSlugs: [
+    "breda",
+    "s-hertogenbosch",
+    "eindhoven",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Tilburg?",
@@ -260,25 +264,6 @@ function TilburgArticle() {
           Gekwalificeerde zorgprofessionals voor Midden-Brabant.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Tilburg vormt samen met omliggende steden één arbeidsmarkt in
-        Noord-Brabant. Bekijk ook onze pagina&apos;s voor{" "}
-        <Link href="/werkgebieden/breda" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Breda
-        </Link>{" "}
-        en{" "}
-        <Link
-          href="/werkgebieden/s-hertogenbosch"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          &apos;s-Hertogenbosch
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Tilburg?

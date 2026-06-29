@@ -21,7 +21,11 @@ export const eindhovenContent: RichAreaPage = {
       "Zorgteam in Eindhoven ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["helmond", "s-hertogenbosch", "venlo", "tilburg"],
+  relatedAreaSlugs: [
+    "helmond",
+    "s-hertogenbosch",
+    "venlo",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Eindhoven?",
@@ -261,22 +265,6 @@ function EindhovenArticle() {
           Gekwalificeerde zorgprofessionals voor de Brainport-regio.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Eindhoven vormt samen met omliggende steden één arbeidsmarkt. Bekijk ook
-        onze pagina&apos;s voor{" "}
-        <Link href="/werkgebieden/helmond" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Helmond
-        </Link>{" "}
-        en{" "}
-        <Link href="/werkgebieden/tilburg" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Tilburg
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Eindhoven?

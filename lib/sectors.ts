@@ -52,3 +52,13 @@ export const landingSectors = opdrachtgeverNiches
     ...niche,
     icon: sectorIcons[niche.value] ?? HeartPulse,
   }))
+
+/** Landing sector tiles → diensten detail pages. */
+export const sectorServiceLinks: Record<string, string> = {
+  thuiszorg: "/diensten/vvt-personeel",
+  verpleging: "/diensten/vvt-personeel",
+  gehandicaptenzorg: "/diensten/ghz-personeel",
+  ggz: "/diensten/ggz-personeel",
+  jeugdzorg: "/diensten/jeugdzorg-personeel",
+  ouderenzorg: "/diensten/vvt-personeel",
+}

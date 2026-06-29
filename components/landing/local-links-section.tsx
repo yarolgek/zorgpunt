@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { FEATURED_SERVICE_SLUGS } from "@/lib/service-area-links"
 import { getServiceBySlug } from "@/lib/services"
 import { serviceAreas } from "@/lib/service-areas"
+import { activeRegionShort } from "@/lib/regions"
 
 export function LocalLinksSection() {
   const featuredServices = FEATURED_SERVICE_SLUGS.map((slug) =>
@@ -27,9 +28,8 @@ export function LocalLinksSection() {
             Diensten en werkgebieden
           </h2>
           <p className="text-muted-foreground mt-3 leading-relaxed">
-            Vanuit Roermond bemiddelen wij zorgpersoneel in Limburg en
-            Noord-Brabant. Ontdek onze kern diensten en de steden waar wij
-            actief zijn.
+            Vanuit Roermond bemiddelen wij zorgpersoneel in {activeRegionShort}.
+            Ontdek onze kern diensten en de steden waar wij actief zijn.
           </p>
         </div>
 

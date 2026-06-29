@@ -22,8 +22,6 @@ export const jeugdzorgPersoneelContent: RichServicePage = {
     "ggz-personeel",
     "sociaal-werk",
     "bemiddeling-zzp-zorgprofessionals",
-    "kwaliteitscontrole-screening-zorgprofessionals",
-    "werving-en-selectie",
   ],
   faqs: [
     {
@@ -140,12 +138,7 @@ function JeugdzorgPersoneelArticle() {
           detachering
         </Link>{" "}
         of{" "}
-        <Link
-          href="/diensten/werving-en-selectie"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          werving en selectie
-        </Link>{" "}
+        werving en selectie{" "}
         voor vaste functies. Screening en documentatie lopen centraal.
       </p>
 
@@ -197,12 +190,7 @@ function JeugdzorgPersoneelArticle() {
       </h2>
       <p>
         Werken met minderjarigen vraagt om strikte screening. Onze{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole
-        </Link>{" "}
+        kwaliteitscontrole{" "}
         omvat onder meer VOG en verificatie van diploma&apos;s. Opdrachtgevers
         weten wie ze binnenhalen.
       </p>
@@ -224,19 +212,9 @@ function JeugdzorgPersoneelArticle() {
       </h2>
       <p>
         Jongeren raken ook GGZ of sociaal werk. Bekijk{" "}
-        <Link
-          href="/diensten/ggz-personeel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          GGZ personeel
-        </Link>{" "}
+        GGZ personeel{" "}
         en{" "}
-        <Link
-          href="/diensten/sociaal-werk"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          sociaal werk
-        </Link>{" "}
+        sociaal werk{" "}
         als u multidisciplinaire teams samenstelt.
       </p>
 

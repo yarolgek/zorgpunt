@@ -21,8 +21,6 @@ export const zorgbeveiligingContent: RichServicePage = {
     "ggz-personeel",
     "kwaliteitscontrole-screening-zorgprofessionals",
     "bemiddeling-zzp-zorgprofessionals",
-    "klachtenafhandeling-klachtenportaal-zorg",
-    "detachering-zorgpersoneel",
   ],
   faqs: [
     {
@@ -138,12 +136,7 @@ function ZorgbeveiligingArticle() {
           bemiddeling
         </Link>{" "}
         of{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>
+        detachering
         . Screening loopt via hetzelfde kwaliteitskader als andere
         zorgprofessionals.
       </p>
@@ -196,19 +189,9 @@ function ZorgbeveiligingArticle() {
       </h2>
       <p>
         Veiligheid en kwaliteit horen bij elkaar. Onze{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          screening
-        </Link>{" "}
+        screening{" "}
         en afspraken rond{" "}
-        <Link
-          href="/diensten/klachtenafhandeling-klachtenportaal-zorg"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          klachtenafhandeling
-        </Link>{" "}
+        klachtenafhandeling{" "}
         helpen opdrachtgevers verantwoording af te leggen richting toezicht en
         interne kwaliteitscommissies.
       </p>

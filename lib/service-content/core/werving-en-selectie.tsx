@@ -22,8 +22,6 @@ export const wervingSelectieContent: RichServicePage = {
     "detachering-zorgpersoneel",
     "bemiddeling-zzp-zorgprofessionals",
     "kwaliteitscontrole-screening-zorgprofessionals",
-    "documentbeheer-verificatie-zorgprofessionals",
-    "vvt-personeel",
   ],
   faqs: [
     {
@@ -145,19 +143,9 @@ function WervingSelectieArticle() {
       </h2>
       <p>
         Een goede match begint bij een betrouwbare kandidaat. Via onze{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole en screening
-        </Link>{" "}
+        kwaliteitscontrole en screening{" "}
         en ons{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer en verificatie
-        </Link>{" "}
+        documentbeheer en verificatie{" "}
         controleren we diploma&apos;s, BIG-registratie, VOG en referenties. Zo
         weet u zeker dat u een vakbekwame en betrouwbare professional aanneemt.
       </p>

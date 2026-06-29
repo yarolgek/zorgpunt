@@ -1,3 +1,5 @@
+import { expansionNote } from "@/lib/regions"
+
 export const faqs = [
   {
     question: "Hoe snel kan ik een freelance zorgverlener inzetten?",
@@ -20,9 +22,10 @@ export const faqs = [
       "Je kunt je eenvoudig aanmelden via ons contactformulier door te kiezen voor de optie 'Zzp'er'. Aanmelden en bemiddeld worden naar opdrachten is voor zzp'ers volledig gratis. Wij helpen je met het vinden van passende opdrachten en ontzorgen je administratief.",
   },
   {
-    question: "In welke zorgsectoren is ZorgpuntConnect actief?",
+    question: "In welke regio's en sectoren is ZorgpuntConnect actief?",
     answer:
-      "Wij zijn actief in heel Nederland en bemiddelen in sectoren zoals Thuiszorg, Verpleging & Verzorging (VVT), Gehandicaptenzorg, Geestelijke Gezondheidszorg (GGZ), Jeugdzorg en Ouderenzorg.",
+      "Op dit moment zijn wij het sterkst vertegenwoordigd in Limburg, Noord-Brabant en Gelderland — onder meer via onze werkgebieden rond Roermond, Eindhoven, Tilburg, Nijmegen en Arnhem. We bemiddelen in Thuiszorg, Verpleging & Verzorging (VVT), Gehandicaptenzorg, GGZ, Jeugdzorg en Ouderenzorg. " +
+      expansionNote,
   },
 ]
 
@@ -52,8 +55,9 @@ export function FaqSection() {
                 }
               >
                 <span className="pr-4">{faq.question}</span>
-                <span aria-hidden className="text-primary font-semibold pt-0.5">
-                  +
+                <span aria-hidden className="text-primary font-semibold pt-0.5 shrink-0">
+                  <span className="group-open:hidden">+</span>
+                  <span className="hidden group-open:inline">−</span>
                 </span>
               </summary>
               <p className="mt-3 text-muted-foreground text-sm leading-relaxed">
@@ -63,12 +67,11 @@ export function FaqSection() {
           ))}
         </div>
 
-        {/* CTA #2 */}
         <div className="mt-10 text-center">
           <p className="text-muted-foreground">
             Staat uw vraag er niet tussen?{" "}
             <a
-              href="#contact-form"
+              href="/contact#contact-form"
               className="text-brand-primary hover:text-brand-secondary font-medium transition-colors no-underline hover:no-underline"
             >
               Vraag een gratis gesprek aan met Lieke
@@ -79,4 +82,3 @@ export function FaqSection() {
     </section>
   )
 }
-

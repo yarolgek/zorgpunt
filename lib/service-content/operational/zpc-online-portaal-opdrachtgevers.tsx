@@ -22,8 +22,6 @@ export const portaalContent: RichServicePage = {
     "roosterplanning-personeelsbezetting",
     "documentbeheer-verificatie-zorgprofessionals",
     "geautomatiseerde-facturatie-selfbilling",
-    "rapportage-analyse-personeelsinzet",
-    "api-koppelingen-zorgsystemen",
   ],
   faqs: [
     {
@@ -105,12 +103,7 @@ function PortaalArticle() {
           documentbeheer
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          facturatie
-        </Link>
+        facturatie
         .
       </p>
 
@@ -219,12 +212,7 @@ function PortaalArticle() {
         Een kernbelofte van {brand.name}: enkel professionals met geldige
         documentatie gaan aan het werk. In Mijn ZPC ziet u of een dossier
         compleet is. Dat sluit aan op onze{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole en screening
-        </Link>
+        kwaliteitscontrole en screening
         , waarin ook referenties en geschiktheid meewegen. Voor opdrachtgevers
         betekent dit minder risico en minder eigen administratie.
       </p>
@@ -235,20 +223,10 @@ function PortaalArticle() {
       <p>
         Het portaal levert niet alleen operationeel overzicht, maar ook data
         voor sturing. Via{" "}
-        <Link
-          href="/diensten/rapportage-analyse-personeelsinzet"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          rapportage en analyse
-        </Link>{" "}
+        rapportage en analyse{" "}
         ziet u waar capaciteit wordt ingezet en welke trends spelen. Grotere
         organisaties koppelen Mijn ZPC via{" "}
-        <Link
-          href="/diensten/api-koppelingen-zorgsystemen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          API-koppelingen
-        </Link>{" "}
+        API-koppelingen{" "}
         aan bestaande zorgsystemen, zodat uren en personeelsdata niet dubbel
         hoeven te worden ingevoerd.
       </p>
@@ -258,12 +236,7 @@ function PortaalArticle() {
       </h2>
       <p>
         Mijn ZPC ondersteunt alle kernvormen van {brand.name}, waaronder{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          bemiddeling van ZZP-zorgprofessionals
-        </Link>
+        bemiddeling van ZZP-zorgprofessionals
         , tussenkomst, detachering en onderaanneming. Het portaal past zich aan
         de gekozen contractvorm aan: fee bij bemiddeling, factor bij
         detachering, projectafspraken bij onderaanneming.

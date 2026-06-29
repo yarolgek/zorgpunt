@@ -23,7 +23,8 @@ export default function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", fontSize: 44, fontWeight: 800 }}>
-          <span style={{ color: "#759940" }}>Zorgpunt</span>
+          <span style={{ color: "#006AA5" }}>Zorg</span>
+          <span style={{ color: "#759940" }}>punt</span>
           <span style={{ color: "#006AA5" }}>Connect</span>
         </div>
 

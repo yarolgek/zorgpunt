@@ -156,26 +156,28 @@ export function HeroContactFlow() {
           </div>
         </div>
       ) : (
-        <ContactForm role={role} onRoleClear={clearRole} />
-      )}
+        <>
+          <ContactForm role={role} onRoleClear={clearRole} />
 
-      <div className="flex items-center gap-4 rounded-xl border border-border/60 bg-background/70 backdrop-blur-sm px-4 py-3 max-w-xl">
-        <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-primary/25 shadow-sm ring-2 ring-background">
-          <Image
-            src="/images/lieke-avatar.jpg"
-            alt="Lieke - Persoonlijke zorgadviseur bij ZorgpuntConnect"
-            fill
-            className="object-cover"
-            sizes="48px"
-          />
-        </div>
-        <div className="min-w-0">
-          <p className="text-sm font-medium text-foreground">Lieke</p>
-          <p className="text-xs text-muted-foreground italic leading-relaxed">
-            &quot;Ik help u persoonlijk om de perfecte match te vinden.&quot;
-          </p>
-        </div>
-      </div>
+          <div className="flex items-center gap-4 rounded-xl border border-border/60 bg-background/70 backdrop-blur-sm px-4 py-3 max-w-xl">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full border-2 border-primary/25 shadow-sm ring-2 ring-background">
+              <Image
+                src="/images/lieke-avatar.jpg"
+                alt="Lieke - Persoonlijke zorgadviseur bij ZorgpuntConnect"
+                fill
+                className="object-cover"
+                sizes="48px"
+              />
+            </div>
+            <div className="min-w-0">
+              <p className="text-sm font-medium text-foreground">Lieke</p>
+              <p className="text-xs text-muted-foreground italic leading-relaxed">
+                &quot;Ik help u persoonlijk om de perfecte match te vinden.&quot;
+              </p>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

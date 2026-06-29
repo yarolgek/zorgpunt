@@ -22,8 +22,6 @@ export const rapportageContent: RichServicePage = {
     "zpc-online-portaal-opdrachtgevers",
     "roosterplanning-personeelsbezetting",
     "geautomatiseerde-facturatie-selfbilling",
-    "api-koppelingen-zorgsystemen",
-    "onderaanneming-zorgopdrachten",
   ],
   faqs: [
     {
@@ -106,12 +104,7 @@ function RapportageArticle() {
           roosterplanning
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          facturatie
-        </Link>
+        facturatie
         .
       </p>
 
@@ -143,12 +136,7 @@ function RapportageArticle() {
         Rapportage is geen eindproduct op zich. Het ondersteunt gesprekken met
         teamleiders over roosters, met finance over budget en met {brand.name}{" "}
         over verlenging of opschaling. Bij{" "}
-        <Link
-          href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          onderaanneming
-        </Link>{" "}
+        onderaanneming{" "}
         en langdurige samenwerking zijn periodieke evaluaties standaard onderdeel
         van goed partnerschap.
       </p>
@@ -211,12 +199,7 @@ function RapportageArticle() {
         geregistreerd en goedgekeurd. Dat sluit aan op onze werkwijze na
         raamovereenkomst: login, inzicht in documentatie, automatisering en
         waar nodig{" "}
-        <Link
-          href="/diensten/api-koppelingen-zorgsystemen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          API-koppelingen
-        </Link>{" "}
+        API-koppelingen{" "}
         naar eigen systemen.
       </p>
 
@@ -225,12 +208,7 @@ function RapportageArticle() {
       </h2>
       <p>
         Of u nu werkt met{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZZP-bemiddeling
-        </Link>
+        ZZP-bemiddeling
         , detachering of complete teams: de behoefte aan inzicht blijft. Bij
         bemiddeling focust u op fee en uren per professional. Bij detachering
         op factor en basisverloning. Bij onderaanneming op teamresultaat en
@@ -246,12 +224,7 @@ function RapportageArticle() {
         {brand.name} is SNA NEN 4400-1 gecertificeerd. Transparante rapportage
         versterkt vertrouwen in processen rond inlenersaansprakelijkheid en
         bedrijfsvoering. Zie ook onze pagina over{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA-gecertificeerde bemiddeling
-        </Link>
+        SNA-gecertificeerde bemiddeling
         .
       </p>
       <p>

@@ -1,7 +1,6 @@
 import type { ReactNode } from "react"
 import Link from "next/link"
 import { Mail, Phone } from "lucide-react"
-import { Button } from "@/components/ui/button"
 import { siteContact } from "@/lib/site"
 import { brand } from "@/lib/brand"
 import { BrandLogo } from "@/components/landing/brand-logo"
@@ -10,11 +9,12 @@ import { getServicesByCategory, serviceCategories } from "@/lib/services"
 import { serviceAreas } from "@/lib/service-areas"
 
 const footerNav = [
-  { label: "Hoe het werkt", href: "#hoe-het-werkt" },
-  { label: "Sectoren", href: "#sectoren" },
-  { label: "Tarieven", href: "#tarieven" },
-  { label: "Ervaringen", href: "#ervaringen" },
-  { label: "Veelgestelde vragen", href: "#faq" },
+  { label: "Hoe het werkt", href: "/#hoe-het-werkt" },
+  { label: "Sectoren", href: "/#sectoren" },
+  { label: "Tarieven", href: "/#tarieven" },
+  { label: "Ervaringen", href: "/#ervaringen" },
+  { label: "Contact", href: "/contact" },
+  { label: "Veelgestelde vragen", href: "/#faq" },
 ]
 
 const legalLinks = [
@@ -65,21 +65,6 @@ export function Footer() {
 
   return (
     <footer className="border-t border-border bg-card">
-      <div className="py-12 lg:py-14 border-b border-border">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center gap-4 text-center">
-          <p className="text-xl font-semibold text-foreground text-balance">
-            Klaar om de juiste match te vinden?
-          </p>
-          <p className="text-muted-foreground max-w-md text-sm leading-relaxed">
-            Gratis adviesgesprek. Geen verplichtingen. Lieke helpt u persoonlijk
-            verder.
-          </p>
-          <Button asChild size="lg" className="font-semibold mt-1">
-            <a href="#contact-form">Start uw gratis gesprek</a>
-          </Button>
-        </div>
-      </div>
-
       <div className="py-10 lg:py-12 border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <BrandLogo href="/" size={44} wordmarkSize="sm" />

@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { HeroContactFlow } from "./hero-contact-flow"
 import { brand } from "@/lib/brand"
+import { activeRegionShort } from "@/lib/regions"
 
 export function HeroSection() {
   return (
@@ -23,33 +24,34 @@ export function HeroSection() {
             <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed max-w-3xl">
               {brand.tagline}
             </p>
-            <p className="text-base sm:text-lg font-medium text-foreground/80 leading-relaxed max-w-3xl">
-              Zorgpersoneel inhuren via{" "}
-              <Link
-                href="/diensten/bemiddeling-zzp-zorgprofessionals"
-                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-              >
-                bemiddeling van ZZP-zorgprofessionals
-              </Link>
-              ,{" "}
-              <Link
-                href="/diensten/detachering-zorgpersoneel"
-                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-              >
-                detachering
-              </Link>{" "}
-              en{" "}
-              <Link
-                href="/diensten/werving-en-selectie"
-                className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-              >
-                werving en selectie
-              </Link>{" "}
-              in Roermond, Limburg en Noord-Brabant.
-            </p>
           </div>
 
           <HeroContactFlow />
+
+          <p className="text-base sm:text-lg font-medium text-foreground/80 leading-relaxed max-w-3xl">
+            Zorgpersoneel inhuren via{" "}
+            <Link
+              href="/diensten/bemiddeling-zzp-zorgprofessionals"
+              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+            >
+              bemiddeling van ZZP-zorgprofessionals
+            </Link>
+            ,{" "}
+            <Link
+              href="/diensten/detachering-zorgpersoneel"
+              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+            >
+              detachering
+            </Link>{" "}
+            en{" "}
+            <Link
+              href="/diensten/werving-en-selectie"
+              className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
+            >
+              werving en selectie
+            </Link>{" "}
+            in Roermond en {activeRegionShort}.
+          </p>
         </div>
       </div>
     </section>

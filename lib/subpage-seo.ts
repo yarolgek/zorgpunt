@@ -1,10 +1,12 @@
 import { brand } from "@/lib/brand"
+import { siteContact } from "@/lib/site"
+import { activeRegionLabel } from "@/lib/regions"
 import type { RichAreaPage } from "@/lib/service-area-content/types"
 import type { RichServicePage } from "@/lib/service-content/types"
 import type { ServiceArea } from "@/lib/service-areas"
 import type { Service, ServiceCategoryId } from "@/lib/services"
 
-const REGION_LABEL = "Limburg en Noord-Brabant"
+const REGION_LABEL = activeRegionLabel
 const HQ_CITY = "Roermond"
 const SECTOR_CITY_HINT =
   "Eindhoven, Tilburg, Venlo, Roermond en omgeving"
@@ -70,13 +72,13 @@ function buildServiceH1(
       h1 = `${keyword} in ${HQ_CITY} en regio${suffix}`
       break
     case "sector-specific":
-      h1 = `${keyword} in Zuid-Nederland${suffix}`
+      h1 = `${keyword} in ${HQ_CITY} en ${REGION_LABEL}${suffix}`
       break
     case "operational-support":
       h1 = `${keyword} voor zorgorganisaties in ${REGION_LABEL}${suffix}`
       break
     case "compliance-quality":
-      h1 = `${keyword} bij ${brand.name}${suffix}`
+      h1 = `${keyword} in ${HQ_CITY} en ${REGION_LABEL}${suffix}`
       break
     default:
       h1 = baseH1
@@ -144,5 +146,11 @@ export const dienstenHubSeo = {
 export const werkgebiedenHubSeo = {
   title: `Beste zorgbemiddeling werkgebieden | Zorgpersoneel in ${REGION_LABEL}, ${brand.name}`,
   description: `Zorgpersoneel nodig bij u in de buurt? ${brand.name} bemiddelt vanuit ${HQ_CITY} in Roermond, Eindhoven, Tilburg, Venlo, Maastricht en meer steden in ${REGION_LABEL}.`,
-  h1: `Zorgpersoneel in ${HQ_CITY}, Limburg en Noord-Brabant`,
+  h1: `Zorgpersoneel in ${HQ_CITY}, ${REGION_LABEL}`,
+} as const
+
+export const contactSeo = {
+  title: `Contact ${brand.name} Roermond | Zorgbemiddeling en zorgpersoneel inhuren`,
+  description: `Neem contact op met ${brand.name} in Roermond. Bel ${siteContact.phoneDisplay}, mail ${siteContact.email} of vul het formulier in. Zwartbroekpoort 2, 6041 LS Roermond. Actief in ${REGION_LABEL}.`,
+  h1: `Contact ${brand.name} in Roermond`,
 } as const

@@ -1,8 +1,10 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { brand } from "@/lib/brand"
+import { activeRegionLabel, networkStats } from "@/lib/regions"
 import { getServicesByCategory, serviceCategories } from "@/lib/services"
 import { Footer } from "@/components/landing/footer"
+import { CtaSection } from "@/components/landing/cta-section"
 import { breadcrumbJsonLd } from "@/lib/structured-data"
 import { dienstenHubSeo } from "@/lib/subpage-seo"
 import { getSiteUrl } from "@/lib/site-url"
@@ -85,7 +87,8 @@ export default function DienstenPage() {
               detachering
             </Link>{" "}
             tot operationele ondersteuning en compliance. Vanuit Roermond zijn we
-            actief in Limburg en Noord-Brabant, met een netwerk van circa 1.500
+            actief in {activeRegionLabel}, met {networkStats.activeProfessionals}{" "}
+            direct inzetbare zorgprofessionals.
             zorgprofessionals.
           </p>
           <p>
@@ -118,6 +121,7 @@ export default function DienstenPage() {
           ))}
         </div>
       </main>
+      <CtaSection />
       <Footer />
     </div>
   )

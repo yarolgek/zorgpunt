@@ -1,4 +1,5 @@
 import { GoogleMapEmbed } from "@/components/landing/google-map-embed"
+import { activeRegionLabel } from "@/lib/regions"
 
 export function OfficeMapSection() {
   return (
@@ -21,8 +22,7 @@ export function OfficeMapSection() {
           <p className="text-muted-foreground mt-3 leading-relaxed">
             ZorgpuntConnect is gevestigd in het centrum van Roermond. Kom langs
             voor een vrijblijvend gesprek, of neem telefonisch contact op. Wij
-            bedienen opdrachtgevers in Limburg en Noord-Brabant vanuit deze
-            locatie.
+            bedienen opdrachtgevers in {activeRegionLabel} vanuit deze locatie.
           </p>
         </div>
 

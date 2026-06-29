@@ -108,6 +108,7 @@ export function localBusinessHomeJsonLd(params: { baseUrl: string }) {
     areaServed: [
       { "@type": "AdministrativeArea", name: "Limburg" },
       { "@type": "AdministrativeArea", name: "Noord-Brabant" },
+      { "@type": "AdministrativeArea", name: "Gelderland" },
     ],
     parentOrganization: { "@id": orgId(baseUrl) },
     aggregateRating: {
@@ -206,11 +207,30 @@ export function serviceJsonLd(params: {
       name: brand.name,
       url: baseUrl,
     },
-    areaServed: {
-      "@type": "Country",
-      name: "Nederland",
-    },
+    areaServed: [
+      { "@type": "AdministrativeArea", name: "Limburg" },
+      { "@type": "AdministrativeArea", name: "Noord-Brabant" },
+      { "@type": "AdministrativeArea", name: "Gelderland" },
+      cityPlace(
+        siteContact.city,
+        siteContact.geo.latitude,
+        siteContact.geo.longitude,
+      ),
+    ],
     url: `${baseUrl}/diensten/${service.slug}/`,
+  }
+}
+
+export function contactPageJsonLd(params: { baseUrl: string }) {
+  const { baseUrl } = params
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: `Contact ${brand.name}`,
+    description: `Neem contact op met ${brand.name} in Roermond voor zorgbemiddeling en zorgpersoneel in Limburg, Noord-Brabant en Gelderland.`,
+    url: `${baseUrl}/contact/`,
+    mainEntity: { "@id": `${baseUrl}/#localbusiness` },
   }
 }
 

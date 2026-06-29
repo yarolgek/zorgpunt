@@ -22,8 +22,6 @@ export const facturatieContent: RichServicePage = {
     "zpc-online-portaal-opdrachtgevers",
     "roosterplanning-personeelsbezetting",
     "documentbeheer-verificatie-zorgprofessionals",
-    "bemiddeling-zzp-zorgprofessionals",
-    "api-koppelingen-zorgsystemen",
   ],
   faqs: [
     {
@@ -136,12 +134,7 @@ function FacturatieArticle() {
           documentbeheer
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/roosterplanning-personeelsbezetting"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          roosterplanning
-        </Link>
+        roosterplanning
         , zodat de hele keten van opdracht tot betaling in één systeem zit.
       </p>
 
@@ -233,26 +226,11 @@ function FacturatieArticle() {
       <p>
         Geautomatiseerde facturatie is daarbij geen losse module, maar onderdeel
         van dezelfde keten als{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          bemiddeling
-        </Link>
+        bemiddeling
         ,{" "}
-        <Link
-          href="/diensten/tussenkomst-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          tussenkomst
-        </Link>{" "}
+        tussenkomst{" "}
         en{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>
+        detachering
         .
       </p>
 
@@ -262,12 +240,7 @@ function FacturatieArticle() {
       <p>
         Grote opdrachtgevers willen factuurgegevens niet dubbel invoeren. Daarom
         ondersteunt {brand.name} waar mogelijk{" "}
-        <Link
-          href="/diensten/api-koppelingen-zorgsystemen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          API-koppelingen met zorgsystemen
-        </Link>
+        API-koppelingen met zorgsystemen
         . Automatisering en API-koppelingen staan expliciet in onze werkwijze
         na de raamovereenkomst: login opdrachtgever, inzicht in documentatie, en
         koppeling met uw bestaande IT-omgeving.

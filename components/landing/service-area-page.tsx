@@ -4,8 +4,10 @@ import { getServiceAreaBySlug } from "@/lib/service-areas"
 import { getServicesByCategory, serviceCategories } from "@/lib/services"
 import { brand } from "@/lib/brand"
 import { Footer } from "@/components/landing/footer"
+import { CtaSection } from "@/components/landing/cta-section"
 import type { RichAreaPage } from "@/lib/service-area-content/types"
 import type { EnhancedSubpageSeo } from "@/lib/subpage-seo"
+import { limitSlugs, MAX_RELATED_AREA_LINKS } from "@/lib/subpage-links"
 
 interface ServiceAreaPageContentProps {
   area: ServiceArea
@@ -85,7 +87,7 @@ export function ServiceAreaPageContent({
                     Andere werkgebieden
                   </h2>
                   <ul className="flex flex-col gap-2">
-                    {rich.relatedAreaSlugs.map((slug) => {
+                    {limitSlugs(rich.relatedAreaSlugs, MAX_RELATED_AREA_LINKS).map((slug) => {
                       const related = getServiceAreaBySlug(slug)
                       if (!related) return null
                       return (
@@ -140,6 +142,7 @@ export function ServiceAreaPageContent({
           )}
         </div>
       </main>
+      <CtaSection />
       <Footer />
     </div>
   )

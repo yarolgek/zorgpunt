@@ -29,7 +29,7 @@ export function generateLlmsTxt(): string {
   lines.push(`> ${brand.tagline}`)
   lines.push("")
   lines.push(
-    `${brand.name} is een SNA-gecertificeerde zorgbemiddelaar in Roermond. Wij bemiddelen, detacheren en werven ZZP-zorgprofessionals en vast personeel voor zorgorganisaties in Limburg, Noord-Brabant en heel Nederland.`
+    `${brand.name} is een SNA-gecertificeerde zorgbemiddelaar in Roermond. Wij bemiddelen, detacheren en werven ZZP-zorgprofessionals voor zorgorganisaties in Limburg, Noord-Brabant en Gelderland.`
   )
   lines.push("")
   lines.push(`- Website: ${baseUrl}/`)
@@ -53,6 +53,14 @@ export function generateLlmsTxt(): string {
   )
   lines.push(link(baseUrl, "/diensten/", "Diensten overzicht"))
   lines.push(link(baseUrl, "/werkgebieden/", "Werkgebieden overzicht"))
+  lines.push(
+    link(
+      baseUrl,
+      "/contact/",
+      "Contact",
+      `NAP en contactformulier, ${siteContact.city}`
+    )
+  )
   lines.push("")
 
   for (const category of serviceCategories) {

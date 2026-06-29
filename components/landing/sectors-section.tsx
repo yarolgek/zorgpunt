@@ -1,4 +1,6 @@
-import { landingSectors } from "@/lib/sectors"
+import Link from "next/link"
+import { landingSectors, sectorServiceLinks } from "@/lib/sectors"
+import { activeRegionShort, expansionNote } from "@/lib/regions"
 import { cn } from "@/lib/utils"
 import {
   greenToBlueCardHover,
@@ -20,42 +22,46 @@ export function SectorsSection() {
             id="sectoren-heading"
             className="text-2xl sm:text-3xl font-semibold text-foreground mb-3 text-balance"
           >
-            Actief in heel Nederland
+            Actief in {activeRegionShort}
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Wij bemiddelen in de sectoren die u in het formulier kunt kiezen, en
-            voor zzp&apos;ers in diverse vakgebieden van verpleegkundige tot
-            begeleider.
+            Vanuit Roermond bemiddelen wij in de sectoren die u in het formulier
+            kunt kiezen, en voor zzp&apos;ers in diverse vakgebieden van
+            verpleegkundige tot begeleider. {expansionNote}
           </p>
         </div>
 
         <ul className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-          {landingSectors.map((sector) => (
-            <li key={sector.value}>
-              <div
-                className={cn(
-                  "flex flex-col items-center text-center gap-3 rounded-xl card-elevated-hover p-4 h-full",
-                  greenToBlueGroup,
-                  greenToBlueCardHover
-                )}
-              >
-                <div
+          {landingSectors.map((sector) => {
+            const href = sectorServiceLinks[sector.value]
+            return (
+              <li key={sector.value}>
+                <Link
+                  href={href}
                   className={cn(
-                    "flex h-11 w-11 items-center justify-center rounded-full",
-                    greenToBlueIconCircle
+                    "flex flex-col items-center text-center gap-3 rounded-xl card-elevated-hover p-4 h-full no-underline hover:no-underline",
+                    greenToBlueGroup,
+                    greenToBlueCardHover
                   )}
                 >
-                  <sector.icon
-                    className={cn("h-5 w-5", greenToBlueIcon)}
-                    aria-hidden
-                  />
-                </div>
-                <span className="text-xs sm:text-sm font-medium text-foreground leading-snug">
-                  {sector.label}
-                </span>
-              </div>
-            </li>
-          ))}
+                  <div
+                    className={cn(
+                      "flex h-11 w-11 items-center justify-center rounded-full",
+                      greenToBlueIconCircle
+                    )}
+                  >
+                    <sector.icon
+                      className={cn("h-5 w-5", greenToBlueIcon)}
+                      aria-hidden
+                    />
+                  </div>
+                  <span className="text-xs sm:text-sm font-medium text-foreground leading-snug">
+                    {sector.label}
+                  </span>
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
     </section>

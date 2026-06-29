@@ -3,9 +3,11 @@ import type { Service } from "@/lib/services"
 import { getServiceBySlug, serviceCategories } from "@/lib/services"
 import { brand } from "@/lib/brand"
 import { Footer } from "@/components/landing/footer"
+import { CtaSection } from "@/components/landing/cta-section"
 import { ServiceAreaLinksSection } from "@/components/landing/service-area-links-section"
 import type { EnhancedSubpageSeo } from "@/lib/subpage-seo"
 import type { RichServicePage } from "@/lib/service-content/types"
+import { limitSlugs, MAX_RELATED_SERVICE_LINKS } from "@/lib/subpage-links"
 
 interface ServicePageContentProps {
   service: Service
@@ -89,7 +91,7 @@ export function ServicePageContent({
                     Gerelateerde diensten
                   </h2>
                   <ul className="flex flex-col gap-2">
-                    {rich.relatedSlugs.map((slug) => {
+                    {limitSlugs(rich.relatedSlugs, MAX_RELATED_SERVICE_LINKS).map((slug) => {
                       const related = getServiceBySlug(slug)
                       if (!related) return null
                       return (
@@ -140,6 +142,7 @@ export function ServicePageContent({
           )}
         </div>
       </main>
+      <CtaSection />
       <Footer />
     </div>
   )

@@ -21,7 +21,11 @@ export const helmondContent: RichAreaPage = {
       "Zorgteam in Helmond ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["roermond", "eindhoven", "venlo", "s-hertogenbosch", "tilburg"],
+  relatedAreaSlugs: [
+    "roermond",
+    "eindhoven",
+    "venlo",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Helmond?",
@@ -260,25 +264,6 @@ function HelmondArticle() {
           Gekwalificeerde zorgprofessionals voor Helmond en de Peelregio.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Helmond vormt samen met Eindhoven de Brainport-regio en grenst aan de
-        Peel. Bekijk ook onze pagina&apos;s voor{" "}
-        <Link
-          href="/werkgebieden/eindhoven"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Eindhoven
-        </Link>{" "}
-        en{" "}
-        <Link href="/werkgebieden/venlo" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Venlo
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Helmond?

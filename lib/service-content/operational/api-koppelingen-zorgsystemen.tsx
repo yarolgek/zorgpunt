@@ -21,8 +21,6 @@ export const apiKoppelingenContent: RichServicePage = {
     "zpc-online-portaal-opdrachtgevers",
     "roosterplanning-personeelsbezetting",
     "geautomatiseerde-facturatie-selfbilling",
-    "rapportage-analyse-personeelsinzet",
-    "documentbeheer-verificatie-zorgprofessionals",
   ],
   faqs: [
     {
@@ -104,19 +102,9 @@ function ApiKoppelingenArticle() {
           planning
         </Link>
         ,{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          facturatie
-        </Link>{" "}
+        facturatie{" "}
         en{" "}
-        <Link
-          href="/diensten/rapportage-analyse-personeelsinzet"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          rapportage
-        </Link>
+        rapportage
         .
       </p>
 
@@ -211,12 +199,7 @@ function ApiKoppelingenArticle() {
       <p>
         Deze volgorde sluit aan op hoe {brand.name} nieuwe opdrachtgevers
         onboardt: eerst zekerheid over processen en documentatie via{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer en verificatie
-        </Link>
+        documentbeheer en verificatie
         , daarna schaal en automatisering.
       </p>
 
@@ -226,19 +209,9 @@ function ApiKoppelingenArticle() {
       <p>
         API-koppelingen zijn geen los product, maar onderdeel van onze
         operationele ondersteuning. Ze versterken vooral grotere trajecten zoals{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>{" "}
+        detachering{" "}
         en{" "}
-        <Link
-          href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          onderaanneming
-        </Link>
+        onderaanneming
         , waar veel professionals en uren tegelijk lopen. Met circa 1.500
         aangesloten zorgprofessionals en sterke posities in Limburg en
         Noord-Brabant verwerken we volumes waarbij integratie echt verschil

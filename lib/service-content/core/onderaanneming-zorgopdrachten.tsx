@@ -22,8 +22,6 @@ export const onderaannemingContent: RichServicePage = {
     "detachering-zorgpersoneel",
     "bemiddeling-zzp-zorgprofessionals",
     "roosterplanning-personeelsbezetting",
-    "rapportage-analyse-personeelsinzet",
-    "sna-nen-4400-1-gecertificeerde-bemiddeling",
   ],
   faqs: [
     {
@@ -144,12 +142,7 @@ function OnderaannemingArticle() {
       </h2>
       <p>
         De kern van onderaanneming is dat ZPC de bezetting borgt. Wij verzorgen{" "}
-        <Link
-          href="/diensten/roosterplanning-personeelsbezetting"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          roosterplanning en personeelsbezetting
-        </Link>{" "}
+        roosterplanning en personeelsbezetting{" "}
         via Mijn ZPC, met een netwerk van circa 1.500 zorgprofessionals. Zo
         houden we continuïteit voor cliënten, ook bij uitval of piekdrukte, en
         kunt u rekenen op een stabiele uitvoering.
@@ -160,12 +153,7 @@ function OnderaannemingArticle() {
       </h2>
       <p>
         Uitbesteden betekent niet de regie verliezen. Via{" "}
-        <Link
-          href="/diensten/rapportage-analyse-personeelsinzet"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          rapportage en analyse van personeelsinzet
-        </Link>{" "}
+        rapportage en analyse van personeelsinzet{" "}
         krijgt u inzicht in uren, bezetting en trends. Samen met heldere
         contractuele afspraken houdt u zo grip op kwaliteit, kosten en resultaat.
       </p>

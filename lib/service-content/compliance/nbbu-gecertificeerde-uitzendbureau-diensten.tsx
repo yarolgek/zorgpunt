@@ -21,8 +21,6 @@ export const nbbuContent: RichServicePage = {
     "detachering-zorgpersoneel",
     "sna-nen-4400-1-gecertificeerde-bemiddeling",
     "werving-en-selectie",
-    "wet-dba-conforme-plaatsingen",
-    "kwaliteitscontrole-screening-zorgprofessionals",
   ],
   faqs: [
     {
@@ -105,12 +103,7 @@ function NbbuArticle() {
           werving en selectie
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA-certificering
-        </Link>
+        SNA-certificering
         .
       </p>
 
@@ -197,12 +190,7 @@ function NbbuArticle() {
       </p>
       <p>
         Meer over onze aanpak bij{" "}
-        <Link
-          href="/diensten/werving-en-selectie"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          werving en selectie
-        </Link>
+        werving en selectie
         .
       </p>
 
@@ -215,29 +203,14 @@ function NbbuArticle() {
         gecontroleerde betrouwbaarheid. Daarbovenop geldt onze eigen
         kwaliteitslijn: screening, documentcontrole en alleen inzet na
         verificatie. Zie{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole en screening
-        </Link>{" "}
+        kwaliteitscontrole en screening{" "}
         en{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer
-        </Link>
+        documentbeheer
         .
       </p>
       <p>
         Voor ZZP-inzet blijft{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          DBA-conformiteit
-        </Link>{" "}
+        DBA-conformiteit{" "}
         een apart aandachtspunt. NBBU-diensten en ZZP-bemiddeling vullen elkaar
         aan: afhankelijk van uw vraag kiezen we de passende vorm.
       </p>

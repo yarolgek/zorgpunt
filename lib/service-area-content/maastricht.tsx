@@ -21,7 +21,11 @@ export const maastrichtContent: RichAreaPage = {
       "Zorgteam in Maastricht ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["roermond", "sittard-geleen", "venlo", "eindhoven", "tilburg"],
+  relatedAreaSlugs: [
+    "roermond",
+    "sittard-geleen",
+    "venlo",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Maastricht?",
@@ -261,25 +265,6 @@ function MaastrichtArticle() {
           Gekwalificeerde zorgprofessionals voor Zuid-Limburg.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Maastricht ligt in het hart van Zuid-Limburg. Bekijk ook onze
-        pagina&apos;s voor{" "}
-        <Link
-          href="/werkgebieden/sittard-geleen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Sittard-Geleen
-        </Link>{" "}
-        en{" "}
-        <Link href="/werkgebieden/venlo" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Venlo
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Maastricht?

@@ -1,3 +1,4 @@
+import Link from "next/link"
 import Image from "next/image"
 import { brand } from "@/lib/brand"
 import { cn } from "@/lib/utils"
@@ -18,14 +19,19 @@ export function BrandLogo({
   showWordmark = true,
   wordmarkSize = "md",
 }: BrandLogoProps) {
+  const Wrapper = href.startsWith("/") ? Link : "a"
+  const wrapperProps = href.startsWith("/")
+    ? { href }
+    : { href }
+
   return (
-    <a
-      href={href}
+    <Wrapper
+      {...wrapperProps}
       className={cn(
         "flex items-center gap-2.5 hover:opacity-90 transition-opacity min-w-0",
         className
       )}
-      aria-label={`${brand.name} (${brand.shortName}), naar boven`}
+      aria-label={`${brand.name} (${brand.shortName}), naar home`}
     >
       <Image
         src="/logo-zpc.png"
@@ -45,6 +51,6 @@ export function BrandLogo({
           {brand.shortName}
         </span>
       ) : null}
-    </a>
+    </Wrapper>
   )
 }

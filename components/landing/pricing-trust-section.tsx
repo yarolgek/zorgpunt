@@ -142,7 +142,7 @@ export function PricingTrustSection() {
 
         <div className="mt-10 text-center">
           <Button asChild size="lg" className="font-semibold">
-            <a href="#contact-form">Start gratis gesprek</a>
+            <a href="/contact#contact-form">Start gratis gesprek</a>
           </Button>
         </div>
       </div>

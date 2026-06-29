@@ -22,8 +22,6 @@ export const detacheringContent: RichServicePage = {
     "bemiddeling-zzp-zorgprofessionals",
     "tussenkomst-zzp-zorgprofessionals",
     "onderaanneming-zorgopdrachten",
-    "werving-en-selectie",
-    "nbbu-gecertificeerde-uitzendbureau-diensten",
   ],
   faqs: [
     {
@@ -137,12 +135,7 @@ function DetacheringArticle() {
         </Link>{" "}
         beter passen. Wilt u juist een complete dienst of een heel team
         uitbesteden, kijk dan naar{" "}
-        <Link
-          href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          onderaanneming van zorgopdrachten
-        </Link>
+        onderaanneming van zorgopdrachten
         . Detachering zit daar tussenin: structurele inzet van individuele
         professionals onder werkgeverskader.
       </p>
@@ -153,19 +146,9 @@ function DetacheringArticle() {
       <p>
         Detachering vraagt om correcte arbeidsvoorwaarden en afdrachten. Wij
         werken als{" "}
-        <Link
-          href="/diensten/nbbu-gecertificeerde-uitzendbureau-diensten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          NBBU-gecertificeerde organisatie
-        </Link>{" "}
+        NBBU-gecertificeerde organisatie{" "}
         en volgens de{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA NEN 4400-1 norm
-        </Link>
+        SNA NEN 4400-1 norm
         . Dat borgt de rechten van de professional, beperkt
         inlenersaansprakelijkheid en geeft u zekerheid over een nette
         bedrijfsvoering.
@@ -184,12 +167,7 @@ function DetacheringArticle() {
       <p>
         Jaarlijks worden via {brand.name} circa 500.000 uren gerealiseerd. Het
         beheer van planning en uren loopt via het{" "}
-        <Link
-          href="/diensten/zpc-online-portaal-opdrachtgevers"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZPC Online portaal
-        </Link>
+        ZPC Online portaal
         , zodat planning, uitvoering en administratie in één lijn doorlopen.
       </p>
 

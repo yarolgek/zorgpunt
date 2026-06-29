@@ -22,8 +22,6 @@ export const snaContent: RichServicePage = {
     "wet-dba-conforme-plaatsingen",
     "nbbu-gecertificeerde-uitzendbureau-diensten",
     "kwaliteitscontrole-screening-zorgprofessionals",
-    "documentbeheer-verificatie-zorgprofessionals",
-    "bemiddeling-zzp-zorgprofessionals",
   ],
   faqs: [
     {
@@ -106,12 +104,7 @@ function SnaArticle() {
           documentbeheer
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole
-        </Link>
+        kwaliteitscontrole
         .
       </p>
 
@@ -213,38 +206,18 @@ function SnaArticle() {
       </h2>
       <p>
         SNA-certificering versterkt onze kernactiviteiten:{" "}
-        <Link
-          href="/diensten/bemiddeling-zzp-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          bemiddeling van ZZP-zorgprofessionals
-        </Link>
+        bemiddeling van ZZP-zorgprofessionals
         ,{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>{" "}
+        detachering{" "}
         en onderaanneming. Het portaal Mijn ZPC maakt processen zichtbaar en
         aantoonbaar. Zie{" "}
-        <Link
-          href="/diensten/zpc-online-portaal-opdrachtgevers"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          ZPC Online portaal
-        </Link>{" "}
+        ZPC Online portaal{" "}
         voor de operationele kant.
       </p>
       <p>
         Voor uitzenden en detachering gelden daarnaast de NBBU-kaders.{" "}
         {brand.name} is NBBU-aangesloten. Meer daarover op onze pagina over{" "}
-        <Link
-          href="/diensten/nbbu-gecertificeerde-uitzendbureau-diensten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          NBBU-gecertificeerde uitzendbureau diensten
-        </Link>
+        NBBU-gecertificeerde uitzendbureau diensten
         .
       </p>
 

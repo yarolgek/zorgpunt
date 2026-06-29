@@ -21,8 +21,6 @@ export const wetDbaContent: RichServicePage = {
     "tussenkomst-zzp-zorgprofessionals",
     "bemiddeling-zzp-zorgprofessionals",
     "sna-nen-4400-1-gecertificeerde-bemiddeling",
-    "documentbeheer-verificatie-zorgprofessionals",
-    "kwaliteitscontrole-screening-zorgprofessionals",
   ],
   faqs: [
     {
@@ -104,12 +102,7 @@ function WetDbaArticle() {
           tussenkomst
         </Link>{" "}
         en{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>
+        detachering
         .
       </p>
 
@@ -201,19 +194,9 @@ function WetDbaArticle() {
         Centraal documentbeheer en strikte verificatie zijn geen luxe, maar
         voorwaarde. Enkel professionals met geldige documentatie gaan aan het
         werk. Zie ook onze pagina over{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer en verificatie
-        </Link>{" "}
+        documentbeheer en verificatie{" "}
         en{" "}
-        <Link
-          href="/diensten/kwaliteitscontrole-screening-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          kwaliteitscontrole
-        </Link>
+        kwaliteitscontrole
         .
       </p>
 
@@ -225,12 +208,7 @@ function WetDbaArticle() {
         detacheren. Die norm helpt opdrachtgevers vertrouwen te houden in
         financiële integriteit, procesbeheersing en naleving rond inlenen. Dat
         versterkt een DBA-bewuste aanpak. Meer hierover op onze pagina over{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA-gecertificeerde bemiddeling
-        </Link>
+        SNA-gecertificeerde bemiddeling
         .
       </p>
       <p>
@@ -247,12 +225,7 @@ function WetDbaArticle() {
         DBA-conform werken hangt ook samen met transparante administratie.
         Goedgekeurde uren, fee of factor en facturatiemomenten worden vastgelegd
         in Mijn ZPC. Via{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          geautomatiseerde facturatie
-        </Link>{" "}
+        geautomatiseerde facturatie{" "}
         blijft de financiële keten aantoonbaar en voorspelbaar.
       </p>
 

@@ -21,7 +21,11 @@ export const venloContent: RichAreaPage = {
       "Zorgteam in Venlo ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["roermond", "sittard-geleen", "maastricht", "nijmegen", "eindhoven"],
+  relatedAreaSlugs: [
+    "roermond",
+    "sittard-geleen",
+    "maastricht",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Venlo?",
@@ -262,28 +266,6 @@ function VenloArticle() {
           Gekwalificeerde zorgprofessionals voor Noord-Limburg.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Venlo ligt centraal in Limburg, dicht bij onze thuisbasis. Bekijk ook onze
-        pagina&apos;s voor{" "}
-        <Link
-          href="/werkgebieden/sittard-geleen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Sittard-Geleen
-        </Link>{" "}
-        en{" "}
-        <Link
-          href="/werkgebieden/maastricht"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Maastricht
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Venlo?

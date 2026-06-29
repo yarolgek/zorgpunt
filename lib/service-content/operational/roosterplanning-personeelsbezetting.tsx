@@ -22,8 +22,6 @@ export const roosterplanningContent: RichServicePage = {
     "zpc-online-portaal-opdrachtgevers",
     "documentbeheer-verificatie-zorgprofessionals",
     "geautomatiseerde-facturatie-selfbilling",
-    "bemiddeling-zzp-zorgprofessionals",
-    "onderaanneming-zorgopdrachten",
   ],
   faqs: [
     {
@@ -137,19 +135,9 @@ function RoosterplanningArticle() {
           bemiddeling van ZZP&apos;ers
         </Link>
         ,{" "}
-        <Link
-          href="/diensten/detachering-zorgpersoneel"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          detachering
-        </Link>{" "}
+        detachering{" "}
         of bij complete teams via{" "}
-        <Link
-          href="/diensten/onderaanneming-zorgopdrachten"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          onderaanneming
-        </Link>
+        onderaanneming
         . De planningstool is daarbij het verbindende element.
       </p>
 
@@ -171,12 +159,7 @@ function RoosterplanningArticle() {
       <p>
         Alleen professionals met geldige documentatie gaan aan het werk. Dat
         sluit direct aan op onze dienst{" "}
-        <Link
-          href="/diensten/documentbeheer-verificatie-zorgprofessionals"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          documentbeheer en verificatie
-        </Link>
+        documentbeheer en verificatie
         , zodat u bij het plannen niet apart hoeft na te denken over VOG,
         diploma&apos;s of verlopen certificaten.
       </p>
@@ -246,12 +229,7 @@ function RoosterplanningArticle() {
       </h2>
       <p>
         Geplande uren die daadwerkelijk worden gewerkt, vormen de basis voor{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          geautomatiseerde facturatie en selfbilling
-        </Link>
+        geautomatiseerde facturatie en selfbilling
         . Dat voorkomt discussie achteraf en geeft management inzicht via
         rapportages. Voor opdrachtgevers met meer dan 45 raamovereenkomsten in
         ons netwerk is die integratie bewezen in de praktijk.

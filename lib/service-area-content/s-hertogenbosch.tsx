@@ -21,7 +21,11 @@ export const denBoschContent: RichAreaPage = {
       "Zorgteam in Den Bosch ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["eindhoven", "tilburg", "nijmegen", "helmond"],
+  relatedAreaSlugs: [
+    "eindhoven",
+    "tilburg",
+    "nijmegen",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel 's-Hertogenbosch?",
@@ -261,25 +265,6 @@ function DenBoschArticle() {
           Gekwalificeerde zorgprofessionals voor de regio Den Bosch.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        &apos;s-Hertogenbosch ligt centraal in Noord-Brabant. Bekijk ook onze
-        pagina&apos;s voor{" "}
-        <Link href="/werkgebieden/tilburg" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Tilburg
-        </Link>{" "}
-        en{" "}
-        <Link
-          href="/werkgebieden/eindhoven"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Eindhoven
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in 's-Hertogenbosch?

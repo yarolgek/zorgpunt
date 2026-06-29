@@ -22,8 +22,6 @@ export const tussenkomstZzpContent: RichServicePage = {
     "bemiddeling-zzp-zorgprofessionals",
     "detachering-zorgpersoneel",
     "wet-dba-conforme-plaatsingen",
-    "sna-nen-4400-1-gecertificeerde-bemiddeling",
-    "geautomatiseerde-facturatie-selfbilling",
   ],
   faqs: [
     {
@@ -147,12 +145,7 @@ function TussenkomstArticle() {
       <p>
         Het tussenkomstmodel is bij uitstek geschikt om inzet van zelfstandigen
         zorgvuldig en aantoonbaar in te richten. Wij werken volgens een{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Wet DBA-conforme werkwijze
-        </Link>{" "}
+        Wet DBA-conforme werkwijze{" "}
         met heldere opdrachtovereenkomsten en vastgelegde afspraken, zodat het
         risico op schijnzelfstandigheid voor beide partijen beperkt blijft.
       </p>
@@ -163,12 +156,7 @@ function TussenkomstArticle() {
       <p>
         Als opdrachtgever wilt u zeker weten dat afdrachten en contracten op orde
         zijn. Onze{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA NEN 4400-1 gecertificeerde werkwijze
-        </Link>{" "}
+        SNA NEN 4400-1 gecertificeerde werkwijze{" "}
         beperkt risico&apos;s rond inlenersaansprakelijkheid en geeft zekerheid
         over financiële integriteit en naleving van wet- en regelgeving. Bij
         tussenkomst is dat extra waardevol, omdat wij de contractuele schakel
@@ -181,12 +169,7 @@ function TussenkomstArticle() {
       <p>
         Tussenkomst betekent dat administratie geen los proces meer is. Geplande
         en gerealiseerde uren vormen de basis voor{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          geautomatiseerde facturatie en selfbilling
-        </Link>
+        geautomatiseerde facturatie en selfbilling
         . U ontvangt één overzichtelijke factuur, de zorgprofessional wordt
         correct betaald en alle partijen houden inzicht via het portaal.
       </p>

@@ -21,8 +21,6 @@ export const documentbeheerContent: RichServicePage = {
     "kwaliteitscontrole-screening-zorgprofessionals",
     "zpc-online-portaal-opdrachtgevers",
     "geautomatiseerde-facturatie-selfbilling",
-    "roosterplanning-personeelsbezetting",
-    "wet-dba-conforme-plaatsingen",
   ],
   faqs: [
     {
@@ -168,12 +166,7 @@ function DocumentbeheerArticle() {
       </ol>
       <p>
         Deze keten hangt samen met{" "}
-        <Link
-          href="/diensten/roosterplanning-personeelsbezetting"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          roosterplanning
-        </Link>
+        roosterplanning
         : pas wie administratief in orde is, wordt ingepland.
       </p>
 
@@ -225,22 +218,12 @@ function DocumentbeheerArticle() {
       </h2>
       <p>
         Correct documentbeheer ondersteunt ook{" "}
-        <Link
-          href="/diensten/wet-dba-conforme-plaatsingen"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          Wet DBA-conforme plaatsingen
-        </Link>
+        Wet DBA-conforme plaatsingen
         en afspraken rond VBAR. {brand.name} is SNA NEN 4400-1 gecertificeerd voor
         bemiddeling en detacheren. Dat versterkt vertrouwen dat processen
         rondom inlenersaansprakelijkheid en bedrijfsvoering op orde zijn. Zie
         ook onze pagina over{" "}
-        <Link
-          href="/diensten/sna-nen-4400-1-gecertificeerde-bemiddeling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          SNA-gecertificeerde bemiddeling
-        </Link>
+        SNA-gecertificeerde bemiddeling
         .
       </p>
 
@@ -257,12 +240,7 @@ function DocumentbeheerArticle() {
       <p>
         Opdrachtgevers die ook financiële afhandeling willen stroomlijnen,
         koppelen documentbeheer aan{" "}
-        <Link
-          href="/diensten/geautomatiseerde-facturatie-selfbilling"
-          className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline"
-        >
-          geautomatiseerde facturatie
-        </Link>
+        geautomatiseerde facturatie
         , zodat administratie van begin tot eind in één keten loopt.
       </p>
 

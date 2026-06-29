@@ -21,7 +21,11 @@ export const arnhemContent: RichAreaPage = {
       "Zorgteam in Arnhem ondersteund door ZorgpuntConnect uit Roermond",
     ],
   },
-  relatedAreaSlugs: ["nijmegen", "venlo", "s-hertogenbosch", "eindhoven"],
+  relatedAreaSlugs: [
+    "nijmegen",
+    "venlo",
+    "s-hertogenbosch",
+  ],
   faqs: [
     {
       question: "Levert ZorgpuntConnect zorgpersoneel in heel Arnhem?",
@@ -259,22 +263,6 @@ function ArnhemArticle() {
           Gekwalificeerde zorgprofessionals voor de regio Arnhem.
         </figcaption>
       </figure>
-
-      <h2 className="text-xl font-semibold text-foreground pt-8">
-        Werken in de buurt: ook in omliggende steden
-      </h2>
-      <p>
-        Arnhem en Nijmegen vormen samen de stedelijke regio Arnhem-Nijmegen.
-        Bekijk ook onze pagina&apos;s voor{" "}
-        <Link href="/werkgebieden/nijmegen" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Nijmegen
-        </Link>{" "}
-        en{" "}
-        <Link href="/werkgebieden/venlo" className="text-brand-primary hover:text-brand-secondary transition-colors no-underline hover:no-underline">
-          Venlo
-        </Link>
-        . Veel professionals werken flexibel in meerdere gemeenten in de regio.
-      </p>
 
       <h2 className="text-xl font-semibold text-foreground pt-8">
         Klaar om de juiste match te vinden in Arnhem?

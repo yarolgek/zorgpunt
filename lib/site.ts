@@ -31,7 +31,7 @@ export const siteContact = {
   street: "Zwartbroekpoort 2",
   postalCode: "6041 LS",
   city: "Roermond",
-  region: "Roermond, Limburg & Noord-Brabant",
+  region: "Roermond, Limburg, Noord-Brabant & Gelderland",
   kvk: "81706723",
   whatsappUrl:
     "https://wa.me/31630980424?text=Zorgpuntconnect%20Website%3A",
